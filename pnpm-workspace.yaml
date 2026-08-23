@@ -1,3 +1,3 @@
-minimumReleaseAge: 43200
+minimumReleaseAge: 10080
 onlyBuiltDependencies:
   - esbuild
