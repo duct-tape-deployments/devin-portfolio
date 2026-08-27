@@ -25,7 +25,7 @@ export function LanguageToggle() {
         className="peer sr-only"
       />
       <span
-        className="absolute inset-0 rounded-[11px] border shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] peer-focus-visible:shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25),inset_0_0_0_2px_#EDEC18,0px_4px_4px_rgba(244,244,244,0.25)]"
+        className="absolute inset-0 rounded-[11px] border shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] peer-focus-visible:shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25),0_0_0_2px_#EDEC18,0px_4px_4px_rgba(244,244,244,0.25)]"
         style={{ background: TRACK_COLOR, borderColor: TRACK_COLOR }}
       />
       <span className="absolute top-0 left-0 translate-x-0 transition-transform duration-300 peer-checked:translate-x-[24px]">
