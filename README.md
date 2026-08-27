@@ -33,3 +33,7 @@ Git hooks (via husky):
 - **pre-push** — runs the full lint suite
 
 These run automatically after `pnpm install` (via the `prepare` script).
+
+## Credits
+
+- Flag icons ([Norway](src/assets/emojione_flag-for-norway.svg), [United Kingdom](src/assets/emojione_flag-for-united-kingdom.svg)) - [EmojiOne](https://www.iconify.design/icon-sets/emojione/), via [Iconify](https://iconify.design/), licensed [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
