@@ -5,6 +5,14 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
+  :root {
+    color-scheme: light;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   body {
     margin: 0;
     background-color: var(--color-xe-bg);
@@ -12,5 +20,33 @@
     font-family: var(--font-xe-body);
     font-weight: 400;
     line-height: var(--leading-xe-body);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: 0;
+    font-family: var(--font-xe-display);
+  }
+
+  h1 {
+    font-size: var(--text-xe-h1);
+    line-height: var(--text-xe-h1--line-height);
+  }
+
+  h2 {
+    font-size: var(--text-xe-h2);
+    line-height: var(--text-xe-h2--line-height);
+  }
+
+  h3 {
+    font-size: var(--text-xe-h3);
+    line-height: var(--text-xe-h3--line-height);
+  }
+
+  h4 {
+    font-size: var(--text-xe-h4);
+    line-height: var(--text-xe-h4--line-height);
   }
 }

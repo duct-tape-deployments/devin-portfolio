@@ -125,10 +125,16 @@
   --shadow-xe-pressed:
     0px 4px 4px 0px rgba(244, 244, 244, 0.25), inset 0px 4px 4px 0px rgba(240, 15, 151, 0.7);
 
-  /* ---- Breakpoints ?? -------------------------------------------*/
+  /* ---- Layout --------------------------------------------------------
+     Tailwind default (sm/md/lg/xl/2xl)
+     mobile as base
+     add desktop overrides per-component as needed */
+  --container-xe-content: 900px;
 }
 
 .dark {
+  color-scheme: dark;
+
   --color-xe-bg: var(--color-xe-ink);
   --color-xe-surface: var(--color-xe-ink);
   --color-xe-surface-raised: rgb(35, 21, 46);
