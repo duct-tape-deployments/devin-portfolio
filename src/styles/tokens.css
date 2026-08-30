@@ -28,7 +28,7 @@
   --color-xe-field-bg: var(--color-xe-scrim-20);
 
   /* ---- Mode toggle ---------------------------------------------------
-     TODO: move these to the toggle component when built ??? (see .dark version below)*/
+     TODO: move these to the toggle component when built ??? (.dark version below)*/
   --color-xe-toggle-track: #ffffff;
   --color-xe-toggle-icon: #ffffff;
   --color-xe-toggle-knob: #e57716;
@@ -36,7 +36,7 @@
 
   /* ---- Gradients -------------------------------------------------- */
 
-  /* Fill: button background + logo (vertical). */
+  /* Fill: button background + logo */
   --background-image-xe-gradient: linear-gradient(
     180deg,
     var(--color-xe-cyan) 0%,
