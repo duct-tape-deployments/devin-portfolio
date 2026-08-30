@@ -13,7 +13,6 @@
   /* ---- Scrims - translucent layers ----*/
   --color-xe-scrim-20: rgba(0, 0, 0, 0.2); /* card frames, skill chips, form fields(light) */
   --color-xe-scrim-25: rgba(0, 0, 0, 0.25); /* shadow colour */
-  --color-xe-scrim-50: rgba(0, 0, 0, 0.5); /* image hero overlay */
 
   /* ---- Semantic surfaces/text - light theme ----*/
   --color-xe-bg: var(--color-xe-paper);
@@ -32,7 +31,7 @@
      TODO: move these to the toggle component when built ??? (see .dark version below)*/
   --color-xe-toggle-track: #ffffff;
   --color-xe-toggle-icon: #ffffff;
-  --color-xe-toggle-knob: #e57716; /* sun */
+  --color-xe-toggle-knob: #e57716;
   --color-xe-toggle-glow: rgb(from var(--color-xe-yellow) r g b / 50%);
 
   /* ---- Gradients -------------------------------------------------- */
@@ -108,6 +107,7 @@
   /* glow on hero images (pawPerfect, solarSmart, southsideBloom, ui-ux portfolio) */
   --shadow-xe-glow-image: 2px -2px 6px var(--color-xe-paper-50);
   --shadow-xe-soft: -4px -1px 10px 0px var(--color-xe-scrim-25);
+  --text-shadow-xe-drop: 0px 4px 4px var(--color-xe-scrim-25);
   --shadow-xe-glow-toggle:
     inset 0px -4px 4px 0px var(--color-xe-toggle-glow),
     inset 0px 4px 4px 0px var(--color-xe-toggle-glow);
