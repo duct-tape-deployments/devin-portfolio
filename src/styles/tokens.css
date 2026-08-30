@@ -6,49 +6,61 @@
   --color-xe-magenta: #f00f97;
   --color-xe-yellow: #edec18;
 
-  /*tints*/
-  --color-xe-ink-20: rgba(0, 0, 0, 0.2); /* form fields + card gradient overlays */
-  --color-xe-ink-25: rgba(0, 0, 0, 0.25);
+  /* ---- Tints - alpha variants ----*/
   --color-xe-paper-25: rgba(244, 244, 244, 0.25);
   --color-xe-paper-50: rgba(244, 244, 244, 0.5);
+
+  /* ---- Scrims - translucent layers ----*/
+  --color-xe-scrim-20: rgba(0, 0, 0, 0.2); /* card frames, skill chips, form fields(light) */
+  --color-xe-scrim-25: rgba(0, 0, 0, 0.25); /* shadow colour */
   --color-xe-scrim-50: rgba(0, 0, 0, 0.5); /* image hero overlay */
 
-  /* ---- Semantic surfaces/text - LIGHT*/
+  /* ---- Semantic surfaces/text - light theme ----*/
   --color-xe-bg: var(--color-xe-paper);
-  --color-xe-surface: var(--color-xe-paper);
-  --color-xe-surface-raised: #ffffff;
   --color-xe-text: var(--color-xe-ink);
   --color-xe-text-inverse: var(--color-xe-paper);
-  --color-xe-text-muted: rgba(6, 6, 6, 0.6);
+  --color-xe-text-muted: rgb(from var(--color-xe-ink) r g b / 60%);
   --color-xe-border: var(--color-xe-ink);
   --color-xe-accent: var(--color-xe-magenta);
   --color-xe-badge-bg: var(--color-xe-cyan);
   --color-xe-badge-text: var(--color-xe-ink);
   --color-xe-btn-solid-bg: var(--color-xe-ink);
   --color-xe-btn-solid-text: var(--color-xe-paper);
-  --color-xe-field-bg: var(--color-xe-ink-20);
+  --color-xe-field-bg: var(--color-xe-scrim-20);
+
+  /* ---- Mode toggle ---------------------------------------------------
+     TODO: move these to the toggle component when built ??? (see .dark version below)*/
+  --color-xe-toggle-track: #ffffff;
+  --color-xe-toggle-icon: #ffffff;
+  --color-xe-toggle-knob: #e57716; /* sun */
+  --color-xe-toggle-glow: rgb(from var(--color-xe-yellow) r g b / 50%);
 
   /* ---- Gradients -------------------------------------------------- */
+
+  /* Fill: button background + logo (vertical). */
   --background-image-xe-gradient: linear-gradient(
-    /*button, logo*/ 180deg,
+    180deg,
     var(--color-xe-cyan) 0%,
     var(--color-xe-magenta) 100%
   );
 
-  --background-image-xe-gradient: linear-gradient(
-    /*btn outline*/ 90deg,
+  /* Border: secondary button, 1px inner stroke */
+  --background-image-xe-gradient-outline: linear-gradient(
+    90deg,
     var(--color-xe-cyan) 0%,
     var(--color-xe-magenta) 100%
   );
 
+  /*section headers*/
   --background-image-xe-gradient-text: linear-gradient(
-    /*section headers*/ 180deg,
+    180deg,
     var(--color-xe-cyan) 18.97%,
     var(--color-xe-magenta) 79.31%
   );
 
+  /*separator lines */
   --background-image-xe-gradient-divider: linear-gradient(
-    /*seperator line*/ 90deg,
+    90deg,
     var(--color-xe-cyan) 0%,
     var(--color-xe-yellow) 100%
   );
@@ -89,28 +101,35 @@
   /* ---- Spacing-----------------------------------------------------------*/
   --spacing-xe-gutter: 20px;
 
-  /* ---- Radii -------------------------------------------------------------*/
-  --radius-xe-toggle: 18px; /* mode-toggle track */
-  --radius-xe-pill: 24px; /* buttons */
-
   /* ---- Shadows / glow --------------------------------------------------- */
-  --shadow-xe-btn: 0px 4px 4px 0px rgba(244, 244, 244, 0.25);
-  --shadow-xe-card: -2px -2px 18px 10px rgba(244, 244, 244, 0.5);
-  /* glow on hero images (pawPerfect, solarSmart,
-     southsideBloom, ui-ux portfolio) */
-  --shadow-xe-glow-image: 2px -2px 6px rgba(244, 244, 244, 0.5);
-  --shadow-xe-soft: -4px -1px 10px 0px rgba(0, 0, 0, 0.25);
+  --shadow-xe-btn: 0px 4px 4px 0px var(--color-xe-paper-25);
+  --drop-shadow-xe-icon: 0 4px 4px var(--color-xe-paper-25); /*filter*/
+  --shadow-xe-card: -2px -2px 18px 10px var(--color-xe-paper-50);
+  /* glow on hero images (pawPerfect, solarSmart, southsideBloom, ui-ux portfolio) */
+  --shadow-xe-glow-image: 2px -2px 6px var(--color-xe-paper-50);
+  --shadow-xe-soft: -4px -1px 10px 0px var(--color-xe-scrim-25);
   --shadow-xe-glow-toggle:
-    inset 0px -4px 4px 0px rgba(237, 236, 24, 0.5), inset 0px 4px 4px 0px rgba(237, 236, 24, 0.5);
-  /* Icon hover glow */
-  --shadow-xe-glow-hover: 0px 0px 6px var(--color-xe-yellow); /*dark mode*/
+    inset 0px -4px 4px 0px var(--color-xe-toggle-glow),
+    inset 0px 4px 4px 0px var(--color-xe-toggle-glow);
 
-  /* ---- Interaction states -------------------------------------------------- */
+  /* ---- Interaction states ------------------------------------------------ */
+
+  /* Fill hover: primary button. */
   --background-image-xe-gradient-hover: linear-gradient(
     180deg,
     var(--color-xe-cyan) 0%,
     var(--color-xe-yellow) 100%
   );
+
+  /* Border hover: secondary button (same value as divider, keep seperate?). */
+  --background-image-xe-gradient-outline-hover: linear-gradient(
+    90deg,
+    var(--color-xe-cyan) 0%,
+    var(--color-xe-yellow) 100%
+  );
+
+  /* Icon hover glow (socials). Dark mode. Magenta for lightmode??*/
+  --shadow-xe-glow-hover: 0px 0px 6px var(--color-xe-yellow);
 
   --background-image-xe-gradient-disabled: linear-gradient(
     180deg,
@@ -119,16 +138,14 @@
   );
 
   --color-xe-focus: var(--color-xe-yellow); /*outline*/
-
-  --color-xe-disabled-bg: rgba(6, 6, 6, 0.4); /*40% alpha on solid fill and border.*/
-
+  --color-xe-disabled-bg: rgb(from var(--color-xe-ink) r g b / 40%);
+  /* Label text + icon stroke on disabled button. */
+  --color-xe-disabled-fg: rgb(from var(--color-xe-paper) r g b / 40%);
   --shadow-xe-pressed:
-    0px 4px 4px 0px rgba(244, 244, 244, 0.25), inset 0px 4px 4px 0px rgba(240, 15, 151, 0.7);
+    0px 4px 4px 0px var(--color-xe-paper-25), inset 0px 4px 4px 0px rgba(240, 15, 151, 0.7);
 
   /* ---- Layout --------------------------------------------------------
-     Tailwind default (sm/md/lg/xl/2xl)
-     mobile as base
-     add desktop overrides per-component as needed */
+     Tailwind default (sm/md/lg/xl/2xl)?? */
   --container-xe-content: 900px;
 }
 
@@ -136,14 +153,14 @@
   color-scheme: dark;
 
   --color-xe-bg: var(--color-xe-ink);
-  --color-xe-surface: var(--color-xe-ink);
-  --color-xe-surface-raised: rgb(35, 21, 46);
   --color-xe-text: var(--color-xe-paper);
   --color-xe-text-inverse: var(--color-xe-ink);
-  --color-xe-text-muted: rgba(244, 244, 244, 0.6);
+  --color-xe-text-muted: rgb(from var(--color-xe-paper) r g b / 60%);
   --color-xe-border: var(--color-xe-paper);
   --color-xe-accent: var(--color-xe-cyan);
-  --color-xe-btn-solid-bg: var(--color-xe-paper);
-  --color-xe-btn-solid-text: var(--color-xe-ink);
-  --color-xe-field-bg: rgba(244, 244, 244, 0.12);
+  --color-xe-field-bg: #313131;
+  --color-xe-toggle-track: var(--color-xe-ink);
+  --color-xe-toggle-icon: #000000;
+  --color-xe-toggle-knob: #428bc1;
+  --color-xe-toggle-glow: rgba(42, 95, 158, 0.5);
 }
