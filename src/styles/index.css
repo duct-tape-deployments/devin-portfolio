@@ -15,11 +15,11 @@
 
   body {
     margin: 0;
-    background-color: var(--color-xe-bg);
-    color: var(--color-xe-text);
-    font-family: var(--font-xe-body);
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
     font-weight: 400;
-    line-height: var(--leading-xe-body);
+    line-height: var(--leading-body);
   }
 
   h1,
@@ -27,26 +27,26 @@
   h3,
   h4 {
     margin: 0;
-    font-family: var(--font-xe-display);
+    font-family: var(--font-display);
   }
 
   h1 {
-    font-size: var(--text-xe-h1);
-    line-height: var(--text-xe-h1--line-height);
+    font-size: var(--text-h1);
+    line-height: var(--text-h1--line-height);
   }
 
   h2 {
-    font-size: var(--text-xe-h2);
-    line-height: var(--text-xe-h2--line-height);
+    font-size: var(--text-h2);
+    line-height: var(--text-h2--line-height);
   }
 
   h3 {
-    font-size: var(--text-xe-h3);
-    line-height: var(--text-xe-h3--line-height);
+    font-size: var(--text-h3);
+    line-height: var(--text-h3--line-height);
   }
 
   h4 {
-    font-size: var(--text-xe-h4);
-    line-height: var(--text-xe-h4--line-height);
+    font-size: var(--text-h4);
+    line-height: var(--text-h4--line-height);
   }
 }
