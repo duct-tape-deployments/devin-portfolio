@@ -2,10 +2,6 @@ import { useLanguageStore } from '@/stores/languageStore';
 import norwayFlag from '@/assets/emojione_flag-for-norway.svg';
 import ukFlag from '@/assets/emojione_flag-for-united-kingdom.svg';
 
-// TODO: Swap to design-system tokens once #3 done
-const TRACK_COLOR = '#FDF8E2';
-const INSET_SHADOW = 'inset 0px 4px 4px rgba(0, 0, 0, 0.25)';
-
 export function LanguageToggle() {
   const language = useLanguageStore((state) => state.language);
   const toggleLanguage = useLanguageStore((state) => state.toggleLanguage);
@@ -24,18 +20,15 @@ export function LanguageToggle() {
         }
         className="peer sr-only"
       />
-      <span
-        className="absolute inset-0 rounded-[11px] border shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] peer-focus-visible:shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25),0_0_0_2px_#EDEC18,0px_4px_4px_rgba(244,244,244,0.25)]"
-        style={{ background: TRACK_COLOR, borderColor: TRACK_COLOR }}
-      />
+      {/* Track cream + inset shadow are toggle-only, so no token — see tokens.css. */}
+      <span className="absolute inset-0 rounded-[11px] border border-[#fdf8e2] bg-[#fdf8e2] shadow-[inset_0px_4px_4px_var(--color-scrim-25)] peer-focus-visible:shadow-[inset_0px_4px_4px_var(--color-scrim-25),0_0_0_2px_var(--color-focus),0px_4px_4px_var(--color-paper-25)]" />
       <span className="absolute top-0 left-0 translate-x-0 transition-transform duration-300 peer-checked:translate-x-[24px]">
         <img
           src={isEnglish ? ukFlag : norwayFlag}
           alt=""
           width={21}
           height={21}
-          className="rounded-full"
-          style={{ boxShadow: INSET_SHADOW }}
+          className="rounded-full shadow-[inset_0px_4px_4px_var(--color-scrim-25)]"
         />
       </span>
     </label>
