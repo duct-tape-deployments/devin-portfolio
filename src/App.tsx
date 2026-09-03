@@ -1,6 +1,6 @@
 import { useLayoutEffect } from 'react';
 import { Route, Routes } from 'react-router';
-import { LanguageToggle } from '@/components/LanguageToggle';
+import { LanguageToggle } from '@/components/ui/LanguageToggle';
 import { useLanguageStore } from '@/stores/languageStore';
 import Home from '@/pages/Home';
 
