@@ -15,6 +15,12 @@ function isLanguage(value: unknown): value is Language {
   return typeof value === 'string' && (LANGUAGES as readonly string[]).includes(value);
 }
 
+function hasValidLanguage(value: unknown): value is { language: Language } {
+  return (
+    typeof value === 'object' && value !== null && 'language' in value && isLanguage(value.language)
+  );
+}
+
 /** Detect visitor's preferred language from browser on first visit */
 function getInitialLanguage(): Language {
   if (typeof navigator === 'undefined') return 'en';
@@ -41,17 +47,9 @@ export const useLanguageStore = create<LanguageState>()(
       name: 'language-storage',
       version: 1,
       partialize: (state) => ({ language: state.language }),
-      /*Guard against a corrupted/foreign persisted value (manual edit, stale schema, browser extension) bypassing the compile-time-only Language type */
-      merge: (persisted, current) => {
-        const persistedLanguage =
-          typeof persisted === 'object' && persisted !== null && 'language' in persisted
-            ? persisted.language
-            : undefined;
-
-        return isLanguage(persistedLanguage)
-          ? { ...current, language: persistedLanguage }
-          : current;
-      },
+      /* persist doesn't validate storage (language is compile-time only) */
+      merge: (persisted, current) =>
+        hasValidLanguage(persisted) ? { ...current, language: persisted.language } : current,
     },
   ),
 );
