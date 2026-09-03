@@ -21,7 +21,6 @@ function hasValidLanguage(value: unknown): value is { language: Language } {
   );
 }
 
-/** Detect visitor's preferred language from browser on first visit */
 function getInitialLanguage(): Language {
   if (typeof navigator === 'undefined') return 'en';
 
@@ -47,7 +46,6 @@ export const useLanguageStore = create<LanguageState>()(
       name: 'language-storage',
       version: 1,
       partialize: (state) => ({ language: state.language }),
-      /* persist doesn't validate storage (language is compile-time only) */
       merge: (persisted, current) =>
         hasValidLanguage(persisted) ? { ...current, language: persisted.language } : current,
     },

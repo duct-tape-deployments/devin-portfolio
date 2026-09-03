@@ -20,7 +20,6 @@ export function LanguageToggle() {
         }
         className="peer sr-only"
       />
-      {/* Track cream + inset shadow are toggle-only, so no token — see tokens.css. */}
       <span className="absolute inset-0 rounded-[11px] border border-[#fdf8e2] bg-[#fdf8e2] shadow-[inset_0px_4px_4px_var(--color-scrim-25)] peer-focus-visible:shadow-[inset_0px_4px_4px_var(--color-scrim-25),0_0_0_2px_var(--color-focus),0px_4px_4px_var(--color-paper-25)]" />
       <span className="absolute top-0 left-0 translate-x-0 transition-transform duration-300 peer-checked:translate-x-[24px]">
         <img
