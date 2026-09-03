@@ -34,6 +34,18 @@ function getInitialLanguage(): Language {
   return 'en';
 }
 
+/**
+ * Reads the active language's strings out of a translation scope
+ *
+ * @example
+ * const t = useT(languageToggle);
+ * <input aria-label={t.switchLabel} />
+ */
+export function useT<T>(scope: Record<Language, T>): T {
+  const language = useLanguageStore((state) => state.language);
+  return scope[language];
+}
+
 export const useLanguageStore = create<LanguageState>()(
   persist(
     (set) => ({
