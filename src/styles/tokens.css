@@ -1,0 +1,165 @@
+@theme {
+  /* ---- Brand palette ----------------------------------------*/
+  --color-ink: #060606;
+  --color-paper: #f4f4f4;
+  --color-cyan: #0de7e9;
+  --color-magenta: #f00f97;
+  --color-yellow: #edec18;
+
+  /* ---- Tints - alpha variants ----*/
+  --color-paper-25: rgba(244, 244, 244, 0.25);
+  --color-paper-50: rgba(244, 244, 244, 0.5);
+
+  /* ---- Scrims - translucent layers ----*/
+  --color-scrim-20: rgba(0, 0, 0, 0.2); /* card frames, skill chips, form fields(light) */
+  --color-scrim-25: rgba(0, 0, 0, 0.25); /* shadow colour */
+
+  /* ---- Semantic surfaces/text - light theme ----*/
+  --color-background: var(--color-paper);
+  --color-foreground: var(--color-ink);
+  --color-foreground-inverse: var(--color-paper);
+  --color-muted-foreground: rgb(from var(--color-ink) r g b / 60%);
+  --color-border: var(--color-ink);
+  --color-accent: var(--color-magenta);
+  --color-badge: var(--color-cyan);
+  --color-badge-foreground: var(--color-ink);
+  --color-btn-solid: var(--color-ink);
+  --color-btn-solid-foreground: var(--color-paper);
+  --color-field: var(--color-scrim-20);
+
+  /* ---- Mode toggle ---------------------------------------------------
+     TODO: move these to the toggle component when built ??? (.dark version below)*/
+  --color-toggle-track: #ffffff;
+  --color-toggle-icon: #ffffff;
+  --color-toggle-knob: #e57716;
+  --color-toggle-glow: rgb(from var(--color-yellow) r g b / 50%);
+
+  /* ---- Gradients -------------------------------------------------- */
+
+  /* Fill: button background + logo */
+  --background-image-gradient: linear-gradient(
+    180deg,
+    var(--color-cyan) 0%,
+    var(--color-magenta) 100%
+  );
+
+  /* Border: secondary button, 1px inner stroke */
+  --background-image-gradient-outline: linear-gradient(
+    90deg,
+    var(--color-cyan) 0%,
+    var(--color-magenta) 100%
+  );
+
+  /*section headers*/
+  --background-image-gradient-text: linear-gradient(
+    180deg,
+    var(--color-cyan) 18.97%,
+    var(--color-magenta) 79.31%
+  );
+
+  /*separator lines */
+  --background-image-gradient-divider: linear-gradient(
+    90deg,
+    var(--color-cyan) 0%,
+    var(--color-yellow) 100%
+  );
+
+  /* ---- Typography -------------------------------------------*/
+
+  --font-display: 'Clash Display', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-body:
+    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  /*pawfect, solarsmart: baloo 2 bold, Lato regular, Open Sans Regular, Montserrat Bold*/
+
+  --text-display: 48px; /* hero */
+  --text-display--line-height: 1.1;
+  --text-h1: 40px; /* page / section titles */
+  --text-h1--line-height: 1.1;
+  --text-h2: 26px;
+  --text-h2--line-height: 1.1;
+  --text-h3: 22px; /* card titles */
+  --text-h3--line-height: 1.1;
+  --text-h4: 18px;
+  --text-h4--line-height: 1.1;
+  --text-label: 16px; /* button / form labels */
+  --text-label--line-height: 1.1;
+
+  /* Body (Inter). */
+  --text-body: 16px;
+  --text-body--line-height: 1.6;
+  --text-sm: 14px;
+  --text-sm--line-height: 1.6;
+  --text-xs: 12px;
+  --text-xs--line-height: 1.6;
+
+  /* Standalone line-heights*/
+  --leading-display: 1.1;
+  --leading-body: 1.6;
+
+  /* ---- Spacing-----------------------------------------------------------*/
+  --spacing-gutter: 20px;
+
+  /* ---- Shadows / glow --------------------------------------------------- */
+  --shadow-btn: 0px 4px 4px 0px var(--color-paper-25);
+  --drop-shadow-icon: 0 4px 4px var(--color-paper-25); /*filter*/
+  --shadow-card: -2px -2px 18px 10px var(--color-paper-50);
+  /* glow on hero images (pawPerfect, solarSmart, southsideBloom, ui-ux portfolio) */
+  --shadow-glow-image: 2px -2px 6px var(--color-paper-50);
+  --shadow-soft: -4px -1px 10px 0px var(--color-scrim-25);
+  --text-shadow-drop: 0px 4px 4px var(--color-scrim-25);
+  --shadow-glow-toggle:
+    inset 0px -4px 4px 0px var(--color-toggle-glow), inset 0px 4px 4px 0px var(--color-toggle-glow);
+
+  /* ---- Interaction states ------------------------------------------------ */
+
+  /* Fill hover: primary button. */
+  --background-image-gradient-hover: linear-gradient(
+    180deg,
+    var(--color-cyan) 0%,
+    var(--color-yellow) 100%
+  );
+
+  /* Border hover: secondary button (same value as divider, keep seperate?). */
+  --background-image-gradient-outline-hover: linear-gradient(
+    90deg,
+    var(--color-cyan) 0%,
+    var(--color-yellow) 100%
+  );
+
+  /* Icon hover glow (socials). Dark mode. Magenta for lightmode??*/
+  --shadow-glow-hover: 0px 0px 6px var(--color-yellow);
+
+  --background-image-gradient-disabled: linear-gradient(
+    180deg,
+    rgba(13, 231, 233, 0.4) 0%,
+    rgba(240, 15, 151, 0.4) 100%
+  );
+
+  --color-focus: var(--color-yellow); /*outline*/
+  --color-disabled: rgb(from var(--color-ink) r g b / 40%);
+  /* Label text + icon stroke on disabled button. */
+  --color-disabled-foreground: rgb(from var(--color-paper) r g b / 40%);
+  --shadow-pressed:
+    0px 4px 4px 0px var(--color-paper-25), inset 0px 4px 4px 0px rgba(240, 15, 151, 0.7);
+
+  /* ---- Layout --------------------------------------------------------
+     Tailwind default (sm/md/lg/xl/2xl)?? */
+  --container-content: 900px;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --color-background: var(--color-ink);
+  --color-foreground: var(--color-paper);
+  --color-foreground-inverse: var(--color-ink);
+  --color-muted-foreground: rgb(from var(--color-paper) r g b / 60%);
+  --color-border: var(--color-paper);
+  --color-accent: var(--color-cyan);
+  --color-field: #313131;
+  --color-toggle-track: var(--color-ink);
+  --color-toggle-icon: #000000;
+  --color-toggle-knob: #428bc1;
+  --color-toggle-glow: rgba(42, 95, 158, 0.5);
+}
