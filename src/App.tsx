@@ -2,6 +2,7 @@ import { useLayoutEffect } from 'react';
 import { Route, Routes } from 'react-router';
 import { LanguageToggle } from '@/components/ui/LanguageToggle';
 import { useLanguageStore } from '@/stores/languageStore';
+import { AppLayout } from '@/components/layout/AppLayout';
 import Home from '@/pages/Home';
 
 function App() {
