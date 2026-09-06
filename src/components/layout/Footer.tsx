@@ -2,12 +2,12 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router';
 import { navigation, routes } from '@/config/navigation';
 
-import { GradientDivider } from '../UI/GradientDivider';
-import { SocialLink } from '../UI/SocialLink';
+import { GradientDivider } from '../interface/GradientDivider';
+import { SocialLink } from '../interface/SocialLink';
 import { PageContainer } from './PageContainer';
 
 import { getTranslations } from '@/i18n/translations';
-import { LanguageToggle } from '../UI/LanguageToggle';
+import { LanguageToggle } from '../interface/LanguageToggle';
 import { useLanguageStore } from '@/stores/languageStore';
 
 const socialLinks = [
