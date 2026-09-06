@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router';
 
-import { Navigation } from './Navigation';
+import { Navigation } from '../UI/Navigation';
 import { routes } from '@/config/navigation';
 
 import { PageContainer } from '../layout/PageContainer';
-import { GradientDivider } from './GradientDivider';
+import { GradientDivider } from '../UI/GradientDivider';
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -171,7 +171,7 @@ export function Header() {
         </PageContainer>
       </div>
 
-      <GradientDivider className="mt-1" />
+      <GradientDivider className="relative z-10" />
     </header>
   );
 }

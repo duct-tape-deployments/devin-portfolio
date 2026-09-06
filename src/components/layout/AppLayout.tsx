@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router';
-import { Header } from '../UI/Header';
+import { Header } from './Header';
+import { Footer } from './Footer';
 
 export function AppLayout() {
   return (
@@ -8,7 +9,7 @@ export function AppLayout() {
       <main id="main-content" className="flex-1">
         <Outlet />
       </main>
-      {/* <Footer /> issue #8 */}
+      <Footer />
     </div>
   );
 }
