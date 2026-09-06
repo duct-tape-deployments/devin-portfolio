@@ -1,11 +1,14 @@
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router';
-
 import { navigation, routes } from '@/config/navigation';
 
 import { GradientDivider } from '../UI/GradientDivider';
 import { SocialLink } from '../UI/SocialLink';
 import { PageContainer } from './PageContainer';
+
+import { getTranslations } from '@/i18n/translations';
+import { LanguageToggle } from '../UI/LanguageToggle';
+import { useLanguageStore } from '@/stores/languageStore';
 
 const socialLinks = [
   {
@@ -26,6 +29,9 @@ const socialLinks = [
 ] as const;
 
 export function Footer() {
+  const language = useLanguageStore((state) => state.language);
+  const t = getTranslations(language);
+
   return (
     <footer className="bg-background text-foreground">
       <GradientDivider />
@@ -92,7 +98,7 @@ export function Footer() {
           {/* Right side */}
           <nav aria-label="Footer navigation">
             <ul className="flex flex-col gap-1">
-              {navigation.map(({ label, to, end }) => (
+              {navigation.map(({ labelKey, to, end }) => (
                 <li key={to}>
                   <NavLink
                     to={to}
@@ -102,20 +108,16 @@ export function Footer() {
                         'inline-flex whitespace-nowrap',
                         'font-body text-h4 font-bold',
                         'transition-colors duration-150',
-
                         'hover:text-accent',
-
                         'focus-visible:outline-2',
                         'focus-visible:outline-offset-2',
                         'focus-visible:outline-focus',
-
                         'active:opacity-60',
-
                         isActive ? 'text-accent' : 'text-foreground',
                       ].join(' ')
                     }
                   >
-                    {label}
+                    {t.navigation[labelKey]}
                   </NavLink>
                 </li>
               ))}
@@ -133,10 +135,7 @@ export function Footer() {
           "
         >
           <div className="justify-self-start">
-            {/*
-              Issue #6
-              <LanguageToggle />
-            */}
+            <LanguageToggle />
           </div>
 
           <p className="whitespace-nowrap text-sm text-foreground">© 2026 XE Design</p>

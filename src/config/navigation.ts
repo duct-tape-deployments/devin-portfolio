@@ -1,3 +1,5 @@
+import type { NavigationLabelKey } from '@/i18n/translations';
+
 export const routes = {
   home: '/',
   about: '/about',
@@ -10,35 +12,35 @@ export const routes = {
 export type RoutePath = (typeof routes)[keyof typeof routes];
 
 export type NavigationItem = {
-  label: string;
+  labelKey: NavigationLabelKey;
   to: RoutePath;
   end?: boolean;
 };
 
 export const navigation = [
   {
-    label: 'Home',
+    labelKey: 'home',
     to: routes.home,
     end: true,
   },
   {
-    label: 'About Me',
+    labelKey: 'about',
     to: routes.about,
   },
   {
-    label: 'UI/UX',
+    labelKey: 'uiUx',
     to: routes.uiUx,
   },
   {
-    label: 'Photography',
+    labelKey: 'photography',
     to: routes.photography,
   },
   {
-    label: 'Videography',
+    labelKey: 'videography',
     to: routes.videography,
   },
   {
-    label: 'Contact',
+    labelKey: 'contact',
     to: routes.contact,
   },
 ] satisfies readonly NavigationItem[];

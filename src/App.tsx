@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router';
-
 import { AppLayout } from '@/components/layout/AppLayout';
 import { routes } from '@/config/navigation';
 import About from '@/pages/About';
