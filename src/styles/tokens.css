@@ -26,6 +26,7 @@
   --color-btn-solid: var(--color-ink);
   --color-btn-solid-foreground: var(--color-paper);
   --color-field: var(--color-scrim-20);
+  --color-social: var(--color-magenta);
 
   /* ---- Mode toggle ---------------------------------------------------
      TODO: move these to the toggle component when built ??? (.dark version below)*/
@@ -162,4 +163,5 @@
   --color-toggle-icon: #000000;
   --color-toggle-knob: #428bc1;
   --color-toggle-glow: rgba(42, 95, 158, 0.5);
+  --color-social: var(--color-yellow);
 }

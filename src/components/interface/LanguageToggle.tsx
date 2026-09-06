@@ -1,5 +1,5 @@
 import { useLanguageStore, useT } from '@/stores/languageStore';
-import { languageToggle } from '@/components/ui/translations/languageToggle';
+import { languageToggle } from '@/i18n/languageToggle';
 import norwayFlag from '@/assets/emojione_flag-for-norway.svg';
 import ukFlag from '@/assets/emojione_flag-for-united-kingdom.svg';
 

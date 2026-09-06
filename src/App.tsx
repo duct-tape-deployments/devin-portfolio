@@ -1,25 +1,25 @@
-import { useLayoutEffect } from 'react';
 import { Route, Routes } from 'react-router';
-import { LanguageToggle } from '@/components/ui/LanguageToggle';
-import { useLanguageStore } from '@/stores/languageStore';
+import { AppLayout } from '@/components/layout/AppLayout';
+import { routes } from '@/config/navigation';
+import About from '@/pages/About';
+import Contact from '@/pages/Contact';
 import Home from '@/pages/Home';
+import Photography from '@/pages/Photography';
+import UiUx from '@/pages/UiUx';
+import Videography from '@/pages/Videography';
 
 function App() {
-  const language = useLanguageStore((state) => state.language);
-
-  // TODO: Stands in for shared Layout's effect until #4/#7 get implemented
-  useLayoutEffect(() => {
-    document.documentElement.lang = language;
-  }, [language]);
-
   return (
-    <>
-      {/* Temporary langtoggle here, movee into footer with #8. */}
-      <LanguageToggle />
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </>
+    <Routes>
+      <Route element={<AppLayout />}>
+        <Route path={routes.home} element={<Home />} />
+        <Route path={routes.about} element={<About />} />
+        <Route path={routes.uiUx} element={<UiUx />} />
+        <Route path={routes.photography} element={<Photography />} />
+        <Route path={routes.videography} element={<Videography />} />
+        <Route path={routes.contact} element={<Contact />} />
+      </Route>
+    </Routes>
   );
 }
 

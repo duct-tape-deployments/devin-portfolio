@@ -1,6 +1,6 @@
 function Home() {
   return (
-    <section>
+    <section className="bg-background">
       <h1>Home</h1>
       <p>yello.</p>
     </section>
