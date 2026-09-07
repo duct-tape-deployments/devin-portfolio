@@ -58,6 +58,11 @@
     var(--color-magenta) 79.31%
   );
 
+  /* Monochrome noise: 1px speckles at 25% black over the paper fill*/
+  --background-image-text-noise:
+    radial-gradient(circle, rgba(6, 6, 6, 0.25) 0 1px, transparent 1px) 0 0 / 3px 3px,
+    var(--color-paper);
+
   /*separator lines */
   --background-image-gradient-divider: linear-gradient(
     90deg,
