@@ -147,6 +147,10 @@
   /* ---- Layout --------------------------------------------------------
      Tailwind default (sm/md/lg/xl/2xl)?? */
   --container-content: 900px;
+
+  /* -----Font Speckles h1 home hero ----------------------------------------*/
+  /* DON'T DELETE THIS!! - THIS MAKES THE GRAINS ON "FUTURE" TEXT VISIBLE FOR SOME REASON CURRENTLY UNKNOWN */
+  --background-image-grainy-text:;
 }
 
 .dark {
@@ -164,4 +168,19 @@
   --color-toggle-knob: #428bc1;
   --color-toggle-glow: rgba(42, 95, 158, 0.5);
   --color-social: var(--color-yellow);
+}
+
+/*--- SMALL DOTS ON HOME HERO "FUTURE" -------------*/
+@layer components {
+  .grainy-text {
+    @apply bg-grainy-text bg-clip-text text-transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    background: repeating-radial-gradient(circle, #a8a8a8 0 0.000009%, transparent 0 0.00009%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-fill-color: transparent; /* For Safari */
+    background-blend-mode: translucent;
+  }
 }
