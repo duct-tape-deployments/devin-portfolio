@@ -3,7 +3,7 @@ import { DownArrow } from './DownArrow';
 export function HomeHero() {
   return (
     <section className="bg-background px-1 py-8 text-left" aria-labelledby="home-hero-title">
-      <div className="mx-auto w-full max-w-[900px] text-left place-items-center">
+      <div className="mx-auto w-full max-w-[900px] text-left place-items-center font-display">
         <h1
           id="home-hero-title"
           className="max-w-[680px] text-display leading-display font-black tracking-[0.02em]"
@@ -20,9 +20,7 @@ export function HomeHero() {
               >
                 FUTURE
               </span>
-              <span className="relative -left-0.5 bg-text-noise bg-clip-text text-pink-500">
-                FUTURE
-              </span>
+              <span className="relative -left-0.5 bg-white grainy-text">FUTURE</span>
             </span>
           </span>
           <span className="block text-shadow-drop">FOR UX/UI</span>
