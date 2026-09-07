@@ -28,7 +28,7 @@ export function HomeHero() {
           <span className="block text-shadow-drop">FOR UX/UI</span>
         </h1>
 
-        <div className="mt-10 flex flex-wrap gap-2">
+        <div className="mt-10 flex flex-wrap gap-4 pl-5">
           <a
             href="/contact"
             className="group relative inline-flex h-[42px] w-[126px] shrink-0 items-center justify-between overflow-hidden rounded-full bg-gradient px-2 text-label font-bold text-foreground-inverse shadow-btn transition-[box-shadow,transform] duration-300 ease-in-out hover:scale-[1.02] active:shadow-pressed focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus"
