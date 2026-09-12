@@ -7,6 +7,7 @@ import Home from '@/pages/Home';
 import Photography from '@/pages/Photography';
 import UiUx from '@/pages/UiUx';
 import Videography from '@/pages/Videography';
+import CaseStudy from '@/pages/CaseStudy';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path={routes.home} element={<Home />} />
         <Route path={routes.about} element={<About />} />
         <Route path={routes.uiUx} element={<UiUx />} />
+        <Route path={`${routes.uiUx}/:slug`} element={<CaseStudy />} />
         <Route path={routes.photography} element={<Photography />} />
         <Route path={routes.videography} element={<Videography />} />
         <Route path={routes.contact} element={<Contact />} />
