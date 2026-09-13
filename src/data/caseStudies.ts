@@ -10,6 +10,8 @@ export type CaseStudyDetails = {
     ageRange: string;
     description: string;
   };
+  heroImage?: { alt: string; src: string };
+  images?: { alt: string; src: string }[];
 
   typography?: {
     name: string;
@@ -59,6 +61,7 @@ export const caseStudies: CaseStudy[] = [
     description:
       'Building a website and design system for a solar panel company who educates clients.',
     image: '/images/case-studies/solar-smart-card.jpg',
+
     details: {
       role: 'UX/UI Design',
       duration: '30 hours',
@@ -69,6 +72,21 @@ export const caseStudies: CaseStudy[] = [
         ageRange: 'Ages 25-55',
         description: 'Looking to buy solar panels',
       },
+      prototypeUrl: '#',
+      images: [
+        {
+          alt: 'solar smart faq page',
+          src: '/images/case-studies/solar-smart/solar-smart-faq.jpg',
+        },
+        {
+          alt: 'solar smart contact page',
+          src: '/images/case-studies/solar-smart/solar-smart-contact.jpg',
+        },
+        {
+          alt: 'solar smart company page',
+          src: '/images/case-studies/solar-smart/solar-smart-company.jpg',
+        },
+      ],
       typography: [
         {
           name: 'Montserrat',
@@ -126,6 +144,25 @@ export const caseStudies: CaseStudy[] = [
       company:
         'Pawfect Match is a pet adoption service, mainly focused on cats and dogs. They offer not only adoption, but advice on how to care for your newly adopted friend.',
       goal: 'To create a responsive website that reflects the brand’s fun and caring nature, featuring all the services and pets currently available for adoption.',
+      prototypeUrl: '#',
+      images: [
+        {
+          alt: 'pawfect match home page',
+          src: '/images/case-studies/pawfect-match/pawfect-match-home.jpg',
+        },
+        {
+          alt: 'pawfect match cats page',
+          src: '/images/case-studies/pawfect-match/pawfect-match-cats.jpg',
+        },
+        {
+          alt: 'pawfect match profile page',
+          src: '/images/case-studies/pawfect-match/pawfect-match-profile.jpg',
+        },
+        {
+          alt: 'pawfect match contact page',
+          src: '/images/case-studies/pawfect-match/pawfect-match-contact.jpg',
+        },
+      ],
       targetAudience: {
         ageRange: 'Ages 18-65',
         description: 'Looking to adopt a pet',
@@ -161,6 +198,29 @@ export const caseStudies: CaseStudy[] = [
     details: {
       role: 'UX/UI Design',
       duration: '40 hours',
+      prototypeUrl: '#',
+      heroImage: {
+        alt: 'southside blooms demo image',
+        src: '/images/case-studies/southside-blooms/southside-blooms-hero.jpg',
+      },
+      images: [
+        {
+          alt: 'southside blooms home page',
+          src: '/images/case-studies/southside-blooms/southside-blooms-home.jpg',
+        },
+        {
+          alt: 'southside blooms flowers page',
+          src: '/images/case-studies/southside-blooms/southside-blooms-flowers.jpg',
+        },
+        {
+          alt: 'southside blooms flowers page',
+          src: '/images/case-studies/southside-blooms/southside-blooms-flowers-2.jpg',
+        },
+        {
+          alt: 'southside blooms flowers page',
+          src: '/images/case-studies/southside-blooms/southside-blooms-flowers-3.jpg',
+        },
+      ],
       company:
         'Southside Blooms, based out of Chicago, is focused on sustainability and locally grown flowers. They also focus on youth empowerment and education.',
       goal: 'To increase profits through research and re-design of the website navigation. User tests were conducted on the re-design which improved the flow.',

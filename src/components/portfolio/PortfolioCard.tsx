@@ -28,7 +28,7 @@ export function PortfolioCard({ caseStudy }: PortfolioCardProps) {
           to={`/ui-ux/${caseStudy.slug}`}
           className="
             mt-5 inline-flex items-center gap-3 rounded-full
-            bg-gradient px-5 py-2.5
+            bg-gradient px-2 py-2.5
             font-semibold text-btn-solid-foreground
             shadow-btn transition
             hover:bg-gradient-hover
