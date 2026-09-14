@@ -29,7 +29,7 @@
   --color-social: var(--color-magenta);
 
   /* ---- Mode toggle ---------------------------------------------------
-     TODO: move these to the toggle component when built ??? (.dark version below)*/
+     Used by components/interface/ThemeToggle (.dark version below) */
   --color-toggle-track: #ffffff;
   --color-toggle-icon: #ffffff;
   --color-toggle-knob: #e57716;
