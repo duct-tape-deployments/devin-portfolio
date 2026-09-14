@@ -40,7 +40,7 @@ export function ThemeToggle() {
           top-px
           left-0
           flex
-          h-5
+          h-[20px]
           w-[23px]
           translate-x-0
           items-center
@@ -55,9 +55,9 @@ export function ThemeToggle() {
         "
       >
         {isDark ? (
-          <MoonStar aria-hidden="true" strokeWidth={1.5} className="size-4" />
+          <MoonStar aria-hidden="true" strokeWidth={1.5} className="size-[16px]" />
         ) : (
-          <Sun aria-hidden="true" strokeWidth={1.5} className="size-4" />
+          <Sun aria-hidden="true" strokeWidth={1.5} className="size-[16px]" />
         )}
       </span>
     </label>
