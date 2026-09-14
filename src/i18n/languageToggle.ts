@@ -6,9 +6,9 @@ type LanguageToggleStrings = {
 
 export const languageToggle: Record<Language, LanguageToggleStrings> = {
   en: {
-    switchLabel: 'English selected. Switch to Norwegian.',
+    switchLabel: 'Switch to Norwegian',
   },
   no: {
-    switchLabel: 'Norsk valgt. Bytt til engelsk.',
+    switchLabel: 'Bytt til engelsk',
   },
 };
