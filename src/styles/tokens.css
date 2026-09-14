@@ -28,8 +28,7 @@
   --color-field: var(--color-scrim-20);
   --color-social: var(--color-magenta);
 
-  /* ---- Mode toggle ---------------------------------------------------
-     Used by components/interface/ThemeToggle (.dark version below) */
+  /* ---- Mode toggle ------------------------------------------------- */
   --color-toggle-track: #ffffff;
   --color-toggle-icon: #ffffff;
   --color-toggle-knob: #e57716;
