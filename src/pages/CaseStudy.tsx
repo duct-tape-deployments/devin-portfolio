@@ -1,5 +1,5 @@
 import { Link, Navigate, useParams } from 'react-router';
-
+import { PageContainer } from '@/components/layout/PageContainer';
 import { getCaseStudy } from '@/data/caseStudies';
 import { CaseStudyGallery } from '@/components/portfolio/CaseStudyGallery';
 import { GradientDivider } from '@/components/interface/GradientDivider';
@@ -21,7 +21,7 @@ function CaseStudy() {
   const heroImage = details?.heroImage ? details?.heroImage : details?.images?.[0];
 
   return (
-    <main className="mx-auto w-full max-w-content px-gutter py-12">
+    <PageContainer className="py-12">
       <Link
         to="/ui-ux"
         className="mb-8 inline-flex text-sm font-semibold text-accent hover:underline"
@@ -252,7 +252,7 @@ function CaseStudy() {
           )}
         </div>
       )}
-    </main>
+    </PageContainer>
   );
 }
 
