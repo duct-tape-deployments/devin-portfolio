@@ -73,7 +73,7 @@ function CaseStudy() {
               </h2>
               <p className="mt-2 text-foreground">{details.duration}</p>
             </section>
-            <section className="col-span-2">
+            <section className="sm:col-span-2">
               {details.prototypeUrl && (
                 <a
                   href={details.prototypeUrl}
@@ -84,7 +84,7 @@ function CaseStudy() {
                             font-semibold text-btn-solid-foreground
                             shadow-btn transition
                             hover:bg-gradient-hover
-                            focus-visible:outline-2
+                            focus-visible:outline-2 inline-flex
                             focus-visible:outline-offset-4
                             focus-visible:outline-focus"
                 >
