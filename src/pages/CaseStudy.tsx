@@ -1,11 +1,17 @@
 import { Link, Navigate, useParams } from 'react-router';
-import { PageContainer } from '@/components/layout/PageContainer';
-import { getCaseStudy } from '@/data/caseStudies';
-import { CaseStudyGallery } from '@/components/portfolio/CaseStudyGallery';
+
 import { GradientDivider } from '@/components/interface/GradientDivider';
+import { PageContainer } from '@/components/layout/PageContainer';
+import { CaseStudyGallery } from '@/components/portfolio/CaseStudyGallery';
+import { getCaseStudy } from '@/data/caseStudies';
+import { caseStudyLabels } from '@/i18n/caseStudyLabels';
+import { useLanguageStore, useT } from '@/stores/languageStore';
 
 function CaseStudy() {
   const { slug } = useParams();
+
+  const language = useLanguageStore((state) => state.language);
+  const t = useT(caseStudyLabels);
 
   if (!slug) {
     return <Navigate to="/ui-ux" replace />;
@@ -17,8 +23,28 @@ function CaseStudy() {
     return <Navigate to="/ui-ux" replace />;
   }
 
+  const content = caseStudy.content[language];
   const { details } = caseStudy;
-  const heroImage = details?.heroImage ? details?.heroImage : details?.images?.[0];
+
+  const detailsContent = details?.content[language];
+
+  const heroImage = details?.heroImage
+    ? {
+        src: details.heroImage.src,
+        alt: details.heroImage.alt[language],
+      }
+    : details?.images?.[0]
+      ? {
+          src: details.images[0].src,
+          alt: details.images[0].alt[language],
+        }
+      : undefined;
+
+  const galleryImages =
+    details?.images?.map((image) => ({
+      src: image.src,
+      alt: image.alt[language],
+    })) ?? [];
 
   return (
     <PageContainer className="py-12">
@@ -31,7 +57,7 @@ function CaseStudy() {
 
       <header className="mb-12">
         {caseStudy.projectName && (
-          <h1 className="mb-2 font-display text-h1 font-bold block bg-gradient-text bg-clip-text text-transparent">
+          <h1 className="mb-2 block bg-gradient-text bg-clip-text font-display text-h1 font-bold text-transparent">
             {caseStudy.projectName}
           </h1>
         )}
@@ -40,82 +66,94 @@ function CaseStudy() {
           <img
             src={heroImage.src}
             alt={heroImage.alt}
-            className="mb-12 w-full object-cover shadow-glow-image rounded-2xl aspect-video"
+            className="mb-12 aspect-video w-full rounded-2xl object-cover shadow-glow-image"
           />
         )}
 
-        <p className="text-sm font-semibold bg-cyan text-foreground block w-fit rounded px-1">
-          {caseStudy.category}
+        <p className="block w-fit rounded bg-cyan px-1 text-sm font-semibold text-foreground">
+          {content.category}
         </p>
 
         <h2 className="mt-2 max-w-3xl font-display text-h1 font-bold text-foreground text-shadow-drop">
-          {caseStudy.title}
+          {content.title}
         </h2>
 
-        <p className="mt-4 max-w-2xl text-body text-foreground">{caseStudy.description}</p>
+        <p className="mt-4 max-w-2xl text-body text-foreground">{content.description}</p>
       </header>
 
-      {!details ? (
-        <p className="text-foreground">Full case study content coming soon.</p>
+      {!details || !detailsContent ? (
+        <p className="text-foreground">{t.comingSoon}</p>
       ) : (
         <div className="space-y-14">
           <div className="grid gap-8 sm:grid-cols-2">
             <section>
-              <h2 className="font-display text-h3 font-semibold text-shadow-drop text-foreground">
-                Role
+              <h2 className="font-display text-h3 font-semibold text-foreground text-shadow-drop">
+                {t.role}
               </h2>
-              <p className="mt-2 text-foreground">{details.role}</p>
+
+              <p className="mt-2 text-foreground">{detailsContent.role}</p>
             </section>
 
             <section>
-              <h2 className="font-display text-h3 font-semibold text-shadow-drop text-foreground">
-                Project Duration
+              <h2 className="font-display text-h3 font-semibold text-foreground text-shadow-drop">
+                {t.duration}
               </h2>
-              <p className="mt-2 text-foreground">{details.duration}</p>
+
+              <p className="mt-2 text-foreground">{detailsContent.duration}</p>
             </section>
+
             <section className="sm:col-span-2">
               {details.prototypeUrl && (
                 <a
                   href={details.prototypeUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-fit mt-5 items-center gap-3 rounded-full
-                            bg-gradient px-2 py-2.5
-                            font-semibold text-btn-solid-foreground
-                            shadow-btn transition
-                            hover:bg-gradient-hover
-                            focus-visible:outline-2 inline-flex
-                            focus-visible:outline-offset-4
-                            focus-visible:outline-focus"
+                  className="
+                    mt-5 inline-flex w-fit items-center gap-3 rounded-full
+                    bg-gradient px-2 py-2.5
+                    font-semibold text-btn-solid-foreground
+                    shadow-btn transition
+                    hover:bg-gradient-hover
+                    focus-visible:outline-2
+                    focus-visible:outline-offset-4
+                    focus-visible:outline-focus
+                  "
                 >
-                  View Final Prototype
+                  {t.viewPrototype}
                 </a>
               )}
-              <div className="mt-10 mx-auto">
-                {details.images?.length ? <CaseStudyGallery images={details.images} /> : null}
-              </div>
+
+              {galleryImages.length > 0 && (
+                <div className="mx-auto mt-10">
+                  <CaseStudyGallery images={galleryImages} />
+                </div>
+              )}
             </section>
           </div>
-          <div className="w-3/5 mx-auto">
+
+          <div className="mx-auto w-3/5">
             <GradientDivider />
           </div>
+
           <section>
-            <h2 className="font-display text-h3 font-semibold text-shadow-drop text-foreground">
-              The Company
+            <h2 className="font-display text-h3 font-semibold text-foreground text-shadow-drop">
+              {t.company}
             </h2>
-            <p className="mt-4 text-foreground">{details.company}</p>
+
+            <p className="mt-4 text-foreground">{detailsContent.company}</p>
           </section>
 
           <section>
-            <h2 className="font-display text-h3 font-semibold text-shadow-drop text-foreground">
-              The Goal
+            <h2 className="font-display text-h3 font-semibold text-foreground text-shadow-drop">
+              {t.goal}
             </h2>
-            <p className="mt-4 text-foreground">{details.goal}</p>
+
+            <p className="mt-4 text-foreground">{detailsContent.goal}</p>
           </section>
 
           <section>
-            <h2 className="font-display text-h3 font-semibold text-shadow-drop text-foreground">
-              Target Audience
+            <h2 className="font-display text-h3 font-semibold text-foreground text-shadow-drop">
+              {t.targetAudience}
             </h2>
 
             <ul className="mt-6 space-y-5">
@@ -125,7 +163,7 @@ function CaseStudy() {
                   className="h-5 w-5 shrink-0 rounded-full border-2 border-cyan"
                 />
 
-                <span>{details.targetAudience.ageRange}</span>
+                <span>{detailsContent.targetAudience.ageRange}</span>
               </li>
 
               <li className="flex items-center gap-3 text-foreground">
@@ -134,22 +172,24 @@ function CaseStudy() {
                   className="h-5 w-5 shrink-0 rounded-full border-2 border-cyan"
                 />
 
-                <span>{details.targetAudience.description}</span>
+                <span>{detailsContent.targetAudience.description}</span>
               </li>
             </ul>
           </section>
-          <div className="w-3/5 mx-auto">
+
+          <div className="mx-auto w-3/5">
             <GradientDivider />
           </div>
+
           {details.typography && (
             <section>
-              <h2 className="font-display text-h3 font-semibold  text-shadow-drop text-foreground">
-                Typography & Colors
+              <h2 className="font-display text-h3 font-semibold text-foreground text-shadow-drop">
+                {t.typographyAndColors}
               </h2>
 
               <div className="mt-6 grid gap-8 md:grid-cols-2">
                 <div>
-                  <h3 className="text-lg font-medium text-cyan">Fonts Used</h3>
+                  <h3 className="text-lg font-medium text-cyan">{t.fontsUsed}</h3>
 
                   {details.typography.map((font) => (
                     <article className="my-8" key={`${font.name}-${font.weight}`}>
@@ -162,6 +202,7 @@ function CaseStudy() {
                       >
                         {font.name} {font.weight}
                       </h4>
+
                       <p
                         style={{
                           fontFamily: `"${font.name}", sans-serif`,
@@ -182,7 +223,7 @@ function CaseStudy() {
 
                 {details.colors && (
                   <div>
-                    <h3 className="font-semibold text-cyan">Colors Used</h3>
+                    <h3 className="font-semibold text-cyan">{t.colorsUsed}</h3>
 
                     <div className="mt-4 flex flex-wrap gap-4">
                       {details.colors.map((color) => (
@@ -191,6 +232,7 @@ function CaseStudy() {
                             className="h-14 w-14 rounded-full border border-border"
                             style={{ backgroundColor: color }}
                           />
+
                           <p className="mt-2 text-xs">{color}</p>
                         </div>
                       ))}
@@ -201,50 +243,52 @@ function CaseStudy() {
             </section>
           )}
 
-          {details.objective && (
+          {detailsContent.objective && (
             <section>
-              <h2 className="font-display text-h2">Objective & Background</h2>
-              <p className="mt-4 text-foreground">{details.objective}</p>
+              <h2 className="font-display text-h2">{t.objective}</h2>
+
+              <p className="mt-4 text-foreground">{detailsContent.objective}</p>
             </section>
           )}
 
-          {details.methodology && (
+          {detailsContent.methodology && (
             <section>
-              <h2 className="font-display text-h2">Methodology</h2>
+              <h2 className="font-display text-h2">{t.methodology}</h2>
 
               <ul className="mt-4 space-y-2 text-foreground">
-                {details.methodology.map((item) => (
+                {detailsContent.methodology.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
             </section>
           )}
 
-          {details.feedback && (
+          {detailsContent.feedback && (
             <section>
-              <h2 className="font-display text-h2 font-semibold">User Feedback</h2>
-              <p className="mt-4 text-foreground">{details.feedback}</p>
+              <h2 className="font-display text-h2 font-semibold">{t.feedback}</h2>
+
+              <p className="mt-4 text-foreground">{detailsContent.feedback}</p>
             </section>
           )}
 
-          {details.findings && (
+          {detailsContent.findings && (
             <section>
-              <h2 className="font-display text-h2 font-semibold">Findings</h2>
+              <h2 className="font-display text-h2 font-semibold">{t.findings}</h2>
 
               <ul className="mt-4 list-disc space-y-2 pl-5 text-foreground">
-                {details.findings.map((finding) => (
+                {detailsContent.findings.map((finding) => (
                   <li key={finding}>{finding}</li>
                 ))}
               </ul>
             </section>
           )}
 
-          {details.recommendations && (
+          {detailsContent.recommendations && (
             <section>
-              <h2 className="font-display text-h2 font-semibold">Recommendations</h2>
+              <h2 className="font-display text-h2 font-semibold">{t.recommendations}</h2>
 
               <ul className="mt-4 list-disc space-y-2 pl-5 text-foreground">
-                {details.recommendations.map((recommendation) => (
+                {detailsContent.recommendations.map((recommendation) => (
                   <li key={recommendation}>{recommendation}</li>
                 ))}
               </ul>

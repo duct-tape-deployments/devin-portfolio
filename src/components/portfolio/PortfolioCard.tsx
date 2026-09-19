@@ -2,14 +2,17 @@ import { Link } from 'react-router';
 
 import type { CaseStudy } from '@/data/caseStudies';
 import { caseStudyLabels } from '@/i18n/caseStudyLabels';
-import { useT } from '@/stores/languageStore';
+import { useLanguageStore, useT } from '@/stores/languageStore';
 
 type PortfolioCardProps = {
   caseStudy: CaseStudy;
 };
 
 export function PortfolioCard({ caseStudy }: PortfolioCardProps) {
+  const language = useLanguageStore((state) => state.language);
   const t = useT(caseStudyLabels);
+
+  const content = caseStudy.content[language];
 
   return (
     <article className="flex flex-col gap-4">
@@ -21,12 +24,12 @@ export function PortfolioCard({ caseStudy }: PortfolioCardProps) {
 
       <div>
         <p className="mb-3 inline-flex rounded bg-cyan px-4 py-1.5 text-sm font-semibold text-ink">
-          {caseStudy.category}
+          {content.category}
         </p>
 
-        <h2 className="font-display text-h3 font-semibold text-foreground">{caseStudy.title}</h2>
+        <h2 className="font-display text-h3 font-semibold text-foreground">{content.title}</h2>
 
-        <p className="mt-3 text-body text-muted-foreground">{caseStudy.description}</p>
+        <p className="mt-3 text-body text-muted-foreground">{content.description}</p>
 
         <Link
           to={`/ui-ux/${caseStudy.slug}`}
