@@ -4,7 +4,7 @@ import { caseStudies } from '@/data/caseStudies';
 
 function UiUx() {
   return (
-    <section className="relative overflow-hidden bg-background">
+    <div className="relative overflow-hidden bg-background">
       <div
         aria-hidden="true"
         className="
@@ -13,10 +13,12 @@ function UiUx() {
           bg-[length:100%_auto]
           bg-top
           bg-repeat-y
-          opacity-20"
+          opacity-20
+          z-10
+          "
       />
 
-      <PageContainer className="py-12">
+      <PageContainer className="py-12 z-20 relative">
         <header className="mb-12">
           <h1 className="font-display text-h1 font-bold text-foreground">UI/UX</h1>
         </header>
@@ -27,7 +29,7 @@ function UiUx() {
           ))}
         </div>
       </PageContainer>
-    </section>
+    </div>
   );
 }
 
