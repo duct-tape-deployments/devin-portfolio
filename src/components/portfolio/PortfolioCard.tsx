@@ -1,12 +1,16 @@
 import { Link } from 'react-router';
 
 import type { CaseStudy } from '@/data/caseStudies';
+import { caseStudyLabels } from '@/i18n/caseStudyLabels';
+import { useT } from '@/stores/languageStore';
 
 type PortfolioCardProps = {
   caseStudy: CaseStudy;
 };
 
 export function PortfolioCard({ caseStudy }: PortfolioCardProps) {
+  const t = useT(caseStudyLabels);
+
   return (
     <article className="flex flex-col gap-4">
       {caseStudy.image && (
@@ -37,7 +41,8 @@ export function PortfolioCard({ caseStudy }: PortfolioCardProps) {
             focus-visible:outline-focus
           "
         >
-          View Case Study
+          {t.viewCaseStudy}
+
           <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
             <path
               d="m9 18 6-6-6-6"
