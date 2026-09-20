@@ -1,4 +1,4 @@
-export type Language = 'en' | 'no';
+import type { Language } from '@/stores/languageStore';
 
 export const translations = {
   en: {
