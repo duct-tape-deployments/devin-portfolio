@@ -104,7 +104,9 @@ function ProfilePreview() {
               Devin Ekse
             </h2>
             <p className="mt-2 max-w-[24rem] text-body sm:mt-3">
-              UI/UX designer &amp; photographer/videographer
+              UI/UX designer &amp; photographer/
+              <wbr />
+              videographer
             </p>
           </div>
         </div>
