@@ -140,7 +140,7 @@
     rgba(240, 15, 151, 0.4) 100%
   );
 
-  --color-focus: var(--color-yellow); /*outline*/
+  --color-focus: var(--color-magenta); /*outline*/
   --color-disabled: rgb(from var(--color-ink) r g b / 40%);
   /* Label text + icon stroke on disabled button. */
   --color-disabled-foreground: rgb(from var(--color-paper) r g b / 40%);
@@ -284,6 +284,7 @@
   --color-field: #313131;
   --color-card-border: #1c1d21;
   --color-card-glow: rgb(from var(--color-paper) r g b / 6.27%);
+  --color-focus: var(--color-yellow);
   --color-toggle-track: var(--color-ink);
   --color-toggle-icon: #000000;
   --color-toggle-knob: #428bc1;
