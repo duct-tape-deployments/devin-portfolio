@@ -1,9 +1,12 @@
+// import { HomeHero } from '@/components/interface/HomeHero';
+import { WhatIOffer } from '@/components/interface/WhatIOffer';
+
 function Home() {
   return (
-    <section className="bg-background">
-      <h1>Home</h1>
-      <p>yello.</p>
-    </section>
+    <>
+      {/* <HomeHero /> */}
+      <WhatIOffer />
+    </>
   );
 }
 
