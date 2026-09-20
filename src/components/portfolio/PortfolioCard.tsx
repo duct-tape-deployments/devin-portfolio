@@ -31,19 +31,7 @@ export function PortfolioCard({ caseStudy }: PortfolioCardProps) {
 
         <p className="mt-3 text-body text-muted-foreground">{content.description}</p>
 
-        <Link
-          to={`/ui-ux/${caseStudy.slug}`}
-          className="
-            mt-5 inline-flex items-center gap-3 rounded-full
-            bg-gradient px-2 py-2.5
-            font-semibold text-btn-solid-foreground
-            shadow-btn transition
-            hover:bg-gradient-hover
-            focus-visible:outline-2
-            focus-visible:outline-offset-4
-            focus-visible:outline-focus
-          "
-        >
+        <Link to={`/ui-ux/${caseStudy.slug}`} className="btn btn-primary mt-5">
           {t.viewCaseStudy}
 
           <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
