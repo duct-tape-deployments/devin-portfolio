@@ -7,6 +7,7 @@ import { routes } from '@/config/navigation';
 
 import { PageContainer } from '../layout/PageContainer';
 import { GradientDivider } from '../interface/GradientDivider';
+import { ThemeToggle } from '../interface/ThemeToggle';
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -143,10 +144,7 @@ export function Header() {
 
         {/* Header controls */}
         <div className="flex items-center justify-self-end gap-2 xl:justify-self-auto">
-          {/*
-            Issue #5:
-            <ThemeToggle />
-          */}
+          <ThemeToggle />
         </div>
       </PageContainer>
 

@@ -28,8 +28,7 @@
   --color-field: var(--color-scrim-20);
   --color-social: var(--color-magenta);
 
-  /* ---- Mode toggle ---------------------------------------------------
-     TODO: move these to the toggle component when built ??? (.dark version below)*/
+  /* ---- Mode toggle ------------------------------------------------- */
   --color-toggle-track: #ffffff;
   --color-toggle-icon: #ffffff;
   --color-toggle-knob: #e57716;
@@ -151,6 +150,126 @@
   /* -----Font Speckles h1 home hero ----------------------------------------*/
   /* DON'T DELETE THIS!! - THIS MAKES THE GRAINS ON "FUTURE" TEXT VISIBLE FOR SOME REASON CURRENTLY UNKNOWN */
   --background-image-grainy-text:;
+}
+
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+
+    width: fit-content;
+    min-height: 44px;
+    padding: 0.625rem 1rem;
+
+    border-radius: 9999px;
+
+    font-size: var(--text-label);
+    font-weight: 600;
+    line-height: var(--text-label--line-height);
+
+    cursor: pointer;
+
+    transition:
+      background 150ms ease,
+      box-shadow 150ms ease,
+      opacity 150ms ease,
+      transform 150ms ease;
+  }
+
+  .btn:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 4px;
+  }
+
+  .btn:disabled,
+  .btn[aria-disabled='true'] {
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+
+  .btn-primary {
+    background: var(--background-image-gradient);
+    color: var(--color-btn-solid-foreground);
+    box-shadow: var(--shadow-btn);
+  }
+
+  .btn-primary:hover:not(:disabled):not([aria-disabled='true']) {
+    background: var(--background-image-gradient-hover);
+  }
+
+  .btn-primary:active:not(:disabled):not([aria-disabled='true']) {
+    box-shadow: var(--shadow-pressed);
+  }
+
+  .btn-outline {
+    color: var(--color-foreground);
+
+    border: 2px solid transparent;
+
+    background:
+      linear-gradient(var(--color-background), var(--color-background)) padding-box,
+      var(--background-image-gradient-outline) border-box;
+
+    box-shadow: var(--shadow-btn);
+  }
+
+  .btn-outline:hover:not(:disabled):not([aria-disabled='true']) {
+    background:
+      linear-gradient(var(--color-background), var(--color-background)) padding-box,
+      var(--background-image-gradient-outline-hover) border-box;
+  }
+
+  .btn-outline:active:not(:disabled):not([aria-disabled='true']) {
+    box-shadow: var(--shadow-pressed);
+  }
+
+  .btn-icon {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 9999px;
+  }
+
+  .social-link {
+    display: inline-flex;
+    width: 2.75rem;
+    height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--color-social);
+
+    filter: drop-shadow(var(--drop-shadow-icon));
+
+    transition:
+      filter 150ms ease,
+      opacity 150ms ease,
+      transform 150ms ease;
+  }
+
+  .social-link:hover {
+    filter: drop-shadow(0 0 6px var(--color-social));
+  }
+
+  .social-link:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 1px;
+  }
+
+  .social-link:active {
+    transform: translateY(1px);
+    opacity: 0.5;
+    filter: none;
+  }
+
+  .social-link[aria-disabled='true'] {
+    pointer-events: none;
+    color: var(--color-disabled);
+    opacity: 0.4;
+    filter: none;
+  }
 }
 
 .dark {
