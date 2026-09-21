@@ -25,6 +25,7 @@
   --color-badge-foreground: var(--color-ink);
   --color-btn-solid: var(--color-ink);
   --color-btn-solid-foreground: var(--color-paper);
+  --color-btn-shadow: rgb(from var(--color-ink) r g b / 25%);
   --color-field: var(--color-scrim-20);
   --color-social: var(--color-magenta);
 
@@ -101,8 +102,9 @@
   --spacing-gutter: 20px;
 
   /* ---- Shadows / glow --------------------------------------------------- */
-  --shadow-btn: 0px 4px 4px 0px var(--color-paper-25);
+  --shadow-btn: 0px 4px 4px 0px var(--color-btn-shadow);
   --drop-shadow-icon: 0 4px 4px var(--color-paper-25); /*filter*/
+  --drop-shadow-btn-icon: 0 4px 2px var(--color-paper-25); /*filter*/
   --shadow-card: -2px -2px 18px 10px var(--color-paper-50);
   /* glow on hero images (pawPerfect, solarSmart, southsideBloom, ui-ux portfolio) */
   --shadow-glow-image: 2px -2px 6px var(--color-paper-50);
@@ -136,12 +138,20 @@
     rgba(240, 15, 151, 0.4) 100%
   );
 
+  --background-image-gradient-outline-disabled: linear-gradient(
+    90deg,
+    rgba(13, 231, 233, 0.4) 0%,
+    rgba(240, 15, 151, 0.4) 100%
+  );
+  --btn-outline-disabled-foreground: var(--color-btn-solid-foreground);
+
   --color-focus: var(--color-magenta); /*outline*/
   --color-disabled: rgb(from var(--color-ink) r g b / 40%);
   /* Label text + icon stroke on disabled button. */
   --color-disabled-foreground: rgb(from var(--color-paper) r g b / 40%);
   --shadow-pressed:
-    0px 4px 4px 0px var(--color-paper-25), inset 0px 4px 4px 0px rgba(240, 15, 151, 0.7);
+    0px 4px 4px 0px var(--color-btn-shadow),
+    inset 0px 4px 4px 0px rgb(from var(--color-magenta) r g b / 70%);
 
   /* ---- Layout --------------------------------------------------------
      Tailwind default (sm/md/lg/xl/2xl)?? */
@@ -153,16 +163,17 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.75rem;
+    gap: 0.8125rem;
 
     width: fit-content;
-    min-height: 44px;
-    padding: 0.625rem 1rem;
+    min-height: 42px;
+    padding: 0.5625rem 0.5rem;
 
     border-radius: 9999px;
 
     font-size: var(--text-label);
-    font-weight: 600;
+    font-family: var(--font-display);
+    font-weight: 700;
     line-height: var(--text-label--line-height);
 
     cursor: pointer;
@@ -176,7 +187,7 @@
 
   .btn:focus-visible {
     outline: 2px solid var(--color-focus);
-    outline-offset: 4px;
+    outline-offset: -2px;
   }
 
   .btn:disabled,
@@ -196,29 +207,52 @@
   }
 
   .btn-primary:active:not(:disabled):not([aria-disabled='true']) {
+    background: var(--background-image-gradient);
     box-shadow: var(--shadow-pressed);
+  }
+
+  .btn-primary:disabled,
+  .btn-primary[aria-disabled='true'] {
+    background: var(--background-image-gradient-disabled);
+    color: var(--color-disabled-foreground);
+    opacity: 1;
   }
 
   .btn-outline {
-    color: var(--color-foreground);
-
-    border: 2px solid transparent;
-
+    --btn-outline-border: var(--background-image-gradient-outline);
+    --btn-outline-fill: var(--color-btn-solid);
+    color: var(--color-btn-solid-foreground);
+    border: 1px solid transparent;
+    padding: calc(0.5625rem - 1px) calc(0.5rem - 1px);
     background:
-      linear-gradient(var(--color-background), var(--color-background)) padding-box,
-      var(--background-image-gradient-outline) border-box;
-
+      linear-gradient(var(--btn-outline-fill), var(--btn-outline-fill)) padding-box,
+      var(--btn-outline-border) border-box var(--btn-outline-fill);
     box-shadow: var(--shadow-btn);
   }
 
+  .btn-outline svg {
+    filter: drop-shadow(var(--drop-shadow-btn-icon));
+  }
+
   .btn-outline:hover:not(:disabled):not([aria-disabled='true']) {
-    background:
-      linear-gradient(var(--color-background), var(--color-background)) padding-box,
-      var(--background-image-gradient-outline-hover) border-box;
+    --btn-outline-border: var(--background-image-gradient-outline-hover);
+  }
+
+  .btn-outline:focus-visible {
+    --btn-outline-border: linear-gradient(var(--color-btn-solid), var(--color-btn-solid));
   }
 
   .btn-outline:active:not(:disabled):not([aria-disabled='true']) {
+    --btn-outline-border: var(--background-image-gradient-outline);
     box-shadow: var(--shadow-pressed);
+  }
+
+  .btn-outline:disabled,
+  .btn-outline[aria-disabled='true'] {
+    --btn-outline-fill: color-mix(in srgb, var(--color-btn-solid) 40%, var(--color-background));
+    --btn-outline-border: var(--background-image-gradient-outline-disabled);
+    color: var(--btn-outline-disabled-foreground);
+    opacity: 1;
   }
 
   .btn-icon {
@@ -278,7 +312,9 @@
   --color-border: var(--color-paper);
   --color-accent: var(--color-cyan);
   --color-field: #313131;
+  --color-btn-shadow: var(--color-paper-25);
   --color-focus: var(--color-yellow);
+  --btn-outline-disabled-foreground: var(--color-disabled-foreground);
   --color-toggle-track: var(--color-ink);
   --color-toggle-icon: #000000;
   --color-toggle-knob: #428bc1;
