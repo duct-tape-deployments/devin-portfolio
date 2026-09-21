@@ -1,10 +1,7 @@
+import { HomeHero } from '@/components/interface/HomeHero';
+
 function Home() {
-  return (
-    <section className="bg-background">
-      <h1>Home</h1>
-      <p>yello.</p>
-    </section>
-  );
+  return <HomeHero />;
 }
 
 export default Home;
