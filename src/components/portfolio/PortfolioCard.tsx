@@ -1,3 +1,4 @@
+import { ChevronRight } from 'lucide-react';
 import { Link } from 'react-router';
 
 import type { CaseStudy } from '@/data/caseStudies';
@@ -34,16 +35,7 @@ export function PortfolioCard({ caseStudy }: PortfolioCardProps) {
         <Link to={`/ui-ux/${caseStudy.slug}`} className="btn btn-primary mt-5">
           {t.viewCaseStudy}
 
-          <svg viewBox="0 0 24 24" className="size-6" aria-hidden="true">
-            <path
-              d="m9 18 6-6-6-6"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          <ChevronRight className="size-6" aria-hidden="true" />
         </Link>
       </div>
     </article>
