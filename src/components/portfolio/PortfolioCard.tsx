@@ -34,7 +34,7 @@ export function PortfolioCard({ caseStudy }: PortfolioCardProps) {
         <Link to={`/ui-ux/${caseStudy.slug}`} className="btn btn-primary mt-5">
           {t.viewCaseStudy}
 
-          <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
+          <svg viewBox="0 0 24 24" className="size-6" aria-hidden="true">
             <path
               d="m9 18 6-6-6-6"
               fill="none"
