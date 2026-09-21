@@ -1,5 +1,3 @@
-import { ChevronDown } from 'lucide-react';
-
 function Home() {
   return (
     <section className="bg-background">
