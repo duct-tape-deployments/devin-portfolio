@@ -1,10 +1,7 @@
+import { WhoIAm } from '@/components/home/WhoIAm';
+
 function Home() {
-  return (
-    <section className="bg-background">
-      <h1>Home</h1>
-      <p>yello.</p>
-    </section>
-  );
+  return <WhoIAm />;
 }
 
 export default Home;

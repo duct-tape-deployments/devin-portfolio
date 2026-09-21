@@ -27,6 +27,8 @@
   --color-btn-solid-foreground: var(--color-paper);
   --color-btn-shadow: rgb(from var(--color-ink) r g b / 25%);
   --color-field: var(--color-scrim-20);
+  --color-card-border: var(--color-scrim-20);
+  --color-card-glow: var(--color-scrim-25);
   --color-social: var(--color-magenta);
 
   /* ---- Mode toggle ------------------------------------------------- */
@@ -71,6 +73,7 @@
   --font-body:
     'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
     sans-serif;
+  --font-open-sans: 'Open Sans', var(--font-body);
   /*pawfect, solarsmart: baloo 2 bold, Lato regular, Open Sans Regular, Montserrat Bold*/
 
   --text-display: 48px; /* hero */
@@ -106,6 +109,7 @@
   --drop-shadow-icon: 0 4px 4px var(--color-paper-25); /*filter*/
   --drop-shadow-btn-icon: 0 4px 2px var(--color-paper-25); /*filter*/
   --shadow-card: -2px -2px 18px 10px var(--color-paper-50);
+  --shadow-quote-card: -2px -2px 18px 5px var(--color-card-glow);
   /* glow on hero images (pawPerfect, solarSmart, southsideBloom, ui-ux portfolio) */
   --shadow-glow-image: 2px -2px 6px var(--color-paper-50);
   --shadow-soft: -4px -1px 10px 0px var(--color-scrim-25);
@@ -312,6 +316,8 @@
   --color-border: var(--color-paper);
   --color-accent: var(--color-cyan);
   --color-field: #313131;
+  --color-card-border: #1c1d21;
+  --color-card-glow: rgb(from var(--color-paper) r g b / 6.27%);
   --color-btn-shadow: var(--color-paper-25);
   --color-focus: var(--color-yellow);
   --btn-outline-disabled-foreground: var(--color-disabled-foreground);
