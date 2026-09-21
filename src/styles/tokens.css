@@ -152,14 +152,13 @@
 
 @layer components {
   .btn {
-    /* Figma button: padding 9px 8px, gap 13px, Clash Display Bold */
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.8125rem;
 
     width: fit-content;
-    min-height: 44px;
+    min-height: 42px;
     padding: 0.5625rem 0.5rem;
 
     border-radius: 9999px;
