@@ -104,6 +104,7 @@
   /* ---- Shadows / glow --------------------------------------------------- */
   --shadow-btn: 0px 4px 4px 0px var(--color-btn-shadow);
   --drop-shadow-icon: 0 4px 4px var(--color-paper-25); /*filter*/
+  --drop-shadow-btn-icon: 0 4px 2px var(--color-paper-25); /*filter*/
   --shadow-card: -2px -2px 18px 10px var(--color-paper-50);
   /* glow on hero images (pawPerfect, solarSmart, southsideBloom, ui-ux portfolio) */
   --shadow-glow-image: 2px -2px 6px var(--color-paper-50);
@@ -136,6 +137,13 @@
     rgba(13, 231, 233, 0.4) 0%,
     rgba(240, 15, 151, 0.4) 100%
   );
+
+  --background-image-gradient-outline-disabled: linear-gradient(
+    90deg,
+    rgba(13, 231, 233, 0.4) 0%,
+    rgba(240, 15, 151, 0.4) 100%
+  );
+  --btn-outline-disabled-foreground: var(--color-btn-solid-foreground);
 
   --color-focus: var(--color-magenta); /*outline*/
   --color-disabled: rgb(from var(--color-ink) r g b / 40%);
@@ -211,25 +219,40 @@
   }
 
   .btn-outline {
-    color: var(--color-foreground);
-
-    border: 2px solid transparent;
-
+    --btn-outline-border: var(--background-image-gradient-outline);
+    --btn-outline-fill: var(--color-btn-solid);
+    color: var(--color-btn-solid-foreground);
+    border: 1px solid transparent;
+    padding: calc(0.5625rem - 1px) calc(0.5rem - 1px);
     background:
-      linear-gradient(var(--color-background), var(--color-background)) padding-box,
-      var(--background-image-gradient-outline) border-box;
-
+      linear-gradient(var(--btn-outline-fill), var(--btn-outline-fill)) padding-box,
+      var(--btn-outline-border) border-box var(--btn-outline-fill);
     box-shadow: var(--shadow-btn);
   }
 
+  .btn-outline svg {
+    filter: drop-shadow(var(--drop-shadow-btn-icon));
+  }
+
   .btn-outline:hover:not(:disabled):not([aria-disabled='true']) {
-    background:
-      linear-gradient(var(--color-background), var(--color-background)) padding-box,
-      var(--background-image-gradient-outline-hover) border-box;
+    --btn-outline-border: var(--background-image-gradient-outline-hover);
+  }
+
+  .btn-outline:focus-visible {
+    --btn-outline-border: linear-gradient(var(--color-btn-solid), var(--color-btn-solid));
   }
 
   .btn-outline:active:not(:disabled):not([aria-disabled='true']) {
+    --btn-outline-border: var(--background-image-gradient-outline);
     box-shadow: var(--shadow-pressed);
+  }
+
+  .btn-outline:disabled,
+  .btn-outline[aria-disabled='true'] {
+    --btn-outline-fill: color-mix(in srgb, var(--color-btn-solid) 40%, var(--color-background));
+    --btn-outline-border: var(--background-image-gradient-outline-disabled);
+    color: var(--btn-outline-disabled-foreground);
+    opacity: 1;
   }
 
   .btn-icon {
@@ -291,6 +314,7 @@
   --color-field: #313131;
   --color-btn-shadow: var(--color-paper-25);
   --color-focus: var(--color-yellow);
+  --btn-outline-disabled-foreground: var(--color-disabled-foreground);
   --color-toggle-track: var(--color-ink);
   --color-toggle-icon: #000000;
   --color-toggle-knob: #428bc1;
