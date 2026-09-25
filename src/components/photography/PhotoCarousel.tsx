@@ -11,7 +11,6 @@ type PhotoCarouselProps = {
   priority?: boolean;
 };
 
-// Indicator min width relative to the track (11.05% / 30.11% of the row in Figma)
 const INDICATOR_MIN_WIDTH_PERCENT = (11.05 / 30.11) * 100;
 const chevronClasses = 'icon-button absolute top-1/2 -translate-y-1/2';
 
@@ -33,7 +32,6 @@ export function PhotoCarousel({
       const width = Math.max(INDICATOR_MIN_WIDTH_PERCENT, 100 * visibleFraction);
 
       indicator.style.width = `${width}%`;
-      // translate % is relative to the indicator itself, so it moves without a layout pass
       indicator.style.transform = `translateX(${((100 - width) / width) * scrollFraction * 100}%)`;
     },
   );

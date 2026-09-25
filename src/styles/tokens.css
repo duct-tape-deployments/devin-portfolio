@@ -381,8 +381,6 @@
     text-align: center;
   }
 
-  /* Page background grid (photography). Measured from the mobile PNG exports:
-     1px lines, ~32.75 x 37.9px cells rounded to 33 x 38, first lines at x 30 / y 40. */
   .page-grid {
     background-image:
       linear-gradient(to right, var(--color-grid-line) 1px, transparent 1px),
