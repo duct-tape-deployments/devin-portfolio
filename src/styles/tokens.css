@@ -29,8 +29,7 @@
   --color-field: var(--color-scrim-20);
   --color-card-border: var(--color-scrim-20);
   --color-card-glow: var(--color-scrim-25);
-  --color-social: var(--color-magenta);
-  --color-icon-glow: var(--color-social);
+  --color-icon-accent: var(--color-magenta);
   --color-grid-line: #c4c4c4;
 
   /* ---- Mode toggle ------------------------------------------------- */
@@ -274,9 +273,7 @@
     height: 2.75rem;
     align-items: center;
     justify-content: center;
-
-    color: var(--color-social);
-
+    color: var(--color-icon-accent);
     filter: drop-shadow(var(--drop-shadow-icon));
 
     transition:
@@ -286,7 +283,7 @@
   }
 
   .social-link:hover {
-    filter: drop-shadow(0 0 6px var(--color-social));
+    filter: drop-shadow(0 0 6px var(--color-icon-accent));
   }
 
   .social-link:focus-visible {
@@ -309,7 +306,7 @@
 
   .icon-button {
     --icon-color: var(--color-foreground);
-    --icon-glow: var(--color-icon-glow);
+    --icon-glow: var(--color-icon-accent);
     --icon-pressed-color: var(--color-paper);
 
     position: relative;
@@ -409,6 +406,6 @@
   --color-toggle-icon: #000000;
   --color-toggle-knob: #428bc1;
   --color-toggle-glow: rgba(42, 95, 158, 0.5);
-  --color-social: var(--color-yellow);
+  --color-icon-accent: var(--color-yellow);
   --color-grid-line: #414141;
 }
