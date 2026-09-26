@@ -51,7 +51,7 @@ export function Header() {
   }, []);
 
   return (
-    <header className="relative z-50 bg-background text-foreground pt-2">
+    <header className="relative z-50 bg-background text-foreground xl:pt-2">
       <a
         href="#main-content"
         className="
@@ -76,10 +76,11 @@ export function Header() {
       <PageContainer
         className="
           grid
-          min-h-16
+          h-15
           grid-cols-[1fr_auto_1fr]
           items-center
           xl:flex
+          xl:h-auto
           xl:min-h-18
           xl:gap-8
         "
@@ -111,12 +112,16 @@ export function Header() {
                       xl:justify-self-auto
                     "
         >
-          <img src="/header-logo-light.svg" alt="" className="h-10 w-auto dark:hidden xl:h-12" />
+          <img
+            src="/header-logo-light.svg"
+            alt=""
+            className="-mr-1.5 -mb-2.25 h-12.25 w-auto max-w-none dark:hidden xl:m-0 xl:h-12"
+          />
 
           <img
             src="/header-logo-dark.svg"
             alt=""
-            className="hidden h-10 w-auto dark:block xl:h-12"
+            className="-mr-1.5 -mb-2.25 hidden h-12.25 w-auto max-w-none dark:block xl:m-0 xl:h-12"
           />
         </Link>
 
@@ -126,7 +131,7 @@ export function Header() {
         </div>
 
         {/* Header controls */}
-        <div className="flex items-center justify-self-end gap-2 xl:justify-self-auto">
+        <div className="mt-4.5 mr-0.5 flex items-center gap-2 self-start justify-self-end xl:m-0 xl:self-auto xl:justify-self-auto">
           <ThemeToggle />
         </div>
       </PageContainer>
@@ -152,7 +157,7 @@ export function Header() {
         </PageContainer>
       </div>
 
-      <GradientDivider className="relative z-10" />
+      <GradientDivider className="absolute top-full z-10 xl:relative xl:top-auto" />
     </header>
   );
 }
