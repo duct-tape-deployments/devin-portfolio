@@ -31,6 +31,7 @@
   --color-card-glow: var(--color-scrim-25);
   --color-icon-accent: var(--color-magenta);
   --color-grid-line: #c4c4c4;
+  --color-pattern-wash: rgba(255, 255, 255, 0.6); /* over the UI/UX background pattern */
 
   /* ---- Mode toggle ------------------------------------------------- */
   --color-toggle-track: #ffffff;
@@ -180,4 +181,5 @@
   --color-toggle-glow: rgba(42, 95, 158, 0.5);
   --color-icon-accent: var(--color-yellow);
   --color-grid-line: #414141;
+  --color-pattern-wash: rgba(0, 0, 0, 0.8);
 }

@@ -8,19 +8,15 @@ function UiUx() {
       <div
         aria-hidden="true"
         className="
-          pointer-events-none absolute inset-0 z-10
-          bg-[url('/images/background-shapes.png')]
-          bg-size-[1024px_auto]
+          pointer-events-none absolute inset-0
+          bg-[linear-gradient(var(--color-pattern-wash),var(--color-pattern-wash)),url('/images/background-shapes.png')]
+          bg-size-[auto,1024px_auto]
           bg-top-left
           bg-repeat
           "
       />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-10 bg-white/60 dark:bg-black/80"
-      />
 
-      <PageContainer className="pt-2.5 pb-12 z-20 relative">
+      <PageContainer className="pt-2.5 pb-12 relative">
         <header className="mb-8">
           <h1 className="title-gradient">UI/UX</h1>
         </header>
