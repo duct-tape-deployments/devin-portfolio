@@ -260,42 +260,6 @@
     opacity: 1;
   }
 
-  .btn-icon {
-    width: 44px;
-    height: 44px;
-    padding: 0;
-    border-radius: 9999px;
-  }
-
-  .social-link {
-    display: inline-flex;
-    width: 24px;
-    height: 24px;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-icon-accent);
-    filter: drop-shadow(var(--drop-shadow-icon));
-
-    transition: filter 300ms ease-in;
-  }
-
-  .social-link:hover {
-    filter: drop-shadow(0 0 6px var(--color-icon-accent));
-  }
-
-  .social-link:focus-visible {
-    outline: 2px solid var(--color-focus);
-    outline-offset: -2px;
-  }
-
-  .social-link:active {
-    filter: drop-shadow(var(--drop-shadow-icon));
-  }
-
-  .social-link[aria-disabled='true'] {
-    pointer-events: none;
-  }
-
   .icon-button {
     --icon-color: var(--color-foreground);
     --icon-glow: var(--color-icon-accent);
@@ -327,8 +291,7 @@
     }
   }
 
-  .icon-button svg *,
-  .social-link svg * {
+  .icon-button svg * {
     vector-effect: non-scaling-stroke;
   }
 
@@ -346,16 +309,29 @@
     filter: drop-shadow(var(--drop-shadow-icon));
   }
 
-  .icon-button:active:not(:disabled, [aria-disabled='true']) svg,
-  .social-link:active svg {
+  .icon-button:active:not(:disabled, [aria-disabled='true']) svg {
     width: 22px;
     height: 22px;
   }
 
   .icon-button:disabled svg,
-  .icon-button[aria-disabled='true'] svg,
-  .social-link[aria-disabled='true'] svg {
+  .icon-button[aria-disabled='true'] svg {
     opacity: 0.4;
+  }
+
+  /* Social links: .icon-button in the accent colour, which stays on press */
+  .social-link {
+    --icon-color: var(--color-icon-accent);
+    --icon-pressed-color: var(--color-icon-accent);
+  }
+
+  /* No touch target: at the 20px gap, neighbouring targets would overlap */
+  .social-link::before {
+    content: none;
+  }
+
+  .social-link[aria-disabled='true'] {
+    pointer-events: none;
   }
 
   .badge {
