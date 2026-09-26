@@ -25,6 +25,8 @@
   --color-badge-foreground: var(--color-ink);
   --color-btn-solid: var(--color-ink);
   --color-btn-solid-foreground: var(--color-paper);
+  /* Literal, not rgb(from var(--color-ink) ...): that computes to color(srgb ...), which
+     Chromium animates wrong in drop-shadow transitions (grey/green first frames). */
   --color-btn-shadow: rgba(6, 6, 6, 0.25);
   --color-field: var(--color-scrim-20);
   --color-card-border: var(--color-scrim-20);
