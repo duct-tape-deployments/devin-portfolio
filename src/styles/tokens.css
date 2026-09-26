@@ -30,6 +30,8 @@
   --color-card-border: var(--color-scrim-20);
   --color-card-glow: var(--color-scrim-25);
   --color-social: var(--color-magenta);
+  --color-icon-glow: var(--color-social);
+  --color-grid-line: #c4c4c4;
 
   /* ---- Mode toggle ------------------------------------------------- */
   --color-toggle-track: #ffffff;
@@ -109,8 +111,8 @@
   --drop-shadow-icon: 0 4px 4px var(--color-paper-25); /*filter*/
   --drop-shadow-btn-icon: 0 4px 2px var(--color-paper-25); /*filter*/
   --shadow-card: -2px -2px 18px 10px var(--color-paper-50);
+  --shadow-photo: -2px -2px 18px 0px var(--color-paper-50);
   --shadow-quote-card: -2px -2px 18px 5px var(--color-card-glow);
-  /* glow on hero images (pawPerfect, solarSmart, southsideBloom, ui-ux portfolio) */
   --shadow-glow-image: 2px -2px 6px var(--color-paper-50);
   --shadow-soft: -4px -1px 10px 0px var(--color-scrim-25);
   --text-shadow-drop: 0px 4px 4px var(--color-scrim-25);
@@ -304,6 +306,88 @@
     opacity: 0.4;
     filter: none;
   }
+
+  .icon-button {
+    --icon-color: var(--color-foreground);
+    --icon-glow: var(--color-icon-glow);
+    --icon-pressed-color: var(--color-paper);
+
+    position: relative;
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--icon-color);
+    cursor: pointer;
+    filter: drop-shadow(0 4px 4px var(--color-btn-shadow));
+  }
+
+  /* Touch target: 48px on mobile, 40px on desktop */
+  .icon-button::before {
+    content: '';
+    position: absolute;
+    inset: -12px;
+
+    @variant lg {
+      inset: -8px;
+    }
+  }
+
+  .icon-button svg * {
+    vector-effect: non-scaling-stroke;
+  }
+
+  .icon-button:hover:not(:disabled, [aria-disabled='true']) {
+    filter: drop-shadow(0 0 6px var(--icon-glow));
+  }
+
+  .icon-button:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: -2px;
+  }
+
+  .icon-button:active:not(:disabled, [aria-disabled='true']) {
+    color: var(--icon-pressed-color);
+    filter: drop-shadow(0 4px 4px var(--color-btn-shadow));
+  }
+
+  .icon-button:active:not(:disabled, [aria-disabled='true']) svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .icon-button:disabled svg,
+  .icon-button[aria-disabled='true'] svg {
+    opacity: 0.4;
+  }
+
+  .badge {
+    display: inline-flex;
+    width: fit-content;
+    min-width: 94px;
+    height: 22px;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 12px;
+    border-radius: 4px;
+    background: var(--color-badge);
+    color: var(--color-badge-foreground);
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: 400;
+    line-height: var(--text-xs--line-height);
+    text-align: center;
+  }
+
+  .page-grid {
+    background-image:
+      linear-gradient(to right, var(--color-grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--color-grid-line) 1px, transparent 1px);
+    background-size: 33px 38px;
+    background-position: 30px 40px;
+  }
 }
 
 .dark {
@@ -326,4 +410,5 @@
   --color-toggle-knob: #428bc1;
   --color-toggle-glow: rgba(42, 95, 158, 0.5);
   --color-social: var(--color-yellow);
+  --color-grid-line: #414141;
 }
