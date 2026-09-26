@@ -216,6 +216,11 @@
     height: 22px;
   }
 
+  .icon-button:disabled,
+  .icon-button[aria-disabled='true'] {
+    cursor: default;
+  }
+
   .icon-button:disabled svg,
   .icon-button[aria-disabled='true'] svg {
     opacity: 0.4;
