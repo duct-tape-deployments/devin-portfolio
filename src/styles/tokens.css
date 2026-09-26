@@ -207,8 +207,11 @@
     box-shadow: var(--shadow-btn);
   }
 
-  .btn-primary:hover:not(:disabled):not([aria-disabled='true']) {
-    background: var(--background-image-gradient-hover);
+  /* Hover only where a pointer can hover, like Tailwind's hover: variant. */
+  @media (hover: hover) {
+    .btn-primary:hover:not(:disabled):not([aria-disabled='true']) {
+      background: var(--background-image-gradient-hover);
+    }
   }
 
   .btn-primary:active:not(:disabled):not([aria-disabled='true']) {
@@ -239,8 +242,10 @@
     filter: drop-shadow(var(--drop-shadow-btn-icon));
   }
 
-  .btn-outline:hover:not(:disabled):not([aria-disabled='true']) {
-    --btn-outline-border: var(--background-image-gradient-outline-hover);
+  @media (hover: hover) {
+    .btn-outline:hover:not(:disabled):not([aria-disabled='true']) {
+      --btn-outline-border: var(--background-image-gradient-outline-hover);
+    }
   }
 
   .btn-outline:focus-visible {
@@ -295,8 +300,10 @@
     vector-effect: non-scaling-stroke;
   }
 
-  .icon-button:hover:not(:disabled, [aria-disabled='true']) {
-    filter: drop-shadow(0 0 6px var(--icon-glow));
+  @media (hover: hover) {
+    .icon-button:hover:not(:disabled, [aria-disabled='true']) {
+      filter: drop-shadow(0 0 6px var(--icon-glow));
+    }
   }
 
   .icon-button:focus-visible {
