@@ -8,14 +8,16 @@ function UiUx() {
       <div
         aria-hidden="true"
         className="
-          pointer-events-none absolute inset-0
+          pointer-events-none absolute inset-0 z-10
           bg-[url('/images/background-shapes.png')]
-          bg-[length:100%_auto]
-          bg-top
-          bg-repeat-y
-          opacity-20
-          z-10
+          bg-size-[1024px_auto]
+          bg-top-left
+          bg-repeat
           "
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-10 bg-white/60 dark:bg-black/80"
       />
 
       <PageContainer className="pt-2.5 pb-12 z-20 relative">
