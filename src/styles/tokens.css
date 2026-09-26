@@ -25,7 +25,7 @@
   --color-badge-foreground: var(--color-ink);
   --color-btn-solid: var(--color-ink);
   --color-btn-solid-foreground: var(--color-paper);
-  --color-btn-shadow: rgb(from var(--color-ink) r g b / 25%);
+  --color-btn-shadow: rgba(6, 6, 6, 0.25);
   --color-field: var(--color-scrim-20);
   --color-card-border: var(--color-scrim-20);
   --color-card-glow: var(--color-scrim-25);
@@ -275,9 +275,9 @@
     filter: drop-shadow(var(--drop-shadow-icon));
 
     transition:
-      filter 150ms ease,
-      opacity 150ms ease,
-      transform 150ms ease;
+      filter 300ms ease-in,
+      opacity 300ms ease-in,
+      transform 300ms ease-in;
   }
 
   .social-link:hover {
@@ -317,6 +317,9 @@
     color: var(--icon-color);
     cursor: pointer;
     filter: drop-shadow(var(--drop-shadow-icon));
+    transition:
+      color 300ms ease-in,
+      filter 300ms ease-in;
   }
 
   /* Touch target: 48px on mobile, 40px on desktop */
