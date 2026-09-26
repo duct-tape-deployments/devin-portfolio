@@ -256,14 +256,7 @@
 
   /* Gradient title: page titles and home section titles */
   .title-gradient {
-    font-family: var(--font-display);
-    font-size: var(--text-h1);
-    font-weight: 700;
-    line-height: var(--text-h1--line-height);
-    background-image: var(--background-image-gradient-text);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    @apply font-display text-h1 font-bold bg-gradient-text bg-clip-text text-transparent;
   }
 
   .page-grid {
