@@ -70,9 +70,7 @@ function CaseStudy() {
           />
         )}
 
-        <p className="block w-fit rounded bg-cyan px-1 text-sm font-semibold text-foreground">
-          {content.category}
-        </p>
+        <p className="badge">{content.category}</p>
 
         <h2 className="mt-2 max-w-3xl font-display text-h1 font-bold text-foreground text-shadow-drop">
           {content.title}
