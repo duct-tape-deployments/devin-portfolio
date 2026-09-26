@@ -16,7 +16,7 @@ export function SocialLink({ label, href, icon: Icon, disabled = false }: Social
       aria-label={label}
       aria-disabled={disabled || undefined}
       tabIndex={disabled ? -1 : undefined}
-      className="social-link"
+      className="icon-button social-link"
     >
       <Icon aria-hidden="true" size={24} />
     </a>

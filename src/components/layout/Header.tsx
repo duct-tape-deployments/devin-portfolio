@@ -92,26 +92,9 @@ export function Header() {
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
           onClick={() => setMenuOpen((open) => !open)}
-          className="
-                      flex
-                      size-11
-                      items-center
-                      justify-center
-                      justify-self-start
-                      text-foreground
-                      transition-colors
-                      hover:text-accent
-                      focus-visible:outline-2
-                      focus-visible:outline-offset-2
-                      focus-visible:outline-focus
-                      xl:hidden
-                    "
+          className="icon-button justify-self-start xl:hidden"
         >
-          {menuOpen ? (
-            <X className="size-7" aria-hidden="true" />
-          ) : (
-            <Menu className="size-7" aria-hidden="true" />
-          )}
+          {menuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
         </button>
 
         {/* Logo / home link */}
