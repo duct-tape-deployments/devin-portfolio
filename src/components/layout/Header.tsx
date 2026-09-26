@@ -7,6 +7,7 @@ import { routes } from '@/config/navigation';
 
 import { PageContainer } from '../layout/PageContainer';
 import { GradientDivider } from '../interface/GradientDivider';
+import { Logo } from '../interface/Logo';
 import { ThemeToggle } from '../interface/ThemeToggle';
 
 export function Header() {
@@ -112,17 +113,7 @@ export function Header() {
                       xl:justify-self-auto
                     "
         >
-          <img
-            src="/header-logo-light.svg"
-            alt=""
-            className="-mr-1.5 -mb-2.25 h-12.25 w-auto max-w-none dark:hidden xl:m-0 xl:h-12"
-          />
-
-          <img
-            src="/header-logo-dark.svg"
-            alt=""
-            className="-mr-1.5 -mb-2.25 hidden h-12.25 w-auto max-w-none dark:block xl:m-0 xl:h-12"
-          />
+          <Logo className="xl:m-0 xl:h-12" />
         </Link>
 
         {/* Desktop navigation */}

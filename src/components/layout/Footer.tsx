@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router';
 import { navigation, routes } from '@/config/navigation';
 
 import { GradientDivider } from '../interface/GradientDivider';
+import { Logo } from '../interface/Logo';
 import { SocialLink } from '../interface/SocialLink';
 import { PageContainer } from './PageContainer';
 
@@ -59,19 +60,7 @@ export function Footer() {
                 focus-visible:outline-focus
               "
             >
-              {/* Light theme */}
-              <img
-                src="/header-logo-light.svg"
-                alt=""
-                className="-mr-1.5 -mb-2.25 h-12.25 w-auto max-w-none dark:hidden"
-              />
-
-              {/* Dark theme */}
-              <img
-                src="/header-logo-dark.svg"
-                alt=""
-                className="-mr-1.5 -mb-2.25 hidden h-12.25 w-auto max-w-none dark:block"
-              />
+              <Logo />
             </Link>
 
             <div className="mt-5.75 flex items-center gap-5" aria-label="Social media links">
