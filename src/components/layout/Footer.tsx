@@ -36,7 +36,7 @@ export function Footer() {
     <footer className="bg-background text-foreground">
       <GradientDivider />
 
-      <PageContainer className="py-8">
+      <PageContainer className="pt-5.25 pb-[7.8px]">
         <div
           className="
     grid
@@ -52,6 +52,7 @@ export function Footer() {
               to={routes.home}
               aria-label="XE Design home"
               className="
+                ml-4.25
                 inline-flex
                 focus-visible:outline-2
                 focus-visible:outline-offset-4
@@ -59,13 +60,21 @@ export function Footer() {
               "
             >
               {/* Light theme */}
-              <img src="/header-logo-light.svg" alt="" className="h-14 w-auto dark:hidden" />
+              <img
+                src="/header-logo-light.svg"
+                alt=""
+                className="-mr-1.5 -mb-2.25 h-12.25 w-auto max-w-none dark:hidden"
+              />
 
               {/* Dark theme */}
-              <img src="/header-logo-dark.svg" alt="" className="hidden h-14 w-auto dark:block" />
+              <img
+                src="/header-logo-dark.svg"
+                alt=""
+                className="-mr-1.5 -mb-2.25 hidden h-12.25 w-auto max-w-none dark:block"
+              />
             </Link>
 
-            <div className="mt-5 flex items-center gap-5" aria-label="Social media links">
+            <div className="mt-5.75 flex items-center gap-5" aria-label="Social media links">
               {socialLinks.map((social) => (
                 <SocialLink
                   key={social.label}
@@ -79,7 +88,7 @@ export function Footer() {
             <a
               href="mailto:design@XEDesign.com"
               className="
-                mt-1
+                mt-2.5
                 whitespace-nowrap
                 text-body
                 text-foreground
@@ -96,17 +105,17 @@ export function Footer() {
           </div>
 
           {/* Right side */}
-          <nav aria-label="Footer navigation">
-            <ul className="flex flex-col gap-1">
+          <nav aria-label="Footer navigation" className="mr-3.5">
+            <ul className="flex flex-col gap-[8.4px]">
               {navigation.map(({ labelKey, to, end }) => (
-                <li key={to}>
+                <li key={to} className="flex">
                   <NavLink
                     to={to}
                     end={end}
                     className={({ isActive }) =>
                       [
                         'inline-flex whitespace-nowrap',
-                        'font-body text-h4 font-bold',
+                        'font-body text-body leading-display font-bold',
                         'transition-colors duration-150',
                         'hover:text-accent',
                         'focus-visible:outline-2',
@@ -128,17 +137,17 @@ export function Footer() {
         {/* Bottom row */}
         <div
           className="
-            mt-8
+            mt-[16.4px]
             grid
             grid-cols-[1fr_auto_1fr]
-            items-end
+            items-start
           "
         >
-          <div className="justify-self-start">
+          <div className="flex justify-self-start">
             <LanguageToggle />
           </div>
 
-          <p className="whitespace-nowrap text-sm text-foreground">© 2026 XE Design</p>
+          <p className="mt-1.75 whitespace-nowrap text-xs text-foreground">© 2026 XE Design</p>
 
           <div aria-hidden="true" />
         </div>
