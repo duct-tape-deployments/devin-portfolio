@@ -18,7 +18,7 @@ export function PortfolioCard({ caseStudy }: PortfolioCardProps) {
   return (
     <article className="ml-1 flex flex-col gap-3.5">
       {caseStudy.image && (
-        <div className="overflow-hidden rounded-sm shadow-glow-image">
+        <div className="overflow-hidden rounded-md shadow-glow-image">
           <img src={caseStudy.image} alt="" className="aspect-[16/7] w-full object-cover" />
         </div>
       )}
