@@ -16,10 +16,7 @@ export function WhoIAm() {
     <Section space="none" aria-labelledby="who-i-am-title">
       <PageContainer className="flex flex-col gap-6 py-9 lg:gap-15 lg:py-25">
         <div className="flex flex-col gap-5">
-          <h2
-            id="who-i-am-title"
-            className="bg-gradient-text bg-clip-text font-display text-h1 font-bold text-transparent"
-          >
+          <h2 id="who-i-am-title" className="title-gradient">
             {t.title}
           </h2>
           <p

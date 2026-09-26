@@ -352,6 +352,18 @@
     text-align: center;
   }
 
+  /* Gradient title: page titles and home section titles */
+  .title-gradient {
+    font-family: var(--font-display);
+    font-size: var(--text-h1);
+    font-weight: 700;
+    line-height: var(--text-h1--line-height);
+    background-image: var(--background-image-gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
   .page-grid {
     background-image:
       linear-gradient(to right, var(--color-grid-line) 1px, transparent 1px),

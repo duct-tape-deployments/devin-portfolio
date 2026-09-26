@@ -57,9 +57,7 @@ function CaseStudy() {
 
       <header className="mb-12">
         {caseStudy.projectName && (
-          <h1 className="mb-2 block bg-gradient-text bg-clip-text font-display text-h1 font-bold text-transparent">
-            {caseStudy.projectName}
-          </h1>
+          <h1 className="title-gradient mb-2 block">{caseStudy.projectName}</h1>
         )}
 
         {heroImage && (
