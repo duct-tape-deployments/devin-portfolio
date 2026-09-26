@@ -18,9 +18,9 @@ function UiUx() {
           "
       />
 
-      <PageContainer className="py-12 z-20 relative">
+      <PageContainer className="pt-2.5 pb-12 z-20 relative">
         <header className="mb-12">
-          <h1 className="font-display text-h1 font-bold text-foreground">UI/UX</h1>
+          <h1 className="title-gradient">UI/UX</h1>
         </header>
 
         <div className="grid gap-x-16 gap-y-16 md:grid-cols-2">
