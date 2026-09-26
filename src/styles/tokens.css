@@ -276,9 +276,7 @@
     color: var(--color-icon-accent);
     filter: drop-shadow(var(--drop-shadow-icon));
 
-    transition:
-      filter 300ms ease-in,
-      opacity 300ms ease-in;
+    transition: filter 300ms ease-in;
   }
 
   .social-link:hover {
@@ -296,9 +294,6 @@
 
   .social-link[aria-disabled='true'] {
     pointer-events: none;
-    color: var(--color-disabled);
-    opacity: 0.4;
-    filter: none;
   }
 
   .icon-button {
@@ -358,7 +353,8 @@
   }
 
   .icon-button:disabled svg,
-  .icon-button[aria-disabled='true'] svg {
+  .icon-button[aria-disabled='true'] svg,
+  .social-link[aria-disabled='true'] svg {
     opacity: 0.4;
   }
 
