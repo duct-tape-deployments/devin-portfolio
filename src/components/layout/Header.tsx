@@ -77,11 +77,10 @@ export function Header() {
       <PageContainer
         className="
           grid
-          h-15
           grid-cols-[1fr_auto_1fr]
           items-center
+          max-xl:h-15
           xl:flex
-          xl:h-auto
           xl:min-h-18
           xl:gap-8
         "
@@ -110,7 +109,6 @@ export function Header() {
                       focus-visible:outline-2
                       focus-visible:outline-offset-4
                       focus-visible:outline-focus
-                      xl:justify-self-auto
                     "
         >
           <Logo className="xl:m-0 xl:h-12" />
@@ -122,7 +120,7 @@ export function Header() {
         </div>
 
         {/* Header controls */}
-        <div className="mt-4.5 mr-0.5 flex items-center gap-2 self-start justify-self-end xl:m-0 xl:self-auto xl:justify-self-auto">
+        <div className="flex justify-self-end max-xl:mt-4.5 max-xl:mr-0.5 max-xl:self-start">
           <ThemeToggle />
         </div>
       </PageContainer>
@@ -148,7 +146,7 @@ export function Header() {
         </PageContainer>
       </div>
 
-      <GradientDivider className="absolute top-full z-10 xl:relative xl:top-auto" />
+      <GradientDivider className="relative z-10 max-xl:absolute max-xl:top-full" />
     </header>
   );
 }
