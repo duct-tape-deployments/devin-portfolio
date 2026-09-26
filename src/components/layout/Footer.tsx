@@ -95,7 +95,7 @@ export function Footer() {
 
           {/* Right side */}
           <nav aria-label="Footer navigation" className="mr-3.5">
-            <ul className="flex flex-col gap-[8.4px]">
+            <ul className="grid auto-rows-6.5">
               {navigation.map(({ labelKey, to, end }) => (
                 <li key={to} className="flex">
                   <NavLink
@@ -126,7 +126,7 @@ export function Footer() {
         {/* Bottom row */}
         <div
           className="
-            mt-[16.4px]
+            mt-2
             grid
             grid-cols-[1fr_auto_1fr]
             items-start
