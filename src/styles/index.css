@@ -103,9 +103,8 @@
     box-shadow: var(--shadow-btn);
   }
 
-  /* Hover only where a pointer can hover, like Tailwind's hover: variant. */
-  @media (hover: hover) {
-    .btn-primary:hover:not(:disabled):not([aria-disabled='true']) {
+  .btn-primary:not(:disabled):not([aria-disabled='true']) {
+    @variant hover {
       background: var(--background-image-gradient-hover);
     }
   }
@@ -138,8 +137,8 @@
     filter: drop-shadow(var(--drop-shadow-btn-icon));
   }
 
-  @media (hover: hover) {
-    .btn-outline:hover:not(:disabled):not([aria-disabled='true']) {
+  .btn-outline:not(:disabled):not([aria-disabled='true']) {
+    @variant hover {
       --btn-outline-border: var(--background-image-gradient-outline-hover);
     }
   }
@@ -196,8 +195,8 @@
     vector-effect: non-scaling-stroke;
   }
 
-  @media (hover: hover) {
-    .icon-button:hover:not(:disabled, [aria-disabled='true']) {
+  .icon-button:not(:disabled, [aria-disabled='true']) {
+    @variant hover {
       filter: drop-shadow(0 0 6px var(--icon-glow));
     }
   }
