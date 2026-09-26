@@ -134,9 +134,6 @@
     var(--color-yellow) 100%
   );
 
-  /* Icon hover glow (socials). Dark mode. Magenta for lightmode??*/
-  --shadow-glow-hover: 0px 0px 6px var(--color-yellow);
-
   --background-image-gradient-disabled: linear-gradient(
     180deg,
     rgba(13, 231, 233, 0.4) 0%,
@@ -151,7 +148,6 @@
   --btn-outline-disabled-foreground: var(--color-btn-solid-foreground);
 
   --color-focus: var(--color-magenta); /*outline*/
-  --color-disabled: rgb(from var(--color-ink) r g b / 40%);
   /* Label text + icon stroke on disabled button. */
   --color-disabled-foreground: rgb(from var(--color-paper) r g b / 40%);
   --shadow-pressed:
