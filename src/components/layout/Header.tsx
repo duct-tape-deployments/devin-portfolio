@@ -111,10 +111,10 @@ export function Header() {
                       xl:justify-self-auto
                     "
         >
-          <img src="/header-logo-light.png" alt="" className="h-10 w-auto dark:hidden xl:h-12" />
+          <img src="/header-logo-light.svg" alt="" className="h-10 w-auto dark:hidden xl:h-12" />
 
           <img
-            src="/header-logo-dark.png"
+            src="/header-logo-dark.svg"
             alt=""
             className="hidden h-10 w-auto dark:block xl:h-12"
           />

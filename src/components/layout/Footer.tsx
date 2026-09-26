@@ -59,10 +59,10 @@ export function Footer() {
               "
             >
               {/* Light theme */}
-              <img src="/header-logo-light.png" alt="" className="h-14 w-auto dark:hidden" />
+              <img src="/header-logo-light.svg" alt="" className="h-14 w-auto dark:hidden" />
 
               {/* Dark theme */}
-              <img src="/header-logo-dark.png" alt="" className="hidden h-14 w-auto dark:block" />
+              <img src="/header-logo-dark.svg" alt="" className="hidden h-14 w-auto dark:block" />
             </Link>
 
             <div className="mt-5 flex items-center gap-5" aria-label="Social media links">
