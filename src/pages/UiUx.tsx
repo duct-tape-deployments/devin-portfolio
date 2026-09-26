@@ -18,12 +18,12 @@ function UiUx() {
           "
       />
 
-      <PageContainer className="py-12 z-20 relative">
-        <header className="mb-12">
-          <h1 className="font-display text-h1 font-bold text-foreground">UI/UX</h1>
+      <PageContainer className="pt-2.5 pb-12 z-20 relative">
+        <header className="mb-8">
+          <h1 className="title-gradient">UI/UX</h1>
         </header>
 
-        <div className="grid gap-x-16 gap-y-16 md:grid-cols-2">
+        <div className="grid gap-x-16 gap-y-20.5 md:grid-cols-2">
           {caseStudies.map((caseStudy) => (
             <PortfolioCard key={caseStudy.slug} caseStudy={caseStudy} />
           ))}

@@ -25,12 +25,11 @@
   --color-badge-foreground: var(--color-ink);
   --color-btn-solid: var(--color-ink);
   --color-btn-solid-foreground: var(--color-paper);
-  --color-btn-shadow: rgb(from var(--color-ink) r g b / 25%);
+  --color-btn-shadow: rgba(6, 6, 6, 0.25);
   --color-field: var(--color-scrim-20);
   --color-card-border: var(--color-scrim-20);
   --color-card-glow: var(--color-scrim-25);
-  --color-social: var(--color-magenta);
-  --color-icon-glow: var(--color-social);
+  --color-icon-accent: var(--color-magenta);
   --color-grid-line: #c4c4c4;
 
   /* ---- Mode toggle ------------------------------------------------- */
@@ -108,7 +107,7 @@
 
   /* ---- Shadows / glow --------------------------------------------------- */
   --shadow-btn: 0px 4px 4px 0px var(--color-btn-shadow);
-  --drop-shadow-icon: 0 4px 4px var(--color-paper-25); /*filter*/
+  --drop-shadow-icon: 0 4px 4px var(--color-btn-shadow); /*filter*/
   --drop-shadow-btn-icon: 0 4px 2px var(--color-paper-25); /*filter*/
   --shadow-card: -2px -2px 18px 10px var(--color-paper-50);
   --shadow-photo: -2px -2px 18px 0px var(--color-paper-50);
@@ -208,8 +207,11 @@
     box-shadow: var(--shadow-btn);
   }
 
-  .btn-primary:hover:not(:disabled):not([aria-disabled='true']) {
-    background: var(--background-image-gradient-hover);
+  /* Hover only where a pointer can hover, like Tailwind's hover: variant. */
+  @media (hover: hover) {
+    .btn-primary:hover:not(:disabled):not([aria-disabled='true']) {
+      background: var(--background-image-gradient-hover);
+    }
   }
 
   .btn-primary:active:not(:disabled):not([aria-disabled='true']) {
@@ -240,8 +242,10 @@
     filter: drop-shadow(var(--drop-shadow-btn-icon));
   }
 
-  .btn-outline:hover:not(:disabled):not([aria-disabled='true']) {
-    --btn-outline-border: var(--background-image-gradient-outline-hover);
+  @media (hover: hover) {
+    .btn-outline:hover:not(:disabled):not([aria-disabled='true']) {
+      --btn-outline-border: var(--background-image-gradient-outline-hover);
+    }
   }
 
   .btn-outline:focus-visible {
@@ -261,55 +265,9 @@
     opacity: 1;
   }
 
-  .btn-icon {
-    width: 44px;
-    height: 44px;
-    padding: 0;
-    border-radius: 9999px;
-  }
-
-  .social-link {
-    display: inline-flex;
-    width: 2.75rem;
-    height: 2.75rem;
-    align-items: center;
-    justify-content: center;
-
-    color: var(--color-social);
-
-    filter: drop-shadow(var(--drop-shadow-icon));
-
-    transition:
-      filter 150ms ease,
-      opacity 150ms ease,
-      transform 150ms ease;
-  }
-
-  .social-link:hover {
-    filter: drop-shadow(0 0 6px var(--color-social));
-  }
-
-  .social-link:focus-visible {
-    outline: 2px solid var(--color-focus);
-    outline-offset: 1px;
-  }
-
-  .social-link:active {
-    transform: translateY(1px);
-    opacity: 0.5;
-    filter: none;
-  }
-
-  .social-link[aria-disabled='true'] {
-    pointer-events: none;
-    color: var(--color-disabled);
-    opacity: 0.4;
-    filter: none;
-  }
-
   .icon-button {
     --icon-color: var(--color-foreground);
-    --icon-glow: var(--color-icon-glow);
+    --icon-glow: var(--color-icon-accent);
     --icon-pressed-color: var(--color-paper);
 
     position: relative;
@@ -321,7 +279,10 @@
 
     color: var(--icon-color);
     cursor: pointer;
-    filter: drop-shadow(0 4px 4px var(--color-btn-shadow));
+    filter: drop-shadow(var(--drop-shadow-icon));
+    transition:
+      color 300ms ease-in,
+      filter 300ms ease-in;
   }
 
   /* Touch target: 48px on mobile, 40px on desktop */
@@ -339,8 +300,10 @@
     vector-effect: non-scaling-stroke;
   }
 
-  .icon-button:hover:not(:disabled, [aria-disabled='true']) {
-    filter: drop-shadow(0 0 6px var(--icon-glow));
+  @media (hover: hover) {
+    .icon-button:hover:not(:disabled, [aria-disabled='true']) {
+      filter: drop-shadow(0 0 6px var(--icon-glow));
+    }
   }
 
   .icon-button:focus-visible {
@@ -350,7 +313,7 @@
 
   .icon-button:active:not(:disabled, [aria-disabled='true']) {
     color: var(--icon-pressed-color);
-    filter: drop-shadow(0 4px 4px var(--color-btn-shadow));
+    filter: drop-shadow(var(--drop-shadow-icon));
   }
 
   .icon-button:active:not(:disabled, [aria-disabled='true']) svg {
@@ -361,6 +324,21 @@
   .icon-button:disabled svg,
   .icon-button[aria-disabled='true'] svg {
     opacity: 0.4;
+  }
+
+  /* Social links: .icon-button in the accent colour, which stays on press */
+  .social-link {
+    --icon-color: var(--color-icon-accent);
+    --icon-pressed-color: var(--color-icon-accent);
+  }
+
+  /* No touch target: at the 20px gap, neighbouring targets would overlap */
+  .social-link::before {
+    content: none;
+  }
+
+  .social-link[aria-disabled='true'] {
+    pointer-events: none;
   }
 
   .badge {
@@ -379,6 +357,18 @@
     font-weight: 400;
     line-height: var(--text-xs--line-height);
     text-align: center;
+  }
+
+  /* Gradient title: page titles and home section titles */
+  .title-gradient {
+    font-family: var(--font-display);
+    font-size: var(--text-h1);
+    font-weight: 700;
+    line-height: var(--text-h1--line-height);
+    background-image: var(--background-image-gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   .page-grid {
@@ -409,6 +399,6 @@
   --color-toggle-icon: #000000;
   --color-toggle-knob: #428bc1;
   --color-toggle-glow: rgba(42, 95, 158, 0.5);
-  --color-social: var(--color-yellow);
+  --color-icon-accent: var(--color-yellow);
   --color-grid-line: #414141;
 }
