@@ -23,7 +23,7 @@ export function PortfolioCard({ caseStudy }: PortfolioCardProps) {
         </div>
       )}
 
-      <div className="flex flex-col items-start">
+      <div>
         <p className="badge mb-4.25">{content.category}</p>
 
         <h2 className="text-h4 font-bold text-foreground text-shadow-drop">{content.title}</h2>
