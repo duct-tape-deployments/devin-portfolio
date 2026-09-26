@@ -107,7 +107,7 @@
 
   /* ---- Shadows / glow --------------------------------------------------- */
   --shadow-btn: 0px 4px 4px 0px var(--color-btn-shadow);
-  --drop-shadow-icon: 0 4px 4px var(--color-paper-25); /*filter*/
+  --drop-shadow-icon: 0 4px 4px var(--color-btn-shadow); /*filter*/
   --drop-shadow-btn-icon: 0 4px 2px var(--color-paper-25); /*filter*/
   --shadow-card: -2px -2px 18px 10px var(--color-paper-50);
   --shadow-photo: -2px -2px 18px 0px var(--color-paper-50);
@@ -269,8 +269,6 @@
 
   .social-link {
     display: inline-flex;
-    width: 2.75rem;
-    height: 2.75rem;
     align-items: center;
     justify-content: center;
     color: var(--color-icon-accent);
@@ -318,7 +316,7 @@
 
     color: var(--icon-color);
     cursor: pointer;
-    filter: drop-shadow(0 4px 4px var(--color-btn-shadow));
+    filter: drop-shadow(var(--drop-shadow-icon));
   }
 
   /* Touch target: 48px on mobile, 40px on desktop */
@@ -347,7 +345,7 @@
 
   .icon-button:active:not(:disabled, [aria-disabled='true']) {
     color: var(--icon-pressed-color);
-    filter: drop-shadow(0 4px 4px var(--color-btn-shadow));
+    filter: drop-shadow(var(--drop-shadow-icon));
   }
 
   .icon-button:active:not(:disabled, [aria-disabled='true']) svg {

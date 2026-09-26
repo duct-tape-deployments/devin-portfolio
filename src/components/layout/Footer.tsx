@@ -1,4 +1,4 @@
-import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { LuFacebook, LuInstagram, LuLinkedin } from 'react-icons/lu';
 import { Link, NavLink } from 'react-router';
 import { navigation, routes } from '@/config/navigation';
 
@@ -14,17 +14,17 @@ const socialLinks = [
   {
     label: 'Facebook',
     href: 'https://www.facebook.com/',
-    icon: FaFacebookF,
+    icon: LuFacebook,
   },
   {
     label: 'LinkedIn',
     href: 'https://www.linkedin.com/',
-    icon: FaLinkedinIn,
+    icon: LuLinkedin,
   },
   {
     label: 'Instagram',
     href: 'https://www.instagram.com/',
-    icon: FaInstagram,
+    icon: LuInstagram,
   },
 ] as const;
 
@@ -65,7 +65,7 @@ export function Footer() {
               <img src="/header-logo-dark.png" alt="" className="hidden h-14 w-auto dark:block" />
             </Link>
 
-            <div className="mt-5 flex items-center gap-2" aria-label="Social media links">
+            <div className="mt-5 flex items-center gap-5" aria-label="Social media links">
               {socialLinks.map((social) => (
                 <SocialLink
                   key={social.label}
