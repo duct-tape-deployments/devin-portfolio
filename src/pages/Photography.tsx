@@ -11,9 +11,7 @@ function Photography() {
     <div className="page-grid">
       <PageContainer className="pt-2.5 pb-10.25">
         <header className="mb-9.25">
-          <h1 className="bg-gradient-text bg-clip-text font-display text-h1 font-bold text-transparent">
-            {t.title}
-          </h1>
+          <h1 className="title-gradient">{t.title}</h1>
         </header>
 
         <div className="flex flex-col gap-10.5">

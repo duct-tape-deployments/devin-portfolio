@@ -184,7 +184,7 @@ export const caseStudies: CaseStudy[] = [
     content: untranslated({
       category: 'Brand Guide',
       title: 'Helping a Local Pizza Joint Better Connect with the Community',
-      description: 'A brand guide for a family run pizza restaurant beloved by the neighbourhood.',
+      description: 'A brand guide for a family-run pizza restaurant beloved by the neighbourhood.',
     }),
 
     image: '/images/case-studies/pizza-slice-card.jpg',

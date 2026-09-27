@@ -19,7 +19,7 @@ export function Testimonials() {
         <header>
           <h2
             id={titleId}
-            className={`my-2.5 block w-fit bg-gradient-text bg-clip-text font-display text-h1 font-bold text-transparent ${language === 'no' ? 'max-[389px]:text-4xl' : ''}`}
+            className={`title-gradient my-2.5 block w-fit ${language === 'no' ? 'max-[389px]:text-4xl' : ''}`}
           >
             {t.title}
           </h2>

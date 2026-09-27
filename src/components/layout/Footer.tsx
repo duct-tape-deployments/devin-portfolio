@@ -1,8 +1,9 @@
-import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { LuFacebook, LuInstagram, LuLinkedin } from 'react-icons/lu';
 import { Link, NavLink } from 'react-router';
 import { navigation, routes } from '@/config/navigation';
 
 import { GradientDivider } from '../interface/GradientDivider';
+import { Logo } from '../interface/Logo';
 import { SocialLink } from '../interface/SocialLink';
 import { PageContainer } from './PageContainer';
 
@@ -14,17 +15,17 @@ const socialLinks = [
   {
     label: 'Facebook',
     href: 'https://www.facebook.com/',
-    icon: FaFacebookF,
+    icon: LuFacebook,
   },
   {
     label: 'LinkedIn',
     href: 'https://www.linkedin.com/',
-    icon: FaLinkedinIn,
+    icon: LuLinkedin,
   },
   {
     label: 'Instagram',
     href: 'https://www.instagram.com/',
-    icon: FaInstagram,
+    icon: LuInstagram,
   },
 ] as const;
 
@@ -36,7 +37,7 @@ export function Footer() {
     <footer className="bg-background text-foreground">
       <GradientDivider />
 
-      <PageContainer className="py-8">
+      <PageContainer className="pt-5.25 pb-[7.8px]">
         <div
           className="
     grid
@@ -52,20 +53,17 @@ export function Footer() {
               to={routes.home}
               aria-label="XE Design home"
               className="
+                ml-4.25
                 inline-flex
                 focus-visible:outline-2
                 focus-visible:outline-offset-4
                 focus-visible:outline-focus
               "
             >
-              {/* Light theme */}
-              <img src="/header-logo-light.png" alt="" className="h-14 w-auto dark:hidden" />
-
-              {/* Dark theme */}
-              <img src="/header-logo-dark.png" alt="" className="hidden h-14 w-auto dark:block" />
+              <Logo />
             </Link>
 
-            <div className="mt-5 flex items-center gap-2" aria-label="Social media links">
+            <div className="mt-5.75 flex items-center gap-5" aria-label="Social media links">
               {socialLinks.map((social) => (
                 <SocialLink
                   key={social.label}
@@ -79,7 +77,7 @@ export function Footer() {
             <a
               href="mailto:design@XEDesign.com"
               className="
-                mt-1
+                mt-2.5
                 whitespace-nowrap
                 text-body
                 text-foreground
@@ -96,17 +94,17 @@ export function Footer() {
           </div>
 
           {/* Right side */}
-          <nav aria-label="Footer navigation">
-            <ul className="flex flex-col gap-1">
+          <nav aria-label="Footer navigation" className="mr-3.5">
+            <ul className="grid auto-rows-6.5">
               {navigation.map(({ labelKey, to, end }) => (
-                <li key={to}>
+                <li key={to} className="flex">
                   <NavLink
                     to={to}
                     end={end}
                     className={({ isActive }) =>
                       [
                         'inline-flex whitespace-nowrap',
-                        'font-body text-h4 font-bold',
+                        'font-body text-body leading-display font-bold',
                         'transition-colors duration-150',
                         'hover:text-accent',
                         'focus-visible:outline-2',
@@ -128,17 +126,17 @@ export function Footer() {
         {/* Bottom row */}
         <div
           className="
-            mt-8
+            mt-2
             grid
             grid-cols-[1fr_auto_1fr]
-            items-end
+            items-start
           "
         >
-          <div className="justify-self-start">
+          <div className="flex justify-self-start">
             <LanguageToggle />
           </div>
 
-          <p className="whitespace-nowrap text-sm text-foreground">© 2026 XE Design</p>
+          <p className="mt-1.75 whitespace-nowrap text-xs text-foreground">© 2026 XE Design</p>
 
           <div aria-hidden="true" />
         </div>

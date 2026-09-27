@@ -7,6 +7,7 @@ import { routes } from '@/config/navigation';
 
 import { PageContainer } from '../layout/PageContainer';
 import { GradientDivider } from '../interface/GradientDivider';
+import { Logo } from '../interface/Logo';
 import { ThemeToggle } from '../interface/ThemeToggle';
 
 export function Header() {
@@ -51,7 +52,7 @@ export function Header() {
   }, []);
 
   return (
-    <header className="relative z-50 bg-background text-foreground pt-2">
+    <header className="relative z-50 bg-background text-foreground xl:pt-2">
       <a
         href="#main-content"
         className="
@@ -76,9 +77,9 @@ export function Header() {
       <PageContainer
         className="
           grid
-          min-h-16
           grid-cols-[1fr_auto_1fr]
           items-center
+          max-xl:h-15
           xl:flex
           xl:min-h-18
           xl:gap-8
@@ -92,26 +93,9 @@ export function Header() {
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
           onClick={() => setMenuOpen((open) => !open)}
-          className="
-                      flex
-                      size-11
-                      items-center
-                      justify-center
-                      justify-self-start
-                      text-foreground
-                      transition-colors
-                      hover:text-accent
-                      focus-visible:outline-2
-                      focus-visible:outline-offset-2
-                      focus-visible:outline-focus
-                      xl:hidden
-                    "
+          className="icon-button justify-self-start xl:hidden"
         >
-          {menuOpen ? (
-            <X className="size-7" aria-hidden="true" />
-          ) : (
-            <Menu className="size-7" aria-hidden="true" />
-          )}
+          {menuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
         </button>
 
         {/* Logo / home link */}
@@ -125,16 +109,9 @@ export function Header() {
                       focus-visible:outline-2
                       focus-visible:outline-offset-4
                       focus-visible:outline-focus
-                      xl:justify-self-auto
                     "
         >
-          <img src="/header-logo-light.png" alt="" className="h-10 w-auto dark:hidden xl:h-12" />
-
-          <img
-            src="/header-logo-dark.png"
-            alt=""
-            className="hidden h-10 w-auto dark:block xl:h-12"
-          />
+          <Logo className="xl:m-0 xl:h-12" />
         </Link>
 
         {/* Desktop navigation */}
@@ -143,7 +120,7 @@ export function Header() {
         </div>
 
         {/* Header controls */}
-        <div className="flex items-center justify-self-end gap-2 xl:justify-self-auto">
+        <div className="flex justify-self-end max-xl:mt-4.5 max-xl:mr-0.5 max-xl:self-start">
           <ThemeToggle />
         </div>
       </PageContainer>
@@ -169,7 +146,7 @@ export function Header() {
         </PageContainer>
       </div>
 
-      <GradientDivider className="relative z-10" />
+      <GradientDivider className="relative z-10 max-xl:absolute max-xl:top-full" />
     </header>
   );
 }

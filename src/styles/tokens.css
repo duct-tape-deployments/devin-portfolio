@@ -25,13 +25,15 @@
   --color-badge-foreground: var(--color-ink);
   --color-btn-solid: var(--color-ink);
   --color-btn-solid-foreground: var(--color-paper);
-  --color-btn-shadow: rgb(from var(--color-ink) r g b / 25%);
+  /* Literal, not rgb(from var(--color-ink) ...): that computes to color(srgb ...), which
+     Chromium animates wrong in drop-shadow transitions (grey/green first frames). */
+  --color-btn-shadow: rgba(6, 6, 6, 0.25);
   --color-field: var(--color-scrim-20);
   --color-card-border: var(--color-scrim-20);
   --color-card-glow: var(--color-scrim-25);
-  --color-social: var(--color-magenta);
-  --color-icon-glow: var(--color-social);
+  --color-icon-accent: var(--color-magenta);
   --color-grid-line: #c4c4c4;
+  --color-pattern-wash: rgba(255, 255, 255, 0.6); /* over the UI/UX background pattern */
 
   /* ---- Mode toggle ------------------------------------------------- */
   --color-toggle-track: #ffffff;
@@ -108,7 +110,7 @@
 
   /* ---- Shadows / glow --------------------------------------------------- */
   --shadow-btn: 0px 4px 4px 0px var(--color-btn-shadow);
-  --drop-shadow-icon: 0 4px 4px var(--color-paper-25); /*filter*/
+  --drop-shadow-icon: 0 4px 4px var(--color-btn-shadow); /*filter*/
   --drop-shadow-btn-icon: 0 4px 2px var(--color-paper-25); /*filter*/
   --shadow-card: -2px -2px 18px 10px var(--color-paper-50);
   --shadow-photo: -2px -2px 18px 0px var(--color-paper-50);
@@ -135,9 +137,6 @@
     var(--color-yellow) 100%
   );
 
-  /* Icon hover glow (socials). Dark mode. Magenta for lightmode??*/
-  --shadow-glow-hover: 0px 0px 6px var(--color-yellow);
-
   --background-image-gradient-disabled: linear-gradient(
     180deg,
     rgba(13, 231, 233, 0.4) 0%,
@@ -152,7 +151,6 @@
   --btn-outline-disabled-foreground: var(--color-btn-solid-foreground);
 
   --color-focus: var(--color-magenta); /*outline*/
-  --color-disabled: rgb(from var(--color-ink) r g b / 40%);
   /* Label text + icon stroke on disabled button. */
   --color-disabled-foreground: rgb(from var(--color-paper) r g b / 40%);
   --shadow-pressed:
@@ -162,232 +160,6 @@
   /* ---- Layout --------------------------------------------------------
      Tailwind default (sm/md/lg/xl/2xl)?? */
   --container-content: 900px;
-}
-
-@layer components {
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.8125rem;
-
-    width: fit-content;
-    min-height: 42px;
-    padding: 0.5625rem 0.5rem;
-
-    border-radius: 9999px;
-
-    font-size: var(--text-label);
-    font-family: var(--font-display);
-    font-weight: 700;
-    line-height: var(--text-label--line-height);
-
-    cursor: pointer;
-
-    transition:
-      background 150ms ease,
-      box-shadow 150ms ease,
-      opacity 150ms ease,
-      transform 150ms ease;
-  }
-
-  .btn:focus-visible {
-    outline: 2px solid var(--color-focus);
-    outline-offset: -2px;
-  }
-
-  .btn:disabled,
-  .btn[aria-disabled='true'] {
-    cursor: not-allowed;
-    opacity: 0.4;
-  }
-
-  .btn-primary {
-    background: var(--background-image-gradient);
-    color: var(--color-btn-solid-foreground);
-    box-shadow: var(--shadow-btn);
-  }
-
-  .btn-primary:hover:not(:disabled):not([aria-disabled='true']) {
-    background: var(--background-image-gradient-hover);
-  }
-
-  .btn-primary:active:not(:disabled):not([aria-disabled='true']) {
-    background: var(--background-image-gradient);
-    box-shadow: var(--shadow-pressed);
-  }
-
-  .btn-primary:disabled,
-  .btn-primary[aria-disabled='true'] {
-    background: var(--background-image-gradient-disabled);
-    color: var(--color-disabled-foreground);
-    opacity: 1;
-  }
-
-  .btn-outline {
-    --btn-outline-border: var(--background-image-gradient-outline);
-    --btn-outline-fill: var(--color-btn-solid);
-    color: var(--color-btn-solid-foreground);
-    border: 1px solid transparent;
-    padding: calc(0.5625rem - 1px) calc(0.5rem - 1px);
-    background:
-      linear-gradient(var(--btn-outline-fill), var(--btn-outline-fill)) padding-box,
-      var(--btn-outline-border) border-box var(--btn-outline-fill);
-    box-shadow: var(--shadow-btn);
-  }
-
-  .btn-outline svg {
-    filter: drop-shadow(var(--drop-shadow-btn-icon));
-  }
-
-  .btn-outline:hover:not(:disabled):not([aria-disabled='true']) {
-    --btn-outline-border: var(--background-image-gradient-outline-hover);
-  }
-
-  .btn-outline:focus-visible {
-    --btn-outline-border: linear-gradient(var(--color-btn-solid), var(--color-btn-solid));
-  }
-
-  .btn-outline:active:not(:disabled):not([aria-disabled='true']) {
-    --btn-outline-border: var(--background-image-gradient-outline);
-    box-shadow: var(--shadow-pressed);
-  }
-
-  .btn-outline:disabled,
-  .btn-outline[aria-disabled='true'] {
-    --btn-outline-fill: color-mix(in srgb, var(--color-btn-solid) 40%, var(--color-background));
-    --btn-outline-border: var(--background-image-gradient-outline-disabled);
-    color: var(--btn-outline-disabled-foreground);
-    opacity: 1;
-  }
-
-  .btn-icon {
-    width: 44px;
-    height: 44px;
-    padding: 0;
-    border-radius: 9999px;
-  }
-
-  .social-link {
-    display: inline-flex;
-    width: 2.75rem;
-    height: 2.75rem;
-    align-items: center;
-    justify-content: center;
-
-    color: var(--color-social);
-
-    filter: drop-shadow(var(--drop-shadow-icon));
-
-    transition:
-      filter 150ms ease,
-      opacity 150ms ease,
-      transform 150ms ease;
-  }
-
-  .social-link:hover {
-    filter: drop-shadow(0 0 6px var(--color-social));
-  }
-
-  .social-link:focus-visible {
-    outline: 2px solid var(--color-focus);
-    outline-offset: 1px;
-  }
-
-  .social-link:active {
-    transform: translateY(1px);
-    opacity: 0.5;
-    filter: none;
-  }
-
-  .social-link[aria-disabled='true'] {
-    pointer-events: none;
-    color: var(--color-disabled);
-    opacity: 0.4;
-    filter: none;
-  }
-
-  .icon-button {
-    --icon-color: var(--color-foreground);
-    --icon-glow: var(--color-icon-glow);
-    --icon-pressed-color: var(--color-paper);
-
-    position: relative;
-    display: inline-flex;
-    width: 24px;
-    height: 24px;
-    align-items: center;
-    justify-content: center;
-
-    color: var(--icon-color);
-    cursor: pointer;
-    filter: drop-shadow(0 4px 4px var(--color-btn-shadow));
-  }
-
-  /* Touch target: 48px on mobile, 40px on desktop */
-  .icon-button::before {
-    content: '';
-    position: absolute;
-    inset: -12px;
-
-    @variant lg {
-      inset: -8px;
-    }
-  }
-
-  .icon-button svg * {
-    vector-effect: non-scaling-stroke;
-  }
-
-  .icon-button:hover:not(:disabled, [aria-disabled='true']) {
-    filter: drop-shadow(0 0 6px var(--icon-glow));
-  }
-
-  .icon-button:focus-visible {
-    outline: 2px solid var(--color-focus);
-    outline-offset: -2px;
-  }
-
-  .icon-button:active:not(:disabled, [aria-disabled='true']) {
-    color: var(--icon-pressed-color);
-    filter: drop-shadow(0 4px 4px var(--color-btn-shadow));
-  }
-
-  .icon-button:active:not(:disabled, [aria-disabled='true']) svg {
-    width: 22px;
-    height: 22px;
-  }
-
-  .icon-button:disabled svg,
-  .icon-button[aria-disabled='true'] svg {
-    opacity: 0.4;
-  }
-
-  .badge {
-    display: inline-flex;
-    width: fit-content;
-    min-width: 94px;
-    height: 22px;
-    align-items: center;
-    justify-content: center;
-    padding-inline: 12px;
-    border-radius: 4px;
-    background: var(--color-badge);
-    color: var(--color-badge-foreground);
-    font-family: var(--font-body);
-    font-size: var(--text-xs);
-    font-weight: 400;
-    line-height: var(--text-xs--line-height);
-    text-align: center;
-  }
-
-  .page-grid {
-    background-image:
-      linear-gradient(to right, var(--color-grid-line) 1px, transparent 1px),
-      linear-gradient(to bottom, var(--color-grid-line) 1px, transparent 1px);
-    background-size: 33px 38px;
-    background-position: 30px 40px;
-  }
 }
 
 .dark {
@@ -409,6 +181,7 @@
   --color-toggle-icon: #000000;
   --color-toggle-knob: #428bc1;
   --color-toggle-glow: rgba(42, 95, 158, 0.5);
-  --color-social: var(--color-yellow);
+  --color-icon-accent: var(--color-yellow);
   --color-grid-line: #414141;
+  --color-pattern-wash: rgba(0, 0, 0, 0.8);
 }
