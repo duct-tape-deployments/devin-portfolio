@@ -63,7 +63,11 @@ export function Footer() {
               <Logo />
             </Link>
 
-            <div className="mt-5.75 flex items-center gap-5" aria-label="Social media links">
+            <div
+              className="mt-5.75 flex items-center gap-5"
+              role="group"
+              aria-label="Social media links"
+            >
               {socialLinks.map((social) => (
                 <SocialLink
                   key={social.label}

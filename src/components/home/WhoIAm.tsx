@@ -33,7 +33,10 @@ export function WhoIAm() {
             <figure className="lg:flex lg:flex-col lg:gap-6 lg:rounded-2xl lg:border lg:border-card-border lg:p-10 lg:shadow-quote-card">
               <Quote aria-hidden="true" className="hidden size-6 lg:block" />
 
-              <blockquote className="indent-6 lg:indent-0 lg:font-open-sans lg:text-xl lg:leading-body lg:italic">
+              <blockquote
+                lang="en"
+                className="indent-6 lg:indent-0 lg:font-open-sans lg:text-xl lg:leading-body lg:italic"
+              >
                 {t.quote}
               </blockquote>
 

@@ -21,6 +21,7 @@ export function TestimonialQuote({ testimonial }: TestimonialQuoteProps) {
 
   return (
     <figure
+      lang="en"
       className="relative box-content pr-6"
       style={{ width: textWidth, paddingLeft: textOffset }}
     >
