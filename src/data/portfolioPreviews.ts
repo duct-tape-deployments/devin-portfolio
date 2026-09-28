@@ -7,7 +7,6 @@ export type PortfolioPreview = {
   title: Localized<string>;
   subtitle: Localized<string>;
   image: string;
-  imageClassName: string;
 };
 
 export const portfolioPreviews: PortfolioPreview[] = [
@@ -19,7 +18,6 @@ export const portfolioPreviews: PortfolioPreview[] = [
       no: 'Moderne grensesnitt med et kreativt preg',
     },
     image: '/images/home/portfolio-ui-ux.jpg',
-    imageClassName: 'aspect-[350/247]',
   },
   {
     to: routes.photography,
@@ -29,14 +27,11 @@ export const portfolioPreviews: PortfolioPreview[] = [
       no: 'Spesialisert i natur, portrett og mat',
     },
     image: '/images/home/portfolio-photography.jpg',
-    imageClassName: 'aspect-[350/247]',
   },
   {
     to: routes.videography,
     title: { en: 'Video Portfolio', no: 'Videoportefølje' },
     subtitle: { en: 'Bringing Concerts to Life', no: 'Gir liv til konserter' },
     image: '/images/home/portfolio-videography.jpg',
-    // Portrait photo: Figma shows the singer's face, near the top
-    imageClassName: 'aspect-[350/247] object-[center_10%]',
   },
 ];

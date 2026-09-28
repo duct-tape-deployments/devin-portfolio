@@ -42,7 +42,7 @@ function PreviewItem({ preview }: { preview: Preview }) {
         alt=""
         loading="lazy"
         decoding="async"
-        className={`mt-8 w-full rounded-md object-cover shadow-card ${preview.imageClassName}`}
+        className="mt-8 aspect-350/247 w-full rounded-md object-cover shadow-card"
       />
       <Link to={preview.to} className="btn btn-primary mt-8 self-center">
         {t.viewPortfolio}
