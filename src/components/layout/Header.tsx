@@ -162,7 +162,7 @@ export function Header() {
           ${menuOpen ? 'block' : 'hidden'}
         `}
       >
-        <div className="p-4">
+        <div className="px-4 py-2">
           <Navigation
             orientation="vertical"
             ariaLabel={t.accessibility.mobileNavigation}
