@@ -13,6 +13,7 @@ import { ThemeToggle } from '../interface/ThemeToggle';
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   function closeMenu() {
     setMenuOpen(false);
@@ -28,10 +29,20 @@ export function Header() {
       }
     }
 
+    function handlePointerDown(event: PointerEvent) {
+      if (!(event.target instanceof Node)) return;
+      if (menuRef.current?.contains(event.target)) return;
+      if (menuButtonRef.current?.contains(event.target)) return;
+
+      setMenuOpen(false);
+    }
+
     document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('pointerdown', handlePointerDown);
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('pointerdown', handlePointerDown);
     };
   }, [menuOpen]);
 
@@ -127,23 +138,24 @@ export function Header() {
 
       {/* Mobile navigation */}
       <div
+        ref={menuRef}
         id="mobile-navigation"
         className={`
           absolute
           left-0
           top-full
-          w-full
-          border-t
-          border-border
+          mt-px
+          w-53.5
           bg-background
           shadow-soft
+          dark:shadow-card
           xl:hidden
           ${menuOpen ? 'block' : 'hidden'}
         `}
       >
-        <PageContainer className="py-6">
+        <div className="p-4">
           <Navigation orientation="vertical" ariaLabel="Mobile navigation" onNavigate={closeMenu} />
-        </PageContainer>
+        </div>
       </div>
 
       <GradientDivider className="relative z-10 max-xl:absolute max-xl:top-full" />

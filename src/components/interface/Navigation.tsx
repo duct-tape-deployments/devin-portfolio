@@ -15,7 +15,9 @@ export function Navigation({ orientation = 'horizontal', onNavigate, ariaLabel }
   const t = getTranslations(language);
 
   const listClasses =
-    orientation === 'horizontal' ? 'flex items-center gap-6' : 'flex flex-col gap-4';
+    orientation === 'horizontal'
+      ? 'flex items-center gap-6'
+      : 'flex flex-col gap-4 text-h2 leading-tight';
 
   const translatedAriaLabel = ariaLabel ?? t.accessibility.mainNavigation;
 
@@ -23,7 +25,7 @@ export function Navigation({ orientation = 'horizontal', onNavigate, ariaLabel }
     <nav aria-label={translatedAriaLabel}>
       <ul className={listClasses}>
         {navigation.map(({ labelKey, to, end }) => (
-          <li key={to}>
+          <li key={to} className="flex">
             <NavLink
               to={to}
               end={end}

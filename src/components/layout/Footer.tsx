@@ -37,7 +37,7 @@ export function Footer() {
     <footer className="bg-background text-foreground">
       <GradientDivider />
 
-      <PageContainer className="pt-5.25 pb-[7.8px]">
+      <PageContainer className="pt-5.25 pb-2">
         <div
           className="
     grid
@@ -84,7 +84,6 @@ export function Footer() {
                 mt-2.5
                 whitespace-nowrap
                 text-body
-                text-foreground
                 transition-colors
                 hover:text-accent
                 focus-visible:outline-2
@@ -140,7 +139,7 @@ export function Footer() {
             <LanguageToggle />
           </div>
 
-          <p className="mt-1.75 whitespace-nowrap text-xs text-foreground">© 2026 XE Design</p>
+          <p className="mt-1.75 whitespace-nowrap text-xs">© 2026 XE Design</p>
 
           <div aria-hidden="true" />
         </div>
