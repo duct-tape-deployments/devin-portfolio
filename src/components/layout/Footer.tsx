@@ -37,7 +37,7 @@ export function Footer() {
     <footer className="bg-background text-foreground">
       <GradientDivider />
 
-      <PageContainer className="pt-5.25 pb-[7.8px]">
+      <PageContainer className="pt-5.25 pb-2">
         <div
           className="
     grid
@@ -51,7 +51,7 @@ export function Footer() {
           <div className="flex min-w-0 flex-col items-start">
             <Link
               to={routes.home}
-              aria-label="XE Design home"
+              aria-label={t.accessibility.homeLink}
               className="
                 ml-4.25
                 inline-flex
@@ -66,7 +66,7 @@ export function Footer() {
             <div
               className="mt-5.75 flex items-center gap-5"
               role="group"
-              aria-label="Social media links"
+              aria-label={t.accessibility.socialLinks}
             >
               {socialLinks.map((social) => (
                 <SocialLink
@@ -84,7 +84,6 @@ export function Footer() {
                 mt-2.5
                 whitespace-nowrap
                 text-body
-                text-foreground
                 transition-colors
                 hover:text-accent
                 focus-visible:outline-2
@@ -98,7 +97,7 @@ export function Footer() {
           </div>
 
           {/* Right side */}
-          <nav aria-label="Footer navigation" className="mr-3.5">
+          <nav aria-label={t.accessibility.footerNavigation} className="mr-3.5">
             <ul className="grid auto-rows-6.5">
               {navigation.map(({ labelKey, to, end }) => (
                 <li key={to} className="flex">
@@ -140,7 +139,7 @@ export function Footer() {
             <LanguageToggle />
           </div>
 
-          <p className="mt-1.75 whitespace-nowrap text-xs text-foreground">© 2026 XE Design</p>
+          <p className="mt-1.75 whitespace-nowrap text-xs">© 2026 XE Design</p>
 
           <div aria-hidden="true" />
         </div>
