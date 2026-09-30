@@ -4,6 +4,8 @@ import { Link } from 'react-router';
 
 import { Navigation } from '../interface/Navigation';
 import { routes } from '@/config/navigation';
+import { getTranslations } from '@/i18n/translations';
+import { useLanguageStore } from '@/stores/languageStore';
 
 import { PageContainer } from '../layout/PageContainer';
 import { GradientDivider } from '../interface/GradientDivider';
@@ -11,6 +13,8 @@ import { Logo } from '../interface/Logo';
 import { ThemeToggle } from '../interface/ThemeToggle';
 
 export function Header() {
+  const language = useLanguageStore((state) => state.language);
+  const t = getTranslations(language);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -82,7 +86,7 @@ export function Header() {
           focus:outline-focus
         "
       >
-        Skip to main content
+        {t.accessibility.skipToContent}
       </a>
 
       <PageContainer
@@ -100,7 +104,7 @@ export function Header() {
         <button
           ref={menuButtonRef}
           type="button"
-          aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
+          aria-label={t.accessibility.menu}
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
           onClick={() => setMenuOpen((open) => !open)}
@@ -112,7 +116,7 @@ export function Header() {
         {/* Logo / home link */}
         <Link
           to={routes.home}
-          aria-label="XE Design home"
+          aria-label={t.accessibility.homeLink}
           onClick={closeMenu}
           className="
                       justify-self-center
@@ -154,7 +158,11 @@ export function Header() {
         `}
       >
         <div className="p-4">
-          <Navigation orientation="vertical" ariaLabel="Mobile navigation" onNavigate={closeMenu} />
+          <Navigation
+            orientation="vertical"
+            ariaLabel={t.accessibility.mobileNavigation}
+            onNavigate={closeMenu}
+          />
         </div>
       </div>
 
