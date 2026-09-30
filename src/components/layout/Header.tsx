@@ -157,6 +157,7 @@ export function Header() {
           bg-background
           shadow-soft
           dark:shadow-card
+          [clip-path:inset(0_-50px_-50px_-50px)]
           lg:hidden
           ${menuOpen ? 'block' : 'hidden'}
         `}
