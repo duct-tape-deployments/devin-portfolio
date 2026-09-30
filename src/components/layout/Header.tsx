@@ -68,7 +68,7 @@ export function Header() {
   }, []);
 
   return (
-    <header className="relative z-50 bg-background text-foreground xl:pt-2">
+    <header className="relative z-50 bg-background text-foreground lg:pt-2">
       <a
         href="#main-content"
         className="
@@ -95,10 +95,10 @@ export function Header() {
           grid
           grid-cols-[1fr_auto_1fr]
           items-center
-          max-xl:h-15
-          xl:flex
-          xl:min-h-18
-          xl:gap-8
+          max-lg:h-16
+          lg:flex
+          lg:min-h-18
+          lg:gap-8
         "
       >
         {/* Mobile menu button */}
@@ -109,7 +109,7 @@ export function Header() {
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
           onClick={() => setMenuOpen((open) => !open)}
-          className="icon-button justify-self-start xl:hidden"
+          className="icon-button justify-self-start lg:hidden"
         >
           {menuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
         </button>
@@ -127,16 +127,16 @@ export function Header() {
                       focus-visible:outline-focus
                     "
         >
-          <Logo className="xl:m-0 xl:h-12" />
+          <Logo className="lg:m-0 lg:h-12" />
         </Link>
 
         {/* Desktop navigation */}
-        <div className="hidden flex-1 justify-center xl:flex">
+        <div className="hidden flex-1 justify-center lg:flex">
           <Navigation orientation="horizontal" />
         </div>
 
         {/* Header controls */}
-        <div className="flex items-center gap-5 justify-self-end max-xl:mt-4.5 max-xl:mr-0.5 max-xl:self-start">
+        <div className="flex items-center gap-5 justify-self-end">
           <div className="hidden md:flex">
             <LanguageToggle />
           </div>
@@ -157,7 +157,7 @@ export function Header() {
           bg-background
           shadow-soft
           dark:shadow-card
-          xl:hidden
+          lg:hidden
           ${menuOpen ? 'block' : 'hidden'}
         `}
       >
@@ -170,7 +170,7 @@ export function Header() {
         </div>
       </div>
 
-      <GradientDivider className="relative z-10 max-xl:absolute max-xl:top-full" />
+      <GradientDivider className="relative z-10 max-lg:absolute max-lg:top-full" />
     </header>
   );
 }
