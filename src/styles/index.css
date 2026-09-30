@@ -237,10 +237,6 @@
     content: none;
   }
 
-  .social-link[aria-disabled='true'] {
-    pointer-events: none;
-  }
-
   .badge {
     display: flex;
     width: fit-content;

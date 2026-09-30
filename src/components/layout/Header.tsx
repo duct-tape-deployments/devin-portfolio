@@ -9,6 +9,7 @@ import { useLanguageStore } from '@/stores/languageStore';
 
 import { PageContainer } from '../layout/PageContainer';
 import { GradientDivider } from '../interface/GradientDivider';
+import { LanguageToggle } from '../interface/LanguageToggle';
 import { Logo } from '../interface/Logo';
 import { ThemeToggle } from '../interface/ThemeToggle';
 
@@ -135,7 +136,10 @@ export function Header() {
         </div>
 
         {/* Header controls */}
-        <div className="flex justify-self-end max-xl:mt-4.5 max-xl:mr-0.5 max-xl:self-start">
+        <div className="flex items-center gap-5 justify-self-end max-xl:mt-4.5 max-xl:mr-0.5 max-xl:self-start">
+          <div className="hidden md:flex">
+            <LanguageToggle />
+          </div>
           <ThemeToggle />
         </div>
       </PageContainer>
