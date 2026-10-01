@@ -14,8 +14,8 @@ export function WhoIAm() {
 
   return (
     <Section space="none" aria-labelledby="who-i-am-title">
-      <PageContainer className="flex flex-col gap-6 py-9 lg:gap-15 lg:py-25">
-        <div className="flex flex-col gap-5">
+      <PageContainer className="flex flex-col gap-8 py-16 lg:py-24">
+        <div className="flex flex-col gap-4">
           <h2 id="who-i-am-title" className="title-gradient">
             {t.title}
           </h2>
@@ -27,10 +27,10 @@ export function WhoIAm() {
         </div>
 
         <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between lg:gap-x-12">
-          <div className="max-w-prose lg:min-w-0 lg:basis-145">
+          <div className="flex max-w-prose flex-col gap-4 lg:min-w-0 lg:basis-145">
             <p className="lg:hidden">{t.intro}</p>
 
-            <figure className="lg:flex lg:flex-col lg:gap-6 lg:rounded-2xl lg:border lg:border-card-border lg:p-10 lg:shadow-quote-card">
+            <figure className="lg:flex lg:flex-col lg:gap-6 lg:rounded-2xl lg:border lg:border-card-border lg:p-6 lg:shadow-quote-card">
               <Quote aria-hidden="true" className="hidden size-6 lg:block" />
 
               <blockquote
@@ -51,24 +51,20 @@ export function WhoIAm() {
             </figure>
           </div>
 
-          <div className="flex flex-col gap-6 lg:min-w-0 lg:basis-150 lg:gap-10">
+          <div className="flex flex-col gap-6 lg:min-w-0 lg:basis-150 lg:gap-8">
             <GradientDivider className="mx-auto max-w-50.5 lg:hidden" />
 
             <p className="max-w-prose lg:leading-[1.8] lg:text-muted-foreground">{t.outro}</p>
 
-            <div className="flex flex-wrap justify-between gap-x-8 gap-y-8 md:justify-start md:gap-x-24 lg:grid lg:grid-cols-[minmax(0,260px)_minmax(0,260px)] lg:justify-between lg:gap-x-0">
+            <div className="flex flex-wrap justify-between gap-x-6 gap-y-8 md:justify-start md:gap-x-24 lg:grid lg:grid-cols-[minmax(0,260px)_minmax(0,260px)] lg:justify-between lg:gap-x-0">
               {skillGroups.map(({ title, items }) => (
                 <div key={title}>
                   <h3 className="font-display text-h2 font-bold text-shadow-drop">{title}</h3>
 
-                  <ul className="mt-5 flex flex-col gap-2.5 lg:gap-5">
+                  <ul className="mt-4 flex flex-col gap-3 lg:gap-4">
                     {items.map((skill) => (
-                      <li key={skill} className="flex items-center gap-3.5">
-                        <Circle
-                          size={14}
-                          absoluteStrokeWidth
-                          className="mx-px shrink-0 text-cyan"
-                        />
+                      <li key={skill} className="flex items-center gap-2">
+                        <Circle size={16} absoluteStrokeWidth className="shrink-0 text-cyan" />
                         {skill}
                       </li>
                     ))}
