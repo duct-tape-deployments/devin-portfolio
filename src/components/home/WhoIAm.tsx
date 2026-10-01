@@ -1,4 +1,4 @@
-import { Circle, Quote } from 'lucide-react';
+import { Circle } from 'lucide-react';
 
 import { GradientDivider } from '@/components/interface/GradientDivider';
 import { PageContainer } from '@/components/layout/PageContainer';
@@ -20,58 +20,47 @@ export function WhoIAm() {
             {t.title}
           </h2>
           <p
-            className={`font-display text-h1 font-bold wrap-break-word text-shadow-drop ${language === 'no' ? 'max-[392px]:text-4xl' : ''}`}
+            className={`font-display text-h1 font-bold wrap-break-word text-shadow-drop md:text-balance ${language === 'no' ? 'max-[392px]:text-4xl' : ''}`}
           >
             {t.tagline}
           </p>
         </div>
 
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between lg:gap-x-12">
-          <div className="flex max-w-prose flex-col gap-4 lg:min-w-0 lg:basis-145">
-            <p className="lg:hidden">{t.intro}</p>
+        <div className="flex flex-col gap-6 md:grid md:grid-cols-8 md:grid-rows-[auto_auto_1fr] md:gap-x-5 lg:grid-cols-12 lg:grid-rows-[auto_1fr] lg:gap-x-6 lg:gap-y-8">
+          <div className="flex max-w-prose flex-col gap-4 md:col-start-1 md:col-end-6 md:row-start-1 lg:row-end-3">
+            <p>{t.intro}</p>
 
-            <figure className="lg:flex lg:flex-col lg:gap-6 lg:rounded-2xl lg:border lg:border-card-border lg:p-6 lg:shadow-quote-card">
-              <Quote aria-hidden="true" className="hidden size-6 lg:block" />
+            <figure lang="en">
+              <blockquote className="indent-6">{t.quote}</blockquote>
 
-              <blockquote
-                lang="en"
-                className="indent-6 lg:indent-0 lg:font-open-sans lg:text-xl lg:leading-body lg:italic"
-              >
-                {t.quote}
-              </blockquote>
-
-              <figcaption className="mt-2 lg:mt-0 lg:flex lg:flex-col lg:gap-1">
-                <span className="block text-h3 lg:text-h4 lg:leading-5.5 lg:font-bold lg:text-accent">
-                  {t.quoteAuthor}
-                </span>
-                <cite className="block text-label not-italic lg:font-open-sans lg:text-sm lg:leading-4.75 lg:text-muted-foreground">
-                  {t.quoteSource}
-                </cite>
+              <figcaption className="mt-2">
+                <span className="block text-h3">{t.quoteAuthor}</span>
+                <cite className="block text-label not-italic">{t.quoteSource}</cite>
               </figcaption>
             </figure>
           </div>
 
-          <div className="flex flex-col gap-6 lg:min-w-0 lg:basis-150 lg:gap-8">
-            <GradientDivider className="mx-auto max-w-50.5 lg:hidden" />
+          <GradientDivider className="mx-auto max-w-50.5 md:col-start-1 md:col-end-6 md:row-start-2 lg:col-start-6 lg:col-end-8 lg:row-start-1 lg:row-end-3 lg:h-auto lg:w-px lg:bg-gradient-divider-vertical" />
 
-            <p className="max-w-prose lg:leading-[1.8] lg:text-muted-foreground">{t.outro}</p>
+          <p className="max-w-prose md:col-start-1 md:col-end-6 md:row-start-3 lg:col-start-8 lg:col-end-13 lg:row-start-1">
+            {t.outro}
+          </p>
 
-            <div className="flex flex-wrap justify-between gap-x-6 gap-y-8 md:justify-start md:gap-x-24 lg:grid lg:grid-cols-[minmax(0,260px)_minmax(0,260px)] lg:justify-between lg:gap-x-0">
-              {skillGroups.map(({ title, items }) => (
-                <div key={title}>
-                  <h3 className="font-display text-h2 font-bold text-shadow-drop">{title}</h3>
+          <div className="flex flex-wrap justify-between gap-x-6 gap-y-8 md:col-start-6 md:col-end-9 md:row-start-1 md:row-end-4 md:flex-col md:justify-start md:self-start lg:col-start-8 lg:col-end-13 lg:row-start-2 lg:row-end-3 lg:grid lg:grid-cols-2">
+            {skillGroups.map(({ title, items }) => (
+              <div key={title}>
+                <h3 className="font-display text-h2 font-bold text-shadow-drop">{title}</h3>
 
-                  <ul className="mt-4 flex flex-col gap-3 lg:gap-4">
-                    {items.map((skill) => (
-                      <li key={skill} className="flex items-center gap-2">
-                        <Circle size={16} absoluteStrokeWidth className="shrink-0 text-cyan" />
-                        {skill}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
+                <ul className="mt-4 flex flex-col gap-3 lg:gap-4">
+                  {items.map((skill) => (
+                    <li key={skill} className="flex items-center gap-2">
+                      <Circle size={16} absoluteStrokeWidth className="shrink-0 text-cyan" />
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </PageContainer>
