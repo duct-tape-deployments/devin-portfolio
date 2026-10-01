@@ -2,47 +2,33 @@ import { Quote } from 'lucide-react';
 
 import type { Testimonial } from '@/data/testimonials';
 
-const defaultIconSize = 24;
-
 type TestimonialQuoteProps = {
   testimonial: Testimonial;
 };
 
 export function TestimonialQuote({ testimonial }: TestimonialQuoteProps) {
-  const {
-    quote,
-    author,
-    textWidth,
-    textOffset,
-    closingIconTop,
-    openingIconSize = defaultIconSize,
-    closingIconSize = defaultIconSize,
-  } = testimonial;
+  const { quote, author } = testimonial;
+  const lastSpace = quote.lastIndexOf(' ');
 
   return (
-    <figure
-      lang="en"
-      className="relative box-content pr-6"
-      style={{ width: textWidth, paddingLeft: textOffset }}
-    >
+    <figure lang="en" className="relative pl-8">
       <Quote
         aria-hidden="true"
-        size={openingIconSize}
-        className="absolute top-0.75 left-0 -scale-x-100 text-cyan"
+        size={24}
+        className="absolute top-0 left-0 -scale-x-100 text-cyan"
       />
 
-      <blockquote className="relative pb-5">
-        <p className="pt-0.75">{quote}</p>
-
-        <Quote
-          aria-hidden="true"
-          size={closingIconSize}
-          className="absolute left-full text-cyan"
-          style={{ top: closingIconTop }}
-        />
+      <blockquote className="w-53.5">
+        <p>
+          {quote.slice(0, lastSpace + 1)}
+          <span className="whitespace-nowrap">
+            {quote.slice(lastSpace + 1)}
+            <Quote aria-hidden="true" size={24} className="ml-2 inline-block align-top text-cyan" />
+          </span>
+        </p>
       </blockquote>
 
-      {author && <figcaption className="mt-1 text-xs">{author}</figcaption>}
+      {author && <figcaption className="mt-6 max-w-53.5 text-xs">{author}</figcaption>}
     </figure>
   );
 }
