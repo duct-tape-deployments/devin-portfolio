@@ -226,13 +226,32 @@
     opacity: 0.4;
   }
 
-  /* Social links: .icon-button in the accent colour, which stays on press */
+  .icon-button-on-photo {
+    @variant max-md {
+      --icon-color: var(--color-paper);
+      --icon-halo: drop-shadow(0 0 1px var(--color-ink)) drop-shadow(0 0 2px var(--color-ink));
+      filter: var(--icon-halo);
+    }
+  }
+
+  .icon-button-on-photo:not(:disabled, [aria-disabled='true']) {
+    @variant max-md {
+      @variant hover {
+        filter: var(--icon-halo) drop-shadow(0 0 6px var(--icon-glow));
+      }
+    }
+  }
+
+  .icon-button-on-photo:active:not(:disabled, [aria-disabled='true']) {
+    @variant max-md {
+      filter: var(--icon-halo);
+    }
+  }
+
   .social-link {
     --icon-color: var(--color-icon-accent);
     --icon-pressed-color: var(--color-icon-accent);
   }
-
-  /* No touch target: at the 20px gap, neighbouring targets would overlap */
   .social-link::before {
     content: none;
   }
@@ -259,7 +278,6 @@
     text-align: center;
   }
 
-  /* Gradient title: page titles and home section titles */
   .title-gradient {
     @apply font-display text-h1 font-bold bg-gradient-text bg-clip-text text-transparent;
   }

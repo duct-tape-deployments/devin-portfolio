@@ -76,7 +76,7 @@ export function PhotoCarousel({
           aria-label={nextLabel}
           aria-controls={rowId}
           aria-disabled={atEnd}
-          className={`${chevronClasses} max-md:right-[4.14%]`}
+          className={`${chevronClasses} icon-button-on-photo max-md:right-[4.14%]`}
         >
           <ChevronRight aria-hidden="true" />
         </button>
