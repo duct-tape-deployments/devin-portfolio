@@ -9,12 +9,12 @@ function Photography() {
 
   return (
     <div className="page-grid">
-      <PageContainer className="pt-2.5 pb-10.25">
-        <header className="mb-9.25">
+      <PageContainer className="pt-2.5 pb-16 lg:pb-24">
+        <header className="mb-8">
           <h1 className="title-gradient">{t.title}</h1>
         </header>
 
-        <div className="flex flex-col gap-10.5">
+        <div className="flex flex-col gap-12 lg:gap-16">
           {photographyCategories.map((category, index) => (
             <PhotographyCategorySection
               key={category.slug}
