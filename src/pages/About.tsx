@@ -1,4 +1,5 @@
 import { PageContainer } from '@/components/layout/PageContainer';
+import { PageTitle } from '@/components/layout/PageTitle';
 import { aboutMe } from '@/i18n/aboutMe';
 import { useT } from '@/stores/languageStore';
 
@@ -7,6 +8,7 @@ function About() {
 
   return (
     <PageContainer className="pt-2.5 pb-16 lg:pb-24">
+      <PageTitle page="about" />
       <header className="mb-4">
         <h1 className="title-gradient">{t.title}</h1>
       </header>
