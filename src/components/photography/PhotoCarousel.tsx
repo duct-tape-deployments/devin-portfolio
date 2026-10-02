@@ -13,7 +13,8 @@ type PhotoCarouselProps = {
 };
 
 const THUMB_MIN_WIDTH_PERCENT = (11.05 / 30.11) * 100;
-const chevronClasses = 'icon-button absolute top-1/2 -translate-y-1/2';
+const chevronClasses =
+  'icon-button shrink-0 max-md:absolute max-md:top-1/2 max-md:-translate-y-1/2';
 
 export function PhotoCarousel({
   images,
@@ -28,15 +29,15 @@ export function PhotoCarousel({
   });
 
   return (
-    <div className="-ml-1.25 -mr-1">
-      <div className="relative">
+    <div>
+      <div className="relative md:flex md:items-center md:gap-4">
         <button
           type="button"
           onClick={() => scrollByItem(-1)}
           aria-label={previousLabel}
           aria-controls={rowId}
           aria-disabled={atStart}
-          className={`${chevronClasses} left-0`}
+          className={`${chevronClasses} max-md:left-0`}
         >
           <ChevronLeft aria-hidden="true" />
         </button>
@@ -47,7 +48,7 @@ export function PhotoCarousel({
           role="list"
           tabIndex={0}
           aria-label={label}
-          className="ml-[7.46%] flex snap-x snap-mandatory gap-8 overflow-x-auto scrollbar-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+          className="flex snap-x snap-mandatory gap-8 overflow-x-auto scrollbar-none max-md:ml-[7.46%] md:min-w-0 md:flex-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
         >
           {images.map((image, index) => {
             const eager = priority && index === 0;
@@ -75,13 +76,16 @@ export function PhotoCarousel({
           aria-label={nextLabel}
           aria-controls={rowId}
           aria-disabled={atEnd}
-          className={`${chevronClasses} right-[4.14%]`}
+          className={`${chevronClasses} max-md:right-[4.14%]`}
         >
           <ChevronRight aria-hidden="true" />
         </button>
       </div>
 
-      <ScrollProgress thumbRef={thumbRef} className="mt-3.5 ml-[38.67%] w-[30.11%]" />
+      <ScrollProgress
+        thumbRef={thumbRef}
+        className="mt-3.5 w-[30.11%] max-md:ml-[38.67%] md:mx-auto"
+      />
     </div>
   );
 }
