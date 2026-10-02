@@ -84,7 +84,7 @@ export function PhotoCarousel({
 
       <ScrollProgress
         thumbRef={thumbRef}
-        className="mt-3.5 w-[30.11%] max-md:ml-[38.67%] md:mx-auto"
+        className="mt-4 w-[30.11%] max-md:ml-[38.67%] md:mx-auto"
       />
     </div>
   );
