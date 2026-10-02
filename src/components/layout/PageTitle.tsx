@@ -9,7 +9,6 @@ type PageTitleProps = { page: NavigationLabelKey } | { name: string };
 
 /**
  * Sets the browser tab title to "<page> – XE Design" (the home page gets just "XE Design").
- * React 19 hoists the <title> into <head>.
  *
  * @example
  * <PageTitle page="about" />
