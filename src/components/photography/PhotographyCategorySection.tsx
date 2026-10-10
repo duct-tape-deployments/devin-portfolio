@@ -28,7 +28,7 @@ export function PhotographyCategorySection({
 
   return (
     <Section space="none" aria-labelledby={titleId} className="flex flex-col">
-      <h2 id={titleId} className="badge mb-9">
+      <h2 id={titleId} className="badge mb-8">
         {title}
       </h2>
 
@@ -40,7 +40,7 @@ export function PhotographyCategorySection({
         priority={priority}
       />
 
-      <Link to={`${routes.photography}/${category.slug}`} className="btn btn-primary mt-3.75 w-fit">
+      <Link to={`${routes.photography}/${category.slug}`} className="btn btn-primary mt-4 w-fit">
         {t.viewAll}
         <span className="sr-only"> {t.viewAllCategory(title)}</span>
 
