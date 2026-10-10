@@ -1,7 +1,8 @@
-import { useId, useRef } from 'react';
+import { useId } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-import { useCarouselScroll } from './useCarouselScroll';
+import { ScrollProgress } from '@/components/interface/ScrollProgress';
+import { useCarouselScroll } from '@/hooks/useCarouselScroll';
 
 type PhotoCarouselProps = {
   images: { src: string; alt: string }[];
@@ -11,8 +12,9 @@ type PhotoCarouselProps = {
   priority?: boolean;
 };
 
-const INDICATOR_MIN_WIDTH_PERCENT = (11.05 / 30.11) * 100;
-const chevronClasses = 'icon-button absolute top-1/2 -translate-y-1/2';
+const THUMB_MIN_WIDTH_PERCENT = (11.05 / 30.11) * 100;
+const chevronClasses =
+  'icon-button shrink-0 max-md:absolute max-md:top-1/2 max-md:-translate-y-1/2';
 
 export function PhotoCarousel({
   images,
@@ -22,30 +24,20 @@ export function PhotoCarousel({
   priority = false,
 }: PhotoCarouselProps) {
   const rowId = useId();
-  const indicatorRef = useRef<HTMLDivElement>(null);
-
-  const { rowRef, atStart, atEnd, scrollByItem } = useCarouselScroll(
-    ({ visibleFraction, scrollFraction }) => {
-      const indicator = indicatorRef.current;
-      if (!indicator) return;
-
-      const width = Math.max(INDICATOR_MIN_WIDTH_PERCENT, 100 * visibleFraction);
-
-      indicator.style.width = `${width}%`;
-      indicator.style.transform = `translateX(${((100 - width) / width) * scrollFraction * 100}%)`;
-    },
-  );
+  const { rowRef, thumbRef, atStart, atEnd, scrollByItem } = useCarouselScroll({
+    minThumbPercent: THUMB_MIN_WIDTH_PERCENT,
+  });
 
   return (
-    <div className="-ml-1.25 -mr-1">
-      <div className="relative">
+    <div>
+      <div className="relative md:flex md:items-center md:gap-4">
         <button
           type="button"
           onClick={() => scrollByItem(-1)}
           aria-label={previousLabel}
           aria-controls={rowId}
           aria-disabled={atStart}
-          className={`${chevronClasses} left-0`}
+          className={`${chevronClasses} max-md:left-0`}
         >
           <ChevronLeft aria-hidden="true" />
         </button>
@@ -56,7 +48,7 @@ export function PhotoCarousel({
           role="list"
           tabIndex={0}
           aria-label={label}
-          className="ml-[7.46%] flex snap-x snap-mandatory gap-8 overflow-x-auto scrollbar-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+          className="flex snap-x snap-mandatory gap-8 overflow-x-auto scrollbar-none max-md:ml-[7.46%] md:min-w-0 md:flex-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
         >
           {images.map((image, index) => {
             const eager = priority && index === 0;
@@ -84,22 +76,16 @@ export function PhotoCarousel({
           aria-label={nextLabel}
           aria-controls={rowId}
           aria-disabled={atEnd}
-          className={`${chevronClasses} right-[4.14%]`}
+          className={`${chevronClasses} icon-button-on-photo max-md:right-[4.14%]`}
         >
           <ChevronRight aria-hidden="true" />
         </button>
       </div>
 
-      <div
-        aria-hidden="true"
-        className="relative mt-3.5 ml-[38.67%] h-3 w-[30.11%] rounded-full bg-cyan"
-      >
-        <div
-          ref={indicatorRef}
-          className="absolute inset-y-0 left-0 rounded-full bg-magenta"
-          style={{ width: `${INDICATOR_MIN_WIDTH_PERCENT}%` }}
-        />
-      </div>
+      <ScrollProgress
+        thumbRef={thumbRef}
+        className="mt-4 w-[30.11%] max-md:ml-[38.67%] md:mx-auto"
+      />
     </div>
   );
 }
