@@ -4,15 +4,21 @@ import { Link } from 'react-router';
 
 import { Navigation } from '../interface/Navigation';
 import { routes } from '@/config/navigation';
+import { getTranslations } from '@/i18n/translations';
+import { useLanguageStore } from '@/stores/languageStore';
 
 import { PageContainer } from '../layout/PageContainer';
 import { GradientDivider } from '../interface/GradientDivider';
+import { LanguageToggle } from '../interface/LanguageToggle';
 import { Logo } from '../interface/Logo';
 import { ThemeToggle } from '../interface/ThemeToggle';
 
 export function Header() {
+  const language = useLanguageStore((state) => state.language);
+  const t = getTranslations(language);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   function closeMenu() {
     setMenuOpen(false);
@@ -28,10 +34,20 @@ export function Header() {
       }
     }
 
+    function handlePointerDown(event: PointerEvent) {
+      if (!(event.target instanceof Node)) return;
+      if (menuRef.current?.contains(event.target)) return;
+      if (menuButtonRef.current?.contains(event.target)) return;
+
+      setMenuOpen(false);
+    }
+
     document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('pointerdown', handlePointerDown);
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('pointerdown', handlePointerDown);
     };
   }, [menuOpen]);
 
@@ -52,7 +68,7 @@ export function Header() {
   }, []);
 
   return (
-    <header className="relative z-50 bg-background text-foreground xl:pt-2">
+    <header className="relative z-50 bg-background text-foreground lg:pt-2">
       <a
         href="#main-content"
         className="
@@ -71,7 +87,7 @@ export function Header() {
           focus:outline-focus
         "
       >
-        Skip to main content
+        {t.accessibility.skipToContent}
       </a>
 
       <PageContainer
@@ -79,21 +95,21 @@ export function Header() {
           grid
           grid-cols-[1fr_auto_1fr]
           items-center
-          max-xl:h-15
-          xl:flex
-          xl:min-h-18
-          xl:gap-8
+          max-lg:h-16
+          lg:flex
+          lg:min-h-18
+          lg:gap-8
         "
       >
         {/* Mobile menu button */}
         <button
           ref={menuButtonRef}
           type="button"
-          aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
+          aria-label={t.accessibility.menu}
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
           onClick={() => setMenuOpen((open) => !open)}
-          className="icon-button justify-self-start xl:hidden"
+          className="icon-button justify-self-start lg:hidden"
         >
           {menuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
         </button>
@@ -101,7 +117,7 @@ export function Header() {
         {/* Logo / home link */}
         <Link
           to={routes.home}
-          aria-label="XE Design home"
+          aria-label={t.accessibility.homeLink}
           onClick={closeMenu}
           className="
                       justify-self-center
@@ -111,42 +127,51 @@ export function Header() {
                       focus-visible:outline-focus
                     "
         >
-          <Logo className="xl:m-0 xl:h-12" />
+          <Logo className="lg:m-0 lg:h-12" />
         </Link>
 
         {/* Desktop navigation */}
-        <div className="hidden flex-1 justify-center xl:flex">
+        <div className="hidden flex-1 justify-center lg:flex">
           <Navigation orientation="horizontal" />
         </div>
 
         {/* Header controls */}
-        <div className="flex justify-self-end max-xl:mt-4.5 max-xl:mr-0.5 max-xl:self-start">
+        <div className="flex items-center gap-5 justify-self-end">
+          <div className="hidden md:flex">
+            <LanguageToggle />
+          </div>
           <ThemeToggle />
         </div>
       </PageContainer>
 
       {/* Mobile navigation */}
       <div
+        ref={menuRef}
         id="mobile-navigation"
         className={`
           absolute
           left-0
           top-full
-          w-full
-          border-t
-          border-border
+          mt-px
+          w-53.5
           bg-background
           shadow-soft
-          xl:hidden
+          dark:shadow-card
+          [clip-path:inset(0_-50px_-50px_-50px)]
+          lg:hidden
           ${menuOpen ? 'block' : 'hidden'}
         `}
       >
-        <PageContainer className="py-6">
-          <Navigation orientation="vertical" ariaLabel="Mobile navigation" onNavigate={closeMenu} />
-        </PageContainer>
+        <div className="px-4 py-2">
+          <Navigation
+            orientation="vertical"
+            ariaLabel={t.accessibility.mobileNavigation}
+            onNavigate={closeMenu}
+          />
+        </div>
       </div>
 
-      <GradientDivider className="relative z-10 max-xl:absolute max-xl:top-full" />
+      <GradientDivider className="relative z-10 max-lg:absolute max-lg:top-full" />
     </header>
   );
 }
