@@ -2,6 +2,7 @@ import { Link, Navigate, useParams } from 'react-router';
 
 import { GradientDivider } from '@/components/interface/GradientDivider';
 import { PageContainer } from '@/components/layout/PageContainer';
+import { PageTitle } from '@/components/layout/PageTitle';
 import { CaseStudyGallery } from '@/components/portfolio/CaseStudyGallery';
 import { getCaseStudy } from '@/data/caseStudies';
 import { caseStudyLabels } from '@/i18n/caseStudyLabels';
@@ -48,6 +49,7 @@ function CaseStudy() {
 
   return (
     <PageContainer className="py-12">
+      <PageTitle name={caseStudy.projectName ?? content.title} />
       <Link
         to="/ui-ux"
         className="mb-8 inline-flex text-sm font-semibold text-accent hover:underline"

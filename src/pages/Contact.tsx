@@ -5,6 +5,7 @@ import type { ReactNode, SubmitEvent } from 'react';
 import { ContactHeaderArt } from '@/components/contact/ContactHeaderArt';
 import { FileDropZone } from '@/components/contact/FileDropZone';
 import { PageContainer } from '@/components/layout/PageContainer';
+import { PageTitle } from '@/components/layout/PageTitle';
 import { contact } from '@/i18n/contact';
 import { useT } from '@/stores/languageStore';
 
@@ -43,6 +44,7 @@ function Contact() {
 
   return (
     <div className="relative overflow-hidden">
+      <PageTitle page="contact" />
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <picture>
           <source srcSet="/images/contact-background.avif" type="image/avif" />

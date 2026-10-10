@@ -1,10 +1,12 @@
 import { PortfolioCard } from '@/components/portfolio/PortfolioCard';
 import { PageContainer } from '@/components/layout/PageContainer';
+import { PageTitle } from '@/components/layout/PageTitle';
 import { caseStudies } from '@/data/caseStudies';
 
 function UiUx() {
   return (
     <div className="relative overflow-hidden bg-background">
+      <PageTitle page="uiUx" />
       <div
         aria-hidden="true"
         className="
