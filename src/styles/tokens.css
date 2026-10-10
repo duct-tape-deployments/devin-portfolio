@@ -25,15 +25,16 @@
   --color-badge-foreground: var(--color-ink);
   --color-btn-solid: var(--color-ink);
   --color-btn-solid-foreground: var(--color-paper);
-  /* Literal, not rgb(from var(--color-ink) ...): that computes to color(srgb ...), which
-     Chromium animates wrong in drop-shadow transitions (grey/green first frames). */
   --color-btn-shadow: rgba(6, 6, 6, 0.25);
   --color-field: var(--color-scrim-20);
+  --color-dropzone: rgba(49, 49, 49, 0.2);
+  --color-error: #a4001d;
   --color-card-border: var(--color-scrim-20);
   --color-card-glow: var(--color-scrim-25);
   --color-icon-accent: var(--color-magenta);
   --color-grid-line: #c4c4c4;
   --color-pattern-wash: rgba(255, 255, 255, 0.6); /* over the UI/UX background pattern */
+  --color-photo-scrim: rgba(0, 0, 0, 0.5); /* over the contact background photo */
 
   /* ---- Mode toggle ------------------------------------------------- */
   --color-toggle-track: #ffffff;
@@ -157,8 +158,7 @@
     0px 4px 4px 0px var(--color-btn-shadow),
     inset 0px 4px 4px 0px rgb(from var(--color-magenta) r g b / 70%);
 
-  /* ---- Layout --------------------------------------------------------
-     Tailwind default (sm/md/lg/xl/2xl)?? */
+  /* ---- Layout ------------------------------------------------------- */
   --container-content: 900px;
 }
 
@@ -172,6 +172,8 @@
   --color-border: var(--color-paper);
   --color-accent: var(--color-cyan);
   --color-field: #313131;
+  --color-dropzone: var(--color-field);
+  --color-error: #ff8a80;
   --color-card-border: #1c1d21;
   --color-card-glow: rgb(from var(--color-paper) r g b / 6.27%);
   --color-btn-shadow: var(--color-paper-25);
@@ -184,4 +186,5 @@
   --color-icon-accent: var(--color-yellow);
   --color-grid-line: #414141;
   --color-pattern-wash: rgba(0, 0, 0, 0.8);
+  --color-photo-scrim: rgba(0, 0, 0, 0.7);
 }
