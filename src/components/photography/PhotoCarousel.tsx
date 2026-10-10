@@ -1,7 +1,8 @@
-import { useId, useRef } from 'react';
+import { useId } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-import { useCarouselScroll } from './useCarouselScroll';
+import { ScrollProgress } from '@/components/interface/ScrollProgress';
+import { useCarouselScroll } from '@/hooks/useCarouselScroll';
 
 type PhotoCarouselProps = {
   images: { src: string; alt: string }[];
@@ -11,7 +12,7 @@ type PhotoCarouselProps = {
   priority?: boolean;
 };
 
-const INDICATOR_MIN_WIDTH_PERCENT = (11.05 / 30.11) * 100;
+const THUMB_MIN_WIDTH_PERCENT = (11.05 / 30.11) * 100;
 const chevronClasses = 'icon-button absolute top-1/2 -translate-y-1/2';
 
 export function PhotoCarousel({
@@ -22,19 +23,9 @@ export function PhotoCarousel({
   priority = false,
 }: PhotoCarouselProps) {
   const rowId = useId();
-  const indicatorRef = useRef<HTMLDivElement>(null);
-
-  const { rowRef, atStart, atEnd, scrollByItem } = useCarouselScroll(
-    ({ visibleFraction, scrollFraction }) => {
-      const indicator = indicatorRef.current;
-      if (!indicator) return;
-
-      const width = Math.max(INDICATOR_MIN_WIDTH_PERCENT, 100 * visibleFraction);
-
-      indicator.style.width = `${width}%`;
-      indicator.style.transform = `translateX(${((100 - width) / width) * scrollFraction * 100}%)`;
-    },
-  );
+  const { rowRef, thumbRef, atStart, atEnd, scrollByItem } = useCarouselScroll({
+    minThumbPercent: THUMB_MIN_WIDTH_PERCENT,
+  });
 
   return (
     <div className="-ml-1.25 -mr-1">
@@ -90,16 +81,7 @@ export function PhotoCarousel({
         </button>
       </div>
 
-      <div
-        aria-hidden="true"
-        className="relative mt-3.5 ml-[38.67%] h-3 w-[30.11%] rounded-full bg-cyan"
-      >
-        <div
-          ref={indicatorRef}
-          className="absolute inset-y-0 left-0 rounded-full bg-magenta"
-          style={{ width: `${INDICATOR_MIN_WIDTH_PERCENT}%` }}
-        />
-      </div>
+      <ScrollProgress thumbRef={thumbRef} className="mt-3.5 ml-[38.67%] w-[30.11%]" />
     </div>
   );
 }
