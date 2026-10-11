@@ -35,7 +35,7 @@ function PreviewItem({ preview }: { preview: Preview }) {
     >
       <h2
         id={titleId}
-        className={`title-gradient w-fit md:col-start-2 md:row-start-2 md:group-even:col-start-1 ${language === 'no' ? 'max-[381px]:text-4xl' : ''}`}
+        className={`title-gradient w-fit md:col-start-2 md:row-start-2 md:group-even:col-start-1 lg:max-xl:text-h2 lg:max-xl:leading-display ${language === 'no' ? 'max-[381px]:text-4xl' : ''}`}
       >
         {title}
       </h2>

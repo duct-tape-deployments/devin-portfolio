@@ -26,7 +26,9 @@ export function PortfolioCard({ caseStudy }: PortfolioCardProps) {
       <div>
         <p className="badge mb-4.25">{content.category}</p>
 
-        <h2 className="text-h4 font-bold text-foreground text-shadow-drop">{content.title}</h2>
+        <h2 className="text-h5 leading-display font-bold text-foreground text-shadow-drop">
+          {content.title}
+        </h2>
 
         <p className="mt-6 text-body leading-display text-foreground text-shadow-drop">
           {content.description}

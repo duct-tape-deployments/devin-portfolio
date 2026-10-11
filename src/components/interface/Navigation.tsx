@@ -15,9 +15,7 @@ export function Navigation({ orientation = 'horizontal', onNavigate, ariaLabel }
   const t = getTranslations(language);
 
   const listClasses =
-    orientation === 'horizontal'
-      ? 'flex items-center gap-6'
-      : 'flex flex-col text-h2 leading-tight';
+    orientation === 'horizontal' ? 'flex items-center gap-6' : 'flex flex-col text-h3';
 
   const linkPadding = orientation === 'horizontal' ? 'py-3' : 'py-2';
   const pillPosition =
