@@ -75,7 +75,7 @@ export function Header() {
           sr-only
           focus:not-sr-only
           focus:absolute
-          focus:left-gutter
+          focus:left-page-margin
           focus:top-2
           focus:z-[60]
           focus:bg-background

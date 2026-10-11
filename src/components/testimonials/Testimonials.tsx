@@ -40,7 +40,7 @@ export function Testimonials() {
         </header>
 
         {/* Touch swipes, mouse users get chevrons and progress bar */}
-        <div className="mt-8 flex items-center gap-4">
+        <div className="mt-8 flex items-center gap-4 pointer-fine:justify-center">
           <button
             type="button"
             onClick={() => scrollByItem(-1)}
@@ -58,7 +58,7 @@ export function Testimonials() {
             role="list"
             aria-labelledby={subtitleId}
             tabIndex={0}
-            className="flex min-w-0 flex-1 snap-x snap-mandatory gap-8 overflow-x-auto scrollbar-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+            className="flex min-w-0 flex-1 snap-x snap-mandatory gap-(--carousel-gap) overflow-x-auto scrollbar-none [--carousel-gap:32px] [--carousel-item:246px] pointer-fine:carousel-row-fit focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
           >
             {testimonials.map((testimonial) => (
               <li key={testimonial.id} className="shrink-0 snap-start">

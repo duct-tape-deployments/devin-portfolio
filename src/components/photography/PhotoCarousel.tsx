@@ -30,7 +30,7 @@ export function PhotoCarousel({
 
   return (
     <div>
-      <div className="relative md:flex md:items-center md:gap-4">
+      <div className="relative md:flex md:items-center md:justify-center md:gap-4">
         <button
           type="button"
           onClick={() => scrollByItem(-1)}
@@ -48,7 +48,7 @@ export function PhotoCarousel({
           role="list"
           tabIndex={0}
           aria-label={label}
-          className="flex snap-x snap-mandatory gap-8 overflow-x-auto scrollbar-none max-md:ml-[7.46%] md:min-w-0 md:flex-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+          className="flex snap-x snap-mandatory gap-(--carousel-gap) overflow-x-auto scrollbar-none [--carousel-gap:32px] [--carousel-item:220px] max-md:ml-[7.46%] md:min-w-0 md:flex-1 md:carousel-row-fit focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
         >
           {images.map((image, index) => {
             const eager = priority && index === 0;
@@ -63,7 +63,7 @@ export function PhotoCarousel({
                   loading={eager ? 'eager' : 'lazy'}
                   fetchPriority={eager ? 'high' : undefined}
                   decoding="async"
-                  className="block size-55 object-cover shadow-photo"
+                  className="block size-(--carousel-item) object-cover shadow-photo"
                 />
               </li>
             );

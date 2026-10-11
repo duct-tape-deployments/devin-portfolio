@@ -12,6 +12,14 @@
   }
 }
 
+@utility carousel-row-fit {
+  max-width: max(
+    round(down, 100% - 80px + var(--carousel-gap), var(--carousel-item) + var(--carousel-gap)) -
+      var(--carousel-gap),
+    min(var(--carousel-item), 100% - 80px)
+  );
+}
+
 @layer base {
   :root {
     color-scheme: light;

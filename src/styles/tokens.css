@@ -112,7 +112,7 @@
   --leading-body: 1.6;
 
   /* ---- Spacing-----------------------------------------------------------*/
-  --spacing-gutter: 20px;
+  --spacing-page-margin: 20px; /* grid side margin: 20 mobile, 24 tablet, 32 desktop */
 
   /* ---- Shadows / glow --------------------------------------------------- */
   --shadow-btn: 0px 4px 4px 0px var(--color-btn-shadow);
@@ -163,12 +163,16 @@
     inset 0px 4px 4px 0px rgb(from var(--color-magenta) r g b / 70%);
 
   /* ---- Layout ------------------------------------------------------- */
-  --container-content: 900px;
+  --container-content: 1280px; /* max width including the side margins */
 }
 
-/* Desktop type scale from lg: bigger h1-h4, line heights unchanged */
 :root {
+  @variant md {
+    --spacing-page-margin: 24px;
+  }
+
   @variant lg {
+    --spacing-page-margin: 32px;
     --text-h1: 56px;
     --text-h2: 40px;
     --text-h3: 32px;
