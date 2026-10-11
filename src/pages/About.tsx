@@ -10,7 +10,7 @@ function About() {
     <PageContainer className={pageSpacing}>
       <PageTitle page="about" />
       <div className="flex flex-col gap-4 sm:grid sm:grid-cols-8 sm:items-start sm:gap-x-5 lg:grid-cols-[167px_35rem] lg:justify-center lg:gap-x-16">
-        <header className="sm:col-span-full">
+        <header className="sm:col-span-full md:mb-4">
           <h1 className="title-gradient">{t.title}</h1>
         </header>
 
