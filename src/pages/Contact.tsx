@@ -4,7 +4,7 @@ import type { ReactNode, SubmitEvent } from 'react';
 
 import { ContactHeaderArt } from '@/components/contact/ContactHeaderArt';
 import { FileDropZone } from '@/components/contact/FileDropZone';
-import { PageContainer } from '@/components/layout/PageContainer';
+import { PageContainer, pageSpacing } from '@/components/layout/PageContainer';
 import { PageTitle } from '@/components/layout/PageTitle';
 import { contact } from '@/i18n/contact';
 import { useT } from '@/stores/languageStore';
@@ -60,7 +60,7 @@ function Contact() {
         <div className="absolute inset-0 bg-photo-scrim" />
       </div>
 
-      <PageContainer className="relative pt-2.5 pb-16 lg:pb-24">
+      <PageContainer className={`relative ${pageSpacing}`}>
         <div className="md:grid md:grid-cols-8 md:gap-x-5 lg:grid-cols-12 lg:gap-x-6">
           <div className="md:col-span-6 md:col-start-2 lg:col-span-8 lg:col-start-3">
             <header className="relative mb-8 min-h-33.25">

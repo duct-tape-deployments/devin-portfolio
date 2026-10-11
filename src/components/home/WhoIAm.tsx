@@ -13,8 +13,8 @@ export function WhoIAm() {
   const skillGroups = [t.hardSkills, t.softSkills];
 
   return (
-    <Section space="none" aria-labelledby="who-i-am-title">
-      <PageContainer className="flex flex-col gap-8 py-16 lg:py-24">
+    <Section aria-labelledby="who-i-am-title">
+      <PageContainer className="flex flex-col gap-8">
         <div className="flex flex-col gap-4">
           <h2 id="who-i-am-title" className="title-gradient">
             {t.title}

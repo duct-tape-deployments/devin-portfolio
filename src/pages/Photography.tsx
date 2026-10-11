@@ -1,5 +1,5 @@
 import { PhotographyCategorySection } from '@/components/photography/PhotographyCategorySection';
-import { PageContainer } from '@/components/layout/PageContainer';
+import { PageContainer, pageSpacing } from '@/components/layout/PageContainer';
 import { PageTitle } from '@/components/layout/PageTitle';
 import { photographyCategories } from '@/data/photographyCategories';
 import { photographyLabels } from '@/i18n/photographyLabels';
@@ -11,7 +11,7 @@ function Photography() {
   return (
     <div className="page-grid">
       <PageTitle page="photography" />
-      <PageContainer className="pt-2.5 pb-16 lg:pb-24">
+      <PageContainer className={pageSpacing}>
         <header className="mb-8">
           <h1 className="title-gradient">{t.title}</h1>
         </header>

@@ -1,9 +1,8 @@
 import type { ComponentPropsWithRef } from 'react';
 
-/** `default` 128px between sections · `tight` 72px · `none` for a page's first section or places needing to set their own spacing (e.g images) */
+/** `default` design-system section padding: 64px mobile, 96px desktop · `none` for places that set their own spacing (a page's first section uses `pageSpacing`) */
 const spacing = {
-  default: 'py-16 lg:py-20',
-  tight: 'py-9 lg:py-12',
+  default: 'py-16 lg:py-24',
   none: '',
 } as const;
 

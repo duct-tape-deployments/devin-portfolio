@@ -1,5 +1,5 @@
 import { PortfolioCard } from '@/components/portfolio/PortfolioCard';
-import { PageContainer } from '@/components/layout/PageContainer';
+import { PageContainer, pageSpacing } from '@/components/layout/PageContainer';
 import { PageTitle } from '@/components/layout/PageTitle';
 import { caseStudies } from '@/data/caseStudies';
 
@@ -18,7 +18,7 @@ function UiUx() {
           "
       />
 
-      <PageContainer className="pt-2.5 pb-12 relative">
+      <PageContainer className={`relative ${pageSpacing}`}>
         <header className="mb-8">
           <h1 className="title-gradient">UI/UX</h1>
         </header>
