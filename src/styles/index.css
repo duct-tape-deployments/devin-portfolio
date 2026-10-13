@@ -12,6 +12,30 @@
   }
 }
 
+@utility carousel-row-fit {
+  max-width: max(
+    round(down, 100% - 80px + var(--carousel-gap), var(--carousel-item) + var(--carousel-gap)) -
+      var(--carousel-gap),
+    min(var(--carousel-item), 100% - 80px)
+  );
+}
+
+@utility icon-button-on-photo {
+  --icon-color: var(--color-paper);
+  --icon-halo: drop-shadow(0 0 1px var(--color-ink)) drop-shadow(0 0 2px var(--color-ink));
+  filter: var(--icon-halo);
+
+  &:not(:disabled, [aria-disabled='true']) {
+    @variant hover {
+      filter: var(--icon-halo) drop-shadow(0 0 6px var(--icon-glow));
+    }
+  }
+
+  &:active:not(:disabled, [aria-disabled='true']) {
+    filter: var(--icon-halo);
+  }
+}
+
 @layer base {
   :root {
     color-scheme: light;
@@ -232,28 +256,6 @@
   .icon-button:disabled svg,
   .icon-button[aria-disabled='true'] svg {
     opacity: 0.4;
-  }
-
-  .icon-button-on-photo {
-    @variant max-md {
-      --icon-color: var(--color-paper);
-      --icon-halo: drop-shadow(0 0 1px var(--color-ink)) drop-shadow(0 0 2px var(--color-ink));
-      filter: var(--icon-halo);
-    }
-  }
-
-  .icon-button-on-photo:not(:disabled, [aria-disabled='true']) {
-    @variant max-md {
-      @variant hover {
-        filter: var(--icon-halo) drop-shadow(0 0 6px var(--icon-glow));
-      }
-    }
-  }
-
-  .icon-button-on-photo:active:not(:disabled, [aria-disabled='true']) {
-    @variant max-md {
-      filter: var(--icon-halo);
-    }
   }
 
   .social-link {
