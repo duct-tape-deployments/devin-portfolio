@@ -1,12 +1,15 @@
 import { Link, Navigate, useParams } from 'react-router';
 
 import { GradientDivider } from '@/components/interface/GradientDivider';
-import { PageContainer } from '@/components/layout/PageContainer';
+import { PageContainer, pageSpacing } from '@/components/layout/PageContainer';
 import { PageTitle } from '@/components/layout/PageTitle';
 import { CaseStudyGallery } from '@/components/portfolio/CaseStudyGallery';
 import { getCaseStudy } from '@/data/caseStudies';
 import { caseStudyLabels } from '@/i18n/caseStudyLabels';
 import { useLanguageStore, useT } from '@/stores/languageStore';
+
+const sectionHeading =
+  'font-display text-h5 leading-display font-bold text-foreground text-shadow-drop lg:text-h4';
 
 function CaseStudy() {
   const { slug } = useParams();
@@ -48,104 +51,102 @@ function CaseStudy() {
     })) ?? [];
 
   return (
-    <PageContainer className="py-12">
+    <PageContainer className={pageSpacing}>
       <PageTitle name={caseStudy.projectName ?? content.title} />
-      <Link
-        to="/ui-ux"
-        className="mb-8 inline-flex text-sm font-semibold text-accent hover:underline"
-      >
-        ← UI/UX
-      </Link>
+      <header className="relative mb-12">
+        <Link
+          to="/ui-ux"
+          className="mb-4 flex w-fit text-sm font-semibold text-accent hover:underline lg:absolute lg:bottom-full"
+        >
+          ← UI/UX
+        </Link>
 
-      <header className="mb-12">
         {caseStudy.projectName && (
-          <h1 className="title-gradient mb-2 block">{caseStudy.projectName}</h1>
+          <h1 className="title-gradient mb-8 block">{caseStudy.projectName}</h1>
         )}
 
-        {heroImage && (
-          <img
-            src={heroImage.src}
-            alt={heroImage.alt}
-            className="mb-12 aspect-video w-full rounded-2xl object-cover shadow-glow-image"
-          />
-        )}
+        <div
+          className={heroImage ? 'lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-6' : undefined}
+        >
+          {heroImage && (
+            <img
+              src={heroImage.src}
+              alt={heroImage.alt}
+              className="mb-6 aspect-video w-full rounded-2xl object-cover shadow-glow-image lg:col-span-7 lg:mb-0"
+            />
+          )}
 
-        <p className="badge">{content.category}</p>
+          <div className="lg:order-first lg:col-span-5">
+            <p className="badge">{content.category}</p>
 
-        <h2 className="mt-2 max-w-3xl font-display text-h5 leading-display font-bold text-foreground text-shadow-drop lg:text-h4">
-          {content.title}
-        </h2>
+            <h2 className={`mt-4 max-w-reading ${sectionHeading}`}>{content.title}</h2>
 
-        <p className="mt-4 max-w-2xl text-body text-foreground">{content.description}</p>
+            <p className="mt-4 max-w-reading text-pretty text-foreground">{content.description}</p>
+          </div>
+        </div>
       </header>
 
       {!details || !detailsContent ? (
         <p className="text-foreground">{t.comingSoon}</p>
       ) : (
-        <div className="space-y-14">
-          <div className="grid gap-8 sm:grid-cols-2">
+        <div className="space-y-8">
+          <div className="space-y-4">
             <section>
-              <h2 className="font-display text-h5 leading-display font-semibold text-foreground text-shadow-drop lg:text-h4">
-                {t.role}
-              </h2>
+              <h2 className={sectionHeading}>{t.role}</h2>
 
-              <p className="mt-2 text-foreground">{detailsContent.role}</p>
+              <p className="mt-4 text-foreground">{detailsContent.role}</p>
             </section>
 
             <section>
-              <h2 className="font-display text-h5 leading-display font-semibold text-foreground text-shadow-drop lg:text-h4">
-                {t.duration}
-              </h2>
+              <h2 className={sectionHeading}>{t.duration}</h2>
 
-              <p className="mt-2 text-foreground">{detailsContent.duration}</p>
+              <p className="mt-4 text-foreground">{detailsContent.duration}</p>
             </section>
+          </div>
 
-            <section className="sm:col-span-2">
+          {(details.prototypeUrl || galleryImages.length > 0) && (
+            <div className="space-y-8">
               {details.prototypeUrl && (
                 <a
                   href={details.prototypeUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="btn btn-primary mt-5"
+                  className="btn btn-primary"
                 >
                   {t.viewPrototype}
                 </a>
               )}
 
               {galleryImages.length > 0 && (
-                <div className="mx-auto mt-10">
+                <div>
                   <CaseStudyGallery images={galleryImages} />
                 </div>
               )}
-            </section>
-          </div>
+            </div>
+          )}
 
-          <div className="mx-auto w-3/5">
+          <div className="mx-auto w-3/5 py-4">
             <GradientDivider />
           </div>
 
           <section>
-            <h2 className="font-display text-h5 leading-display font-semibold text-foreground text-shadow-drop lg:text-h4">
-              {t.company}
-            </h2>
+            <h2 className={sectionHeading}>{t.company}</h2>
 
-            <p className="mt-4 text-foreground">{detailsContent.company}</p>
+            <p className="mt-4 max-w-reading text-pretty text-foreground">
+              {detailsContent.company}
+            </p>
           </section>
 
           <section>
-            <h2 className="font-display text-h5 leading-display font-semibold text-foreground text-shadow-drop lg:text-h4">
-              {t.goal}
-            </h2>
+            <h2 className={sectionHeading}>{t.goal}</h2>
 
-            <p className="mt-4 text-foreground">{detailsContent.goal}</p>
+            <p className="mt-4 max-w-reading text-pretty text-foreground">{detailsContent.goal}</p>
           </section>
 
           <section>
-            <h2 className="font-display text-h5 leading-display font-semibold text-foreground text-shadow-drop lg:text-h4">
-              {t.targetAudience}
-            </h2>
+            <h2 className={sectionHeading}>{t.targetAudience}</h2>
 
-            <ul className="mt-6 space-y-5">
+            <ul className="mt-4 space-y-2">
               <li className="flex items-center gap-3 text-foreground">
                 <span
                   aria-hidden="true"
@@ -166,48 +167,49 @@ function CaseStudy() {
             </ul>
           </section>
 
-          <div className="mx-auto w-3/5">
+          <div className="mx-auto w-3/5 py-4">
             <GradientDivider />
           </div>
 
           {details.typography && (
             <section>
-              <h2 className="font-display text-h5 leading-display font-semibold text-foreground text-shadow-drop lg:text-h4">
-                {t.typographyAndColors}
-              </h2>
+              <h2 className={sectionHeading}>{t.typographyAndColors}</h2>
 
-              <div className="mt-6 grid gap-8 md:grid-cols-2">
+              <div className="mt-4 grid gap-8 md:grid-cols-2">
                 <div>
                   <h3 className="font-body text-body text-accent">{t.fontsUsed}</h3>
 
-                  {details.typography.map((font) => (
-                    <article className="my-8" key={`${font.name}-${font.weight}`}>
-                      <h4
-                        className="my-6 text-2xl"
-                        style={{
-                          fontFamily: `"${font.name}", sans-serif`,
-                          fontWeight: font.weight === 'Bold' ? 700 : 400,
-                        }}
-                      >
-                        {font.name} {font.weight}
-                      </h4>
+                  <div className="mt-4 space-y-4">
+                    {details.typography.map((font) => (
+                      <article key={`${font.name}-${font.weight}`}>
+                        <h4
+                          className="text-2xl"
+                          style={{
+                            fontFamily: `"${font.name}", sans-serif`,
+                            fontWeight: font.weight === 'Bold' ? 700 : 400,
+                          }}
+                        >
+                          {font.name} {font.weight}
+                        </h4>
 
-                      <p
-                        style={{
-                          fontFamily: `"${font.name}", sans-serif`,
-                          fontWeight: font.weight === 'Bold' ? 700 : 400,
-                        }}
-                      >
-                        ABCDEFGHIJKLMNOPQRSTUVWXYZ
-                        <br />
-                        abcdefghijklmnopqrstuvwxyz
-                        <br />
-                        1234567890
-                        <br />
-                        !”#%&/()=?
-                      </p>
-                    </article>
-                  ))}
+                        <p
+                          className="mt-2"
+                          style={{
+                            fontFamily: `"${font.name}", sans-serif`,
+                            fontWeight: font.weight === 'Bold' ? 700 : 400,
+                          }}
+                        >
+                          ABCDEFGHIJKLMNOPQRSTUVWXYZ
+                          <br />
+                          abcdefghijklmnopqrstuvwxyz
+                          <br />
+                          1234567890
+                          <br />
+                          !”#%&/()=?
+                        </p>
+                      </article>
+                    ))}
+                  </div>
                 </div>
 
                 {details.colors && (
@@ -234,17 +236,19 @@ function CaseStudy() {
 
           {detailsContent.objective && (
             <section>
-              <h2 className="font-display text-h5 leading-display lg:text-h4">{t.objective}</h2>
+              <h2 className={sectionHeading}>{t.objective}</h2>
 
-              <p className="mt-4 text-foreground">{detailsContent.objective}</p>
+              <p className="mt-4 max-w-reading text-pretty text-foreground">
+                {detailsContent.objective}
+              </p>
             </section>
           )}
 
           {detailsContent.methodology && (
             <section>
-              <h2 className="font-display text-h5 leading-display lg:text-h4">{t.methodology}</h2>
+              <h2 className={sectionHeading}>{t.methodology}</h2>
 
-              <ul className="mt-4 space-y-2 text-foreground">
+              <ul className="mt-4 max-w-reading space-y-2 text-foreground">
                 {detailsContent.methodology.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
@@ -254,21 +258,19 @@ function CaseStudy() {
 
           {detailsContent.feedback && (
             <section>
-              <h2 className="font-display text-h5 leading-display font-semibold lg:text-h4">
-                {t.feedback}
-              </h2>
+              <h2 className={sectionHeading}>{t.feedback}</h2>
 
-              <p className="mt-4 text-foreground">{detailsContent.feedback}</p>
+              <p className="mt-4 max-w-reading text-pretty text-foreground">
+                {detailsContent.feedback}
+              </p>
             </section>
           )}
 
           {detailsContent.findings && (
             <section>
-              <h2 className="font-display text-h5 leading-display font-semibold lg:text-h4">
-                {t.findings}
-              </h2>
+              <h2 className={sectionHeading}>{t.findings}</h2>
 
-              <ul className="mt-4 list-disc space-y-2 pl-5 text-foreground">
+              <ul className="mt-4 max-w-reading list-disc space-y-2 pl-5 text-foreground">
                 {detailsContent.findings.map((finding) => (
                   <li key={finding}>{finding}</li>
                 ))}
@@ -278,11 +280,9 @@ function CaseStudy() {
 
           {detailsContent.recommendations && (
             <section>
-              <h2 className="font-display text-h5 leading-display font-semibold lg:text-h4">
-                {t.recommendations}
-              </h2>
+              <h2 className={sectionHeading}>{t.recommendations}</h2>
 
-              <ul className="mt-4 list-disc space-y-2 pl-5 text-foreground">
+              <ul className="mt-4 max-w-reading list-disc space-y-2 pl-5 text-foreground">
                 {detailsContent.recommendations.map((recommendation) => (
                   <li key={recommendation}>{recommendation}</li>
                 ))}
