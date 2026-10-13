@@ -3,9 +3,10 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 import { ScrollProgress } from '@/components/interface/ScrollProgress';
 import { useCarouselScroll } from '@/hooks/useCarouselScroll';
+import type { ImageWithAlt } from '@/i18n/localized';
 
 type PhotoCarouselProps = {
-  images: { src: string; alt: string }[];
+  images: ImageWithAlt[];
   label: string;
   previousLabel: string;
   nextLabel: string;

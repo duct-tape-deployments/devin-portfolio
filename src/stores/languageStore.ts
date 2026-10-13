@@ -1,6 +1,8 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
+import type { Localized } from '@/i18n/localized';
+
 export const LANGUAGES = ['en', 'no'] as const;
 
 export type Language = (typeof LANGUAGES)[number];
@@ -41,7 +43,7 @@ function getInitialLanguage(): Language {
  * const t = useT(languageToggle);
  * <input aria-label={t.switchLabel} />
  */
-export function useT<T>(scope: Record<Language, T>): T {
+export function useT<T>(scope: Localized<T>): T {
   const language = useLanguageStore((state) => state.language);
   return scope[language];
 }

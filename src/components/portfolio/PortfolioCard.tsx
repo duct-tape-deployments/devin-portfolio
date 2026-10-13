@@ -1,6 +1,7 @@
 import { ChevronRight } from 'lucide-react';
 import { Link } from 'react-router';
 
+import { routes } from '@/config/navigation';
 import type { CaseStudy } from '@/data/caseStudies';
 import { caseStudyLabels } from '@/i18n/caseStudyLabels';
 import { useLanguageStore, useT } from '@/stores/languageStore';
@@ -34,7 +35,7 @@ export function PortfolioCard({ caseStudy }: PortfolioCardProps) {
           {content.description}
         </p>
 
-        <Link to={`/ui-ux/${caseStudy.slug}`} className="btn btn-primary mt-6">
+        <Link to={`${routes.uiUx}/${caseStudy.slug}`} className="btn btn-primary mt-6">
           {t.viewCaseStudy}
 
           <ChevronRight className="size-6" aria-hidden="true" />

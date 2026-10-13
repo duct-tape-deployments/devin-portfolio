@@ -1,6 +1,6 @@
 import { routes } from '@/config/navigation';
 import type { RoutePath } from '@/config/navigation';
-import type { Localized } from '@/data/caseStudies';
+import type { Localized } from '@/i18n/localized';
 
 export type PortfolioPreview = {
   to: RoutePath;
