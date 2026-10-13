@@ -13,8 +13,7 @@ type PhotoCarouselProps = {
 };
 
 const THUMB_MIN_WIDTH_PERCENT = (11.05 / 30.11) * 100;
-const chevronClasses =
-  'icon-button shrink-0 max-md:absolute max-md:top-1/2 max-md:-translate-y-1/2';
+const chevronClasses = 'icon-button absolute top-1/2 -translate-y-1/2';
 
 export function PhotoCarousel({
   images,
@@ -30,14 +29,14 @@ export function PhotoCarousel({
 
   return (
     <div>
-      <div className="relative md:flex md:items-center md:justify-center md:gap-4">
+      <div className="relative">
         <button
           type="button"
           onClick={() => scrollByItem(-1)}
           aria-label={previousLabel}
           aria-controls={rowId}
           aria-disabled={atStart}
-          className={`${chevronClasses} max-md:left-0`}
+          className={`${chevronClasses} left-0 md:left-4 md:icon-button-on-photo`}
         >
           <ChevronLeft aria-hidden="true" />
         </button>
@@ -48,7 +47,7 @@ export function PhotoCarousel({
           role="list"
           tabIndex={0}
           aria-label={label}
-          className="flex snap-x snap-mandatory gap-(--carousel-gap) overflow-x-auto scrollbar-none [--carousel-gap:32px] [--carousel-item:220px] max-md:ml-[7.46%] md:min-w-0 md:flex-1 md:carousel-row-fit focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+          className="@container flex snap-x snap-mandatory gap-(--carousel-gap) overflow-x-auto scrollbar-none [--carousel-gap:32px] [--carousel-item:220px] max-md:ml-[7.46%] md:[--carousel-gap:20px] md:[--carousel-item:calc((100cqw-3*var(--carousel-gap))/4)] lg:[--carousel-gap:24px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
         >
           {images.map((image, index) => {
             const eager = priority && index === 0;
@@ -76,7 +75,7 @@ export function PhotoCarousel({
           aria-label={nextLabel}
           aria-controls={rowId}
           aria-disabled={atEnd}
-          className={`${chevronClasses} icon-button-on-photo max-md:right-[4.14%]`}
+          className={`${chevronClasses} icon-button-on-photo right-[4.14%] md:right-4`}
         >
           <ChevronRight aria-hidden="true" />
         </button>
