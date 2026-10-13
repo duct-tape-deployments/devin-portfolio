@@ -10,7 +10,7 @@ import { contact } from '@/i18n/contact';
 import { useT } from '@/stores/languageStore';
 
 const fieldClasses =
-  'bg-field px-3 text-body focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-focus';
+  'bg-field px-4 text-body focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-focus';
 
 const labelClasses =
   'block w-fit bg-gradient-text bg-clip-text font-display text-label font-bold text-transparent';
@@ -23,7 +23,7 @@ type RequiredFieldProps = {
 
 function RequiredField({ id, label, children }: RequiredFieldProps) {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-2">
       <label htmlFor={id} className={labelClasses}>
         {label}
         <span aria-hidden="true">*</span>
@@ -69,7 +69,7 @@ function Contact() {
 
           <form
             onSubmit={handleSubmit}
-            className="flex flex-col gap-6 rounded-md bg-background p-5 shadow-card"
+            className="flex flex-col gap-4 rounded-md bg-background p-5 shadow-card"
           >
             <RequiredField id={`${id}-name`} label={t.name}>
               <input
@@ -98,12 +98,12 @@ function Contact() {
                 id={`${id}-message`}
                 name="message"
                 required
-                className={`${fieldClasses} h-35.75 resize-y py-2`}
+                className={`${fieldClasses} h-35.75 resize-y py-4`}
               />
             </RequiredField>
 
             {/* File upload field */}
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-3">
               <div>
                 <span id={`${id}-file-label`} className={labelClasses}>
                   {t.upload}
