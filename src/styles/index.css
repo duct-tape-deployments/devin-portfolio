@@ -284,6 +284,15 @@
     text-align: center;
   }
 
+  .link {
+    color: var(--color-link);
+    text-decoration-line: underline;
+  }
+  .link:visited {
+    color: var(--color-link-visited);
+    text-decoration-color: var(--color-link-visited);
+  }
+
   .title-gradient {
     @apply font-display text-h1 font-bold bg-gradient-text bg-clip-text text-transparent;
   }

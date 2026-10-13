@@ -35,7 +35,15 @@ export function WhoIAm() {
 
               <figcaption className="mt-2">
                 <span className="block text-h4">{t.quoteAuthor}</span>
-                <cite className="block text-label not-italic">{t.quoteSource}</cite>
+                <cite className="block text-label not-italic">
+                  <a href={t.quoteSourceUrl} target="_blank" rel="noreferrer" className="link">
+                    {t.quoteSource}
+                    <span lang={language} className="sr-only">
+                      {' '}
+                      {t.opensInNewTab}
+                    </span>
+                  </a>
+                </cite>
               </figcaption>
             </figure>
           </div>

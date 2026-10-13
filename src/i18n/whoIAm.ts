@@ -12,6 +12,8 @@ type WhoIAmStrings = {
   quote: string;
   quoteAuthor: string;
   quoteSource: string;
+  quoteSourceUrl: string;
+  opensInNewTab: string;
   outro: string;
   hardSkills: SkillGroup;
   softSkills: SkillGroup;
@@ -24,6 +26,8 @@ const prose = {
   quote: '“If you don’t produce, you won’t thrive, no matter how skilled or talented you are.”',
   quoteAuthor: 'Cal Newport',
   quoteSource: 'Deep Work',
+  quoteSourceUrl: 'https://www.hachettebookgroup.com/titles/cal-newport/deep-work/9781455586677/',
+  opensInNewTab: '(opens in a new tab)',
   outro:
     'My skillset is constantly evolving. I value open & honest communication and have a passion for the environment, learning and accessibility for all. I’m always eager to contribute my knowledge and learn from others.',
 };
@@ -46,6 +50,7 @@ export const whoIAm: Record<Language, WhoIAmStrings> = {
     ...prose,
     title: 'Hvem jeg er',
     tagline: 'Nysgjerrig, tilpasningsdyktig og inkluderende',
+    opensInNewTab: '(åpnes i en ny fane)',
     intro:
       'Noen ganger støter jeg på vanskeligheter når jeg begynner på et nytt prosjekt eller prøver å bestemme meg for hva jeg skal fange på skjermen eller gjennom en linse. Jeg opplever ofte at når jeg mangler inspirasjon, tenker jeg på sitatet',
     outro:
