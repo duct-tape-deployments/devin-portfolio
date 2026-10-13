@@ -180,16 +180,6 @@
   }
 }
 
-/* Desktop type scale from lg: bigger h1-h4, line heights unchanged */
-:root {
-  @variant lg {
-    --text-h1: 56px;
-    --text-h2: 40px;
-    --text-h3: 32px;
-    --text-h4: 24px;
-  }
-}
-
 .dark {
   color-scheme: dark;
 
