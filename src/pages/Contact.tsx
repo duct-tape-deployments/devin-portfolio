@@ -69,7 +69,7 @@ function Contact() {
 
           <form
             onSubmit={handleSubmit}
-            className="flex flex-col gap-4 rounded-md bg-background p-5 shadow-card"
+            className="flex flex-col gap-4 rounded-md bg-background p-5 shadow-card lg:p-6"
           >
             <RequiredField id={`${id}-name`} label={t.name}>
               <input
