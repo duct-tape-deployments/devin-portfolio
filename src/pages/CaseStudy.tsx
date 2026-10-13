@@ -79,11 +79,9 @@ function CaseStudy() {
           <div className="lg:order-first lg:col-span-5">
             <p className="badge">{content.category}</p>
 
-            <h2 className={`mt-4 max-w-3xl ${sectionHeading}`}>{content.title}</h2>
+            <h2 className={`mt-4 max-w-reading ${sectionHeading}`}>{content.title}</h2>
 
-            <p className="mt-4 max-w-reading text-body text-pretty text-foreground">
-              {content.description}
-            </p>
+            <p className="mt-4 max-w-reading text-pretty text-foreground">{content.description}</p>
           </div>
         </div>
       </header>
@@ -107,7 +105,7 @@ function CaseStudy() {
           </div>
 
           {(details.prototypeUrl || galleryImages.length > 0) && (
-            <section className="space-y-8">
+            <div className="space-y-8">
               {details.prototypeUrl && (
                 <a
                   href={details.prototypeUrl}
@@ -120,11 +118,11 @@ function CaseStudy() {
               )}
 
               {galleryImages.length > 0 && (
-                <div className="mx-auto">
+                <div>
                   <CaseStudyGallery images={galleryImages} />
                 </div>
               )}
-            </section>
+            </div>
           )}
 
           <div className="mx-auto w-3/5 py-4">
