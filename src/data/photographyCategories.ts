@@ -1,14 +1,9 @@
-import type { Localized } from '@/data/caseStudies';
-
-export type PhotographyImage = {
-  src: string;
-  alt: Localized<string>;
-};
+import type { Localized, LocalizedImage } from '@/i18n/localized';
 
 export type PhotographyCategory = {
   slug: string;
   title: Localized<string>;
-  images: PhotographyImage[];
+  images: LocalizedImage[];
 };
 
 export const photographyCategories: PhotographyCategory[] = [

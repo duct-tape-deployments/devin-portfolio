@@ -1,13 +1,5 @@
-import type { Language } from '@/stores/languageStore';
-
-export type Localized<T> = Record<Language, T>;
-
-function untranslated<T>(en: T): Localized<T> {
-  return {
-    en,
-    no: en,
-  };
-}
+import { untranslated } from '@/i18n/localized';
+import type { Localized, LocalizedImage } from '@/i18n/localized';
 
 export type CaseStudySummaryContent = {
   category: string;
@@ -34,18 +26,13 @@ export type CaseStudyDetailsContent = {
   recommendations?: string[];
 };
 
-export type CaseStudyImage = {
-  src: string;
-  alt: Localized<string>;
-};
-
 export type CaseStudyDetails = {
   content: Localized<CaseStudyDetailsContent>;
 
   prototypeUrl?: string;
 
-  heroImage?: CaseStudyImage;
-  images?: CaseStudyImage[];
+  heroImage?: LocalizedImage;
+  images?: LocalizedImage[];
 
   typography?: {
     name: string;

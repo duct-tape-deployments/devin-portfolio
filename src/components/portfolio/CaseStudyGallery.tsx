@@ -1,14 +1,10 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import { caseStudyLabels } from '@/i18n/caseStudyLabels';
+import type { ImageWithAlt } from '@/i18n/localized';
 import { useT } from '@/stores/languageStore';
 
-type GalleryImage = {
-  src: string;
-  alt: string;
-};
-
 type CaseStudyGalleryProps = {
-  images: GalleryImage[];
+  images: ImageWithAlt[];
 };
 
 const columnClasses: Record<number, string> = {

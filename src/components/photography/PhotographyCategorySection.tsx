@@ -5,6 +5,7 @@ import { Link } from 'react-router';
 import { Section } from '@/components/layout/Section';
 import { routes } from '@/config/navigation';
 import type { PhotographyCategory } from '@/data/photographyCategories';
+import { localizeImage } from '@/i18n/localized';
 import { photographyLabels } from '@/i18n/photographyLabels';
 import { useLanguageStore, useT } from '@/stores/languageStore';
 
@@ -24,7 +25,7 @@ export function PhotographyCategorySection({
   const title = category.title[language];
 
   const titleId = useId();
-  const images = category.images.map((image) => ({ src: image.src, alt: image.alt[language] }));
+  const images = category.images.map((image) => localizeImage(image, language));
 
   return (
     <Section space="none" aria-labelledby={titleId} className="flex flex-col">

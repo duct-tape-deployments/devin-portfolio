@@ -4,8 +4,10 @@ import { GradientDivider } from '@/components/interface/GradientDivider';
 import { PageContainer, pageSpacing } from '@/components/layout/PageContainer';
 import { PageTitle } from '@/components/layout/PageTitle';
 import { CaseStudyGallery } from '@/components/portfolio/CaseStudyGallery';
+import { routes } from '@/config/navigation';
 import { getCaseStudy } from '@/data/caseStudies';
 import { caseStudyLabels } from '@/i18n/caseStudyLabels';
+import { localizeImage } from '@/i18n/localized';
 import { useLanguageStore, useT } from '@/stores/languageStore';
 
 const sectionHeading =
@@ -18,13 +20,13 @@ function CaseStudy() {
   const t = useT(caseStudyLabels);
 
   if (!slug) {
-    return <Navigate to="/ui-ux" replace />;
+    return <Navigate to={routes.uiUx} replace />;
   }
 
   const caseStudy = getCaseStudy(slug);
 
   if (!caseStudy) {
-    return <Navigate to="/ui-ux" replace />;
+    return <Navigate to={routes.uiUx} replace />;
   }
 
   const content = caseStudy.content[language];
@@ -32,30 +34,17 @@ function CaseStudy() {
 
   const detailsContent = details?.content[language];
 
-  const heroImage = details?.heroImage
-    ? {
-        src: details.heroImage.src,
-        alt: details.heroImage.alt[language],
-      }
-    : details?.images?.[0]
-      ? {
-          src: details.images[0].src,
-          alt: details.images[0].alt[language],
-        }
-      : undefined;
+  const heroSource = details?.heroImage ?? details?.images?.[0];
+  const heroImage = heroSource && localizeImage(heroSource, language);
 
-  const galleryImages =
-    details?.images?.map((image) => ({
-      src: image.src,
-      alt: image.alt[language],
-    })) ?? [];
+  const galleryImages = details?.images?.map((image) => localizeImage(image, language)) ?? [];
 
   return (
     <PageContainer className={pageSpacing}>
       <PageTitle name={caseStudy.projectName ?? content.title} />
       <header className="relative mb-12">
         <Link
-          to="/ui-ux"
+          to={routes.uiUx}
           className="mb-4 flex w-fit text-sm font-semibold text-accent hover:underline lg:absolute lg:bottom-full"
         >
           ← UI/UX
