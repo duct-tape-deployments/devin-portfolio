@@ -72,7 +72,7 @@ function CaseStudy() {
 
         <p className="badge">{content.category}</p>
 
-        <h2 className="mt-2 max-w-3xl font-display text-h1 font-bold text-foreground text-shadow-drop">
+        <h2 className="mt-2 max-w-3xl font-display text-h5 leading-display font-bold text-foreground text-shadow-drop lg:text-h4">
           {content.title}
         </h2>
 
@@ -85,7 +85,7 @@ function CaseStudy() {
         <div className="space-y-14">
           <div className="grid gap-8 sm:grid-cols-2">
             <section>
-              <h2 className="font-display text-h3 font-semibold text-foreground text-shadow-drop">
+              <h2 className="font-display text-h5 leading-display font-semibold text-foreground text-shadow-drop lg:text-h4">
                 {t.role}
               </h2>
 
@@ -93,7 +93,7 @@ function CaseStudy() {
             </section>
 
             <section>
-              <h2 className="font-display text-h3 font-semibold text-foreground text-shadow-drop">
+              <h2 className="font-display text-h5 leading-display font-semibold text-foreground text-shadow-drop lg:text-h4">
                 {t.duration}
               </h2>
 
@@ -125,7 +125,7 @@ function CaseStudy() {
           </div>
 
           <section>
-            <h2 className="font-display text-h3 font-semibold text-foreground text-shadow-drop">
+            <h2 className="font-display text-h5 leading-display font-semibold text-foreground text-shadow-drop lg:text-h4">
               {t.company}
             </h2>
 
@@ -133,7 +133,7 @@ function CaseStudy() {
           </section>
 
           <section>
-            <h2 className="font-display text-h3 font-semibold text-foreground text-shadow-drop">
+            <h2 className="font-display text-h5 leading-display font-semibold text-foreground text-shadow-drop lg:text-h4">
               {t.goal}
             </h2>
 
@@ -141,7 +141,7 @@ function CaseStudy() {
           </section>
 
           <section>
-            <h2 className="font-display text-h3 font-semibold text-foreground text-shadow-drop">
+            <h2 className="font-display text-h5 leading-display font-semibold text-foreground text-shadow-drop lg:text-h4">
               {t.targetAudience}
             </h2>
 
@@ -172,18 +172,18 @@ function CaseStudy() {
 
           {details.typography && (
             <section>
-              <h2 className="font-display text-h3 font-semibold text-foreground text-shadow-drop">
+              <h2 className="font-display text-h5 leading-display font-semibold text-foreground text-shadow-drop lg:text-h4">
                 {t.typographyAndColors}
               </h2>
 
               <div className="mt-6 grid gap-8 md:grid-cols-2">
                 <div>
-                  <h3 className="text-lg font-medium text-cyan">{t.fontsUsed}</h3>
+                  <h3 className="font-body text-body text-accent">{t.fontsUsed}</h3>
 
                   {details.typography.map((font) => (
                     <article className="my-8" key={`${font.name}-${font.weight}`}>
                       <h4
-                        className="my-6 text-h2"
+                        className="my-6 text-2xl"
                         style={{
                           fontFamily: `"${font.name}", sans-serif`,
                           fontWeight: font.weight === 'Bold' ? 700 : 400,
@@ -212,7 +212,7 @@ function CaseStudy() {
 
                 {details.colors && (
                   <div>
-                    <h3 className="font-semibold text-cyan">{t.colorsUsed}</h3>
+                    <h3 className="font-body text-body text-accent">{t.colorsUsed}</h3>
 
                     <div className="mt-4 flex flex-wrap gap-4">
                       {details.colors.map((color) => (
@@ -222,7 +222,7 @@ function CaseStudy() {
                             style={{ backgroundColor: color }}
                           />
 
-                          <p className="mt-2 text-xs">{color}</p>
+                          <p className="mt-2 text-sm">{color}</p>
                         </div>
                       ))}
                     </div>
@@ -234,7 +234,7 @@ function CaseStudy() {
 
           {detailsContent.objective && (
             <section>
-              <h2 className="font-display text-h2">{t.objective}</h2>
+              <h2 className="font-display text-h5 leading-display lg:text-h4">{t.objective}</h2>
 
               <p className="mt-4 text-foreground">{detailsContent.objective}</p>
             </section>
@@ -242,7 +242,7 @@ function CaseStudy() {
 
           {detailsContent.methodology && (
             <section>
-              <h2 className="font-display text-h2">{t.methodology}</h2>
+              <h2 className="font-display text-h5 leading-display lg:text-h4">{t.methodology}</h2>
 
               <ul className="mt-4 space-y-2 text-foreground">
                 {detailsContent.methodology.map((item) => (
@@ -254,7 +254,9 @@ function CaseStudy() {
 
           {detailsContent.feedback && (
             <section>
-              <h2 className="font-display text-h2 font-semibold">{t.feedback}</h2>
+              <h2 className="font-display text-h5 leading-display font-semibold lg:text-h4">
+                {t.feedback}
+              </h2>
 
               <p className="mt-4 text-foreground">{detailsContent.feedback}</p>
             </section>
@@ -262,7 +264,9 @@ function CaseStudy() {
 
           {detailsContent.findings && (
             <section>
-              <h2 className="font-display text-h2 font-semibold">{t.findings}</h2>
+              <h2 className="font-display text-h5 leading-display font-semibold lg:text-h4">
+                {t.findings}
+              </h2>
 
               <ul className="mt-4 list-disc space-y-2 pl-5 text-foreground">
                 {detailsContent.findings.map((finding) => (
@@ -274,7 +278,9 @@ function CaseStudy() {
 
           {detailsContent.recommendations && (
             <section>
-              <h2 className="font-display text-h2 font-semibold">{t.recommendations}</h2>
+              <h2 className="font-display text-h5 leading-display font-semibold lg:text-h4">
+                {t.recommendations}
+              </h2>
 
               <ul className="mt-4 list-disc space-y-2 pl-5 text-foreground">
                 {detailsContent.recommendations.map((recommendation) => (
