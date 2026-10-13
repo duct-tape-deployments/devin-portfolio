@@ -16,7 +16,7 @@ export function PortfolioCard({ caseStudy }: PortfolioCardProps) {
   const content = caseStudy.content[language];
 
   return (
-    <article className="ml-1 flex flex-col gap-3.5">
+    <article className="flex flex-col gap-4">
       {caseStudy.image && (
         <div className="overflow-hidden rounded-md shadow-glow-image">
           <img src={caseStudy.image} alt="" className="aspect-16/7 w-full object-cover" />
@@ -24,7 +24,7 @@ export function PortfolioCard({ caseStudy }: PortfolioCardProps) {
       )}
 
       <div>
-        <p className="badge mb-4.25">{content.category}</p>
+        <p className="badge mb-4">{content.category}</p>
 
         <h2 className="text-h5 leading-display font-bold text-foreground text-shadow-drop">
           {content.title}

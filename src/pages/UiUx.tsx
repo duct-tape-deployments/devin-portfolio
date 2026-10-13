@@ -23,7 +23,7 @@ function UiUx() {
           <h1 className="title-gradient">UI/UX</h1>
         </header>
 
-        <div className="grid gap-x-16 gap-y-20.5 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-6">
+        <div className="grid gap-y-12 md:grid-cols-2 md:gap-x-5 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-16">
           {caseStudies.map((caseStudy) => (
             <PortfolioCard key={caseStudy.slug} caseStudy={caseStudy} />
           ))}
