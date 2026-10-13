@@ -65,26 +65,34 @@ function CaseStudy() {
           <h1 className="title-gradient mb-8 block">{caseStudy.projectName}</h1>
         )}
 
-        {heroImage && (
-          <img
-            src={heroImage.src}
-            alt={heroImage.alt}
-            className="mb-6 aspect-video w-full rounded-2xl object-cover shadow-glow-image"
-          />
-        )}
+        <div
+          className={heroImage ? 'lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-6' : undefined}
+        >
+          {heroImage && (
+            <img
+              src={heroImage.src}
+              alt={heroImage.alt}
+              className="mb-6 aspect-video w-full rounded-2xl object-cover shadow-glow-image lg:col-span-7 lg:mb-0"
+            />
+          )}
 
-        <p className="badge">{content.category}</p>
+          <div className="lg:order-first lg:col-span-5">
+            <p className="badge">{content.category}</p>
 
-        <h2 className={`mt-4 max-w-3xl ${sectionHeading}`}>{content.title}</h2>
+            <h2 className={`mt-4 max-w-3xl ${sectionHeading}`}>{content.title}</h2>
 
-        <p className="mt-4 max-w-2xl text-body text-foreground">{content.description}</p>
+            <p className="mt-4 max-w-reading text-body text-pretty text-foreground">
+              {content.description}
+            </p>
+          </div>
+        </div>
       </header>
 
       {!details || !detailsContent ? (
         <p className="text-foreground">{t.comingSoon}</p>
       ) : (
         <div className="space-y-8">
-          <div className="grid gap-x-8 gap-y-4 sm:grid-cols-2">
+          <div className="space-y-4">
             <section>
               <h2 className={sectionHeading}>{t.role}</h2>
 
@@ -126,13 +134,15 @@ function CaseStudy() {
           <section>
             <h2 className={sectionHeading}>{t.company}</h2>
 
-            <p className="mt-4 text-foreground">{detailsContent.company}</p>
+            <p className="mt-4 max-w-reading text-pretty text-foreground">
+              {detailsContent.company}
+            </p>
           </section>
 
           <section>
             <h2 className={sectionHeading}>{t.goal}</h2>
 
-            <p className="mt-4 text-foreground">{detailsContent.goal}</p>
+            <p className="mt-4 max-w-reading text-pretty text-foreground">{detailsContent.goal}</p>
           </section>
 
           <section>
@@ -230,7 +240,9 @@ function CaseStudy() {
             <section>
               <h2 className={sectionHeading}>{t.objective}</h2>
 
-              <p className="mt-4 text-foreground">{detailsContent.objective}</p>
+              <p className="mt-4 max-w-reading text-pretty text-foreground">
+                {detailsContent.objective}
+              </p>
             </section>
           )}
 
@@ -238,7 +250,7 @@ function CaseStudy() {
             <section>
               <h2 className={sectionHeading}>{t.methodology}</h2>
 
-              <ul className="mt-4 space-y-2 text-foreground">
+              <ul className="mt-4 max-w-reading space-y-2 text-foreground">
                 {detailsContent.methodology.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
@@ -250,7 +262,9 @@ function CaseStudy() {
             <section>
               <h2 className={sectionHeading}>{t.feedback}</h2>
 
-              <p className="mt-4 text-foreground">{detailsContent.feedback}</p>
+              <p className="mt-4 max-w-reading text-pretty text-foreground">
+                {detailsContent.feedback}
+              </p>
             </section>
           )}
 
@@ -258,7 +272,7 @@ function CaseStudy() {
             <section>
               <h2 className={sectionHeading}>{t.findings}</h2>
 
-              <ul className="mt-4 list-disc space-y-2 pl-5 text-foreground">
+              <ul className="mt-4 max-w-reading list-disc space-y-2 pl-5 text-foreground">
                 {detailsContent.findings.map((finding) => (
                   <li key={finding}>{finding}</li>
                 ))}
@@ -270,7 +284,7 @@ function CaseStudy() {
             <section>
               <h2 className={sectionHeading}>{t.recommendations}</h2>
 
-              <ul className="mt-4 list-disc space-y-2 pl-5 text-foreground">
+              <ul className="mt-4 max-w-reading list-disc space-y-2 pl-5 text-foreground">
                 {detailsContent.recommendations.map((recommendation) => (
                   <li key={recommendation}>{recommendation}</li>
                 ))}
