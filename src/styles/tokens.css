@@ -37,6 +37,7 @@
   --color-icon-accent: var(--color-magenta);
   --color-link: var(--color-magenta-dark);
   --color-link-visited: var(--color-orange-dark);
+  --color-contact-link: var(--color-ink);
   --color-grid-line: #c4c4c4;
   --color-pattern-wash: rgba(255, 255, 255, 0.6); /* over the UI/UX background pattern */
   --color-photo-scrim: rgba(0, 0, 0, 0.5); /* over the contact background photo */
@@ -210,6 +211,7 @@
   --color-icon-accent: var(--color-yellow);
   --color-link: var(--color-orange);
   --color-link-visited: var(--color-yellow);
+  --color-contact-link: var(--color-cyan);
   --color-grid-line: #414141;
   --color-pattern-wash: rgba(0, 0, 0, 0.8);
   --color-photo-scrim: rgba(0, 0, 0, 0.7);
