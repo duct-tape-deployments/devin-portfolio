@@ -3,6 +3,8 @@
 @import './tokens.css';
 
 @custom-variant dark (&:where(.dark, .dark *));
+@custom-variant forced-light (@media (forced-colors: active) and (prefers-color-scheme: light));
+@custom-variant forced-dark (@media (forced-colors: active) and (prefers-color-scheme: dark));
 
 @utility scrollbar-none {
   scrollbar-width: none;
@@ -34,6 +36,25 @@
   &:active:not(:disabled, [aria-disabled='true']) {
     filter: var(--icon-halo);
   }
+}
+
+@utility wordmark {
+  display: block;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(36px, (100cqi + 24px) / 6.1, 50px);
+  line-height: 1;
+}
+
+@utility wordmark-xe {
+  vertical-align: baseline;
+  height: calc(0.668em * 49 / 40);
+  height: calc(1cap * 49 / 40);
+  margin-right: calc(0.38em - 0.668em * 6 / 40);
+  margin-right: calc(0.38em - 1cap * 6 / 40);
+  margin-bottom: calc(0.668em * -9 / 40);
+  margin-bottom: calc(1cap * -9 / 40);
 }
 
 @layer base {

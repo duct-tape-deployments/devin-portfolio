@@ -9,8 +9,16 @@ export function Logo({ className }: LogoProps) {
 
   return (
     <>
-      <img src="/header-logo-light.svg" alt="" className={`${classes} dark:hidden`} />
-      <img src="/header-logo-dark.svg" alt="" className={`${classes} hidden dark:block`} />
+      <img
+        src="/header-logo-light.svg"
+        alt=""
+        className={`${classes} inline dark:hidden forced-light:inline forced-dark:hidden`}
+      />
+      <img
+        src="/header-logo-dark.svg"
+        alt=""
+        className={`${classes} hidden dark:inline forced-light:hidden forced-dark:inline`}
+      />
     </>
   );
 }

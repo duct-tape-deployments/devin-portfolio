@@ -93,12 +93,11 @@ export function Header() {
       <PageContainer
         className="
           grid
-          grid-cols-[1fr_auto_1fr]
+          grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]
           items-center
           max-lg:h-16
-          lg:flex
           lg:min-h-18
-          lg:gap-8
+          lg:gap-6
         "
       >
         {/* Mobile menu button */}
@@ -114,24 +113,28 @@ export function Header() {
           {menuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
         </button>
 
-        {/* Logo / home link */}
-        <Link
-          to={routes.home}
-          aria-label={t.accessibility.homeLink}
-          onClick={closeMenu}
-          className="
-                      justify-self-center
-                      shrink-0
+        {/* Logo / home link: XE alone below lg and when the cell is too narrow, XE + DESIGN otherwise */}
+        <div className="justify-self-center lg:@container lg:justify-self-stretch">
+          <Link
+            to={routes.home}
+            aria-label={t.accessibility.homeLink}
+            onClick={closeMenu}
+            className="
+                      flex
+                      w-fit
+                      lg:@min-wordmark:wordmark
                       focus-visible:outline-2
                       focus-visible:outline-offset-4
                       focus-visible:outline-focus
                     "
-        >
-          <Logo className="lg:m-0 lg:h-12" />
-        </Link>
+          >
+            <Logo className="lg:@min-wordmark:wordmark-xe" />
+            <span className="hidden lg:@min-wordmark:inline">DESIGN</span>
+          </Link>
+        </div>
 
         {/* Desktop navigation */}
-        <div className="hidden flex-1 justify-center lg:flex">
+        <div className="hidden lg:block">
           <Navigation orientation="horizontal" />
         </div>
 
