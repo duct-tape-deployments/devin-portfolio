@@ -62,7 +62,12 @@ export function WhoIAm() {
                 <ul className="mt-4 flex flex-col gap-3 lg:gap-4">
                   {items.map((skill) => (
                     <li key={skill} className="flex items-center gap-2">
-                      <Circle size={16} absoluteStrokeWidth className="shrink-0 text-cyan" />
+                      <Circle
+                        aria-hidden="true"
+                        size={16}
+                        absoluteStrokeWidth
+                        className="shrink-0 text-icon-inline"
+                      />
                       {skill}
                     </li>
                   ))}

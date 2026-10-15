@@ -1,3 +1,4 @@
+import { Circle } from 'lucide-react';
 import { Link, Navigate, useParams } from 'react-router';
 
 import { GradientDivider } from '@/components/interface/GradientDivider';
@@ -136,19 +137,23 @@ function CaseStudy() {
             <h2 className={sectionHeading}>{t.targetAudience}</h2>
 
             <ul className="mt-4 space-y-2">
-              <li className="flex items-center gap-3 text-foreground">
-                <span
+              <li className="flex items-center gap-2 text-foreground">
+                <Circle
                   aria-hidden="true"
-                  className="h-5 w-5 shrink-0 rounded-full border-2 border-cyan"
+                  size={16}
+                  absoluteStrokeWidth
+                  className="shrink-0 text-icon-inline"
                 />
 
                 <span>{detailsContent.targetAudience.ageRange}</span>
               </li>
 
-              <li className="flex items-center gap-3 text-foreground">
-                <span
+              <li className="flex items-center gap-2 text-foreground">
+                <Circle
                   aria-hidden="true"
-                  className="h-5 w-5 shrink-0 rounded-full border-2 border-cyan"
+                  size={16}
+                  absoluteStrokeWidth
+                  className="shrink-0 text-icon-inline"
                 />
 
                 <span>{detailsContent.targetAudience.description}</span>
