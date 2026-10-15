@@ -31,6 +31,9 @@ const socialLinks = [
   },
 ] as const;
 
+const linkStateClasses =
+  'underline-offset-4 transition-colors duration-150 [-webkit-tap-highlight-color:transparent] hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus active:text-muted-foreground';
+
 /** Footer from md */
 function FooterDesktop() {
   const language = useLanguageStore((state) => state.language);
@@ -103,20 +106,7 @@ function FooterDesktop() {
                       <NavLink
                         to={to}
                         end={end}
-                        className="
-                          inline-flex
-                          py-1
-                          whitespace-nowrap
-                          text-body
-                          text-muted-foreground
-                          transition-colors
-                          duration-150
-                          hover:text-foreground
-                          focus-visible:outline-2
-                          focus-visible:outline-offset-4
-                          focus-visible:outline-focus
-                          aria-[current=page]:text-foreground
-                        "
+                        className={`inline-flex py-1 whitespace-nowrap text-body text-muted-foreground hover:text-foreground ${linkStateClasses}`}
                       >
                         {t.navigation[labelKey]}
                       </NavLink>
@@ -197,17 +187,7 @@ export function Footer() {
 
               <a
                 href="mailto:design@XEDesign.com"
-                className="
-                mt-3
-                whitespace-nowrap
-                text-body
-                transition-colors
-                hover:text-accent
-                focus-visible:outline-2
-                focus-visible:outline-offset-2
-                focus-visible:outline-focus
-                active:opacity-60
-              "
+                className={`mt-3 whitespace-nowrap text-body ${linkStateClasses}`}
               >
                 design@XEDesign.com
               </a>
@@ -221,19 +201,7 @@ export function Footer() {
                     <NavLink
                       to={to}
                       end={end}
-                      className={({ isActive }) =>
-                        [
-                          'inline-flex whitespace-nowrap',
-                          'font-body text-body font-bold',
-                          'transition-colors duration-150',
-                          'hover:text-accent',
-                          'focus-visible:outline-2',
-                          'focus-visible:outline-offset-2',
-                          'focus-visible:outline-focus',
-                          'active:opacity-60',
-                          isActive ? 'text-accent' : 'text-foreground',
-                        ].join(' ')
-                      }
+                      className={`inline-flex whitespace-nowrap text-body font-bold text-foreground ${linkStateClasses}`}
                     >
                       {t.navigation[labelKey]}
                     </NavLink>
