@@ -37,12 +37,12 @@ export function Footer() {
     <footer className="bg-background text-foreground">
       <GradientDivider />
 
-      <PageContainer className="pt-5.25 pb-2">
+      <PageContainer className="pt-6 pb-2">
         <div
           className="
     grid
     grid-cols-[minmax(0,1fr)_auto]
-    gap-5
+    gap-4
     max-[350px]:grid-cols-1
     max-[350px]:gap-8
   "
@@ -53,7 +53,7 @@ export function Footer() {
               to={routes.home}
               aria-label={t.accessibility.homeLink}
               className="
-                ml-4.25
+                ml-4
                 inline-flex
                 focus-visible:outline-2
                 focus-visible:outline-offset-4
@@ -64,7 +64,7 @@ export function Footer() {
             </Link>
 
             <div
-              className="mt-5.75 flex items-center gap-5"
+              className="mt-6 flex items-center gap-5"
               role="group"
               aria-label={t.accessibility.socialLinks}
             >
@@ -81,7 +81,7 @@ export function Footer() {
             <a
               href="mailto:design@XEDesign.com"
               className="
-                mt-2.5
+                mt-3
                 whitespace-nowrap
                 text-body
                 transition-colors
@@ -97,8 +97,8 @@ export function Footer() {
           </div>
 
           {/* Right side */}
-          <nav aria-label={t.accessibility.footerNavigation} className="mr-3.5">
-            <ul className="grid auto-rows-6.5">
+          <nav aria-label={t.accessibility.footerNavigation} className="mr-4">
+            <ul>
               {navigation.map(({ labelKey, to, end }) => (
                 <li key={to} className="flex">
                   <NavLink
@@ -107,7 +107,7 @@ export function Footer() {
                     className={({ isActive }) =>
                       [
                         'inline-flex whitespace-nowrap',
-                        'font-body text-body leading-display font-bold',
+                        'font-body text-body font-bold',
                         'transition-colors duration-150',
                         'hover:text-accent',
                         'focus-visible:outline-2',
@@ -139,7 +139,7 @@ export function Footer() {
             <LanguageToggle />
           </div>
 
-          <p className="mt-1.75 whitespace-nowrap text-xs">© 2026 XE Design</p>
+          <p className="mt-2 whitespace-nowrap text-xs">© 2026 XE Design</p>
 
           <div aria-hidden="true" />
         </div>
