@@ -88,6 +88,7 @@
   h1 {
     font-size: var(--text-h1);
     line-height: var(--text-h1--line-height);
+    width: fit-content;
   }
 
   h1:focus-visible {
@@ -402,6 +403,10 @@
   .link:visited {
     color: var(--color-link-visited);
     text-decoration-color: var(--color-link-visited);
+  }
+  .link:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 4px;
   }
 
   .title-gradient {
