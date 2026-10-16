@@ -23,6 +23,7 @@ export function DetailLayout({ section }: DetailLayoutProps) {
       <PageContainer className="flex pt-2.5 lg:pt-4">
         <Link to={routes[section]} className="icon-link -ml-2 lg:h-10">
           <ChevronLeft size={24} aria-hidden="true" />
+          <span className="sr-only">{t.accessibility.backTo} </span>
           {t.navigation[section]}
         </Link>
       </PageContainer>
