@@ -17,7 +17,7 @@ export function LanguageToggle() {
       aria-label={t.switchLabel}
       className="group relative inline-flex h-[21px] w-[45px] cursor-pointer items-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-transparent"
     >
-      <span className="absolute inset-0 rounded-[11px] border border-[#fdf8e2] bg-[#fdf8e2] shadow-[inset_0px_4px_4px_var(--color-scrim-25)] group-focus-visible:shadow-[inset_0px_4px_4px_var(--color-scrim-25),0_0_0_2px_var(--color-focus),0px_4px_4px_var(--color-paper-25)]" />
+      <span className="absolute inset-0 rounded-[11px] border border-[#fdf8e2] bg-[#fdf8e2] shadow-[inset_0px_4px_4px_var(--color-scrim-25)] group-focus-visible:shadow-[inset_0px_4px_4px_var(--color-scrim-25),0_0_0_2px_var(--color-focus),0px_4px_4px_var(--color-soft-white-25)]" />
       <span
         className={`absolute top-0 left-0 transition-transform duration-300 motion-reduce:transition-none ${
           isEnglish ? 'translate-x-[24px]' : 'translate-x-0'

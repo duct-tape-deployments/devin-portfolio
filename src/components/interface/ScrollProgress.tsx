@@ -10,8 +10,8 @@ type ScrollProgressProps = {
 /** Decorative carousel progress bar */
 export function ScrollProgress({ thumbRef, className = '' }: ScrollProgressProps) {
   return (
-    <div aria-hidden="true" className={`relative h-3 rounded-full bg-cyan ${className}`}>
-      <div ref={thumbRef} className="absolute inset-y-0 left-0 rounded-full bg-magenta" />
+    <div aria-hidden="true" className={`relative h-3 rounded-full bg-electric-cyan ${className}`}>
+      <div ref={thumbRef} className="absolute inset-y-0 left-0 rounded-full bg-hot-pink" />
     </div>
   );
 }

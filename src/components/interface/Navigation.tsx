@@ -48,7 +48,7 @@ export function Navigation({ orientation = 'horizontal', onNavigate, ariaLabel }
                   'focus-visible:outline-focus',
 
                   isActive
-                    ? `after:absolute ${pillPosition} after:rounded-full after:bg-magenta forced-colors:underline forced-colors:after:hidden`
+                    ? `after:absolute ${pillPosition} after:rounded-full after:bg-hot-pink forced-colors:underline forced-colors:after:hidden`
                     : '',
                 ].join(' ')
               }
