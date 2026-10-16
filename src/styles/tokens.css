@@ -39,6 +39,7 @@
   --color-quote-mark: var(--color-ink);
   --color-link: var(--color-magenta-dark);
   --color-link-visited: var(--color-orange-dark);
+  --color-contact-link: var(--color-ink);
   --color-grid-line: #c4c4c4;
   --color-pattern-wash: rgba(255, 255, 255, 0.6); /* over the UI/UX background pattern */
   --color-photo-scrim: rgba(0, 0, 0, 0.5); /* over the contact background photo */
@@ -174,6 +175,8 @@
   /* ---- Layout ------------------------------------------------------- */
   --container-content: 1280px; /* max width including the side margins */
   --container-reading: 37.5rem; /* running text: WCAG 1.4.8 max 80 characters per line */
+  /* Header logo cell that fits the wordmark at 36px plus its clear space: (36px * 6.1) - 24px.*/
+  --container-wordmark: 195.6px;
 }
 
 :root {
@@ -214,6 +217,7 @@
   --color-quote-mark: var(--color-cyan);
   --color-link: var(--color-orange);
   --color-link-visited: var(--color-yellow);
+  --color-contact-link: var(--color-cyan);
   --color-grid-line: #414141;
   --color-pattern-wash: rgba(0, 0, 0, 0.8);
   --color-photo-scrim: rgba(0, 0, 0, 0.7);
