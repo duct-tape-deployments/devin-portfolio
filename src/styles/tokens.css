@@ -26,6 +26,7 @@
   --color-muted-foreground: rgb(from var(--color-near-black) r g b / 60%);
   --color-border: var(--color-near-black);
   --color-accent: var(--color-hot-pink);
+  --color-emphasis: var(--color-near-black);
   --color-badge: var(--color-electric-cyan);
   --color-badge-foreground: var(--color-near-black);
   --color-btn-solid: var(--color-near-black);
@@ -202,6 +203,7 @@
   --color-muted-foreground: rgb(from var(--color-soft-white) r g b / 60%);
   --color-border: var(--color-soft-white);
   --color-accent: var(--color-electric-cyan);
+  --color-emphasis: var(--color-electric-cyan);
   --color-field: #313131;
   --color-dropzone: var(--color-field);
   --color-error: #ff8a80;
