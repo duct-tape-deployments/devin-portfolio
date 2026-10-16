@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { NavigationType, Outlet, useLocation, useNavigationType } from 'react-router';
 import { Header } from './Header';
 import { Footer } from './Footer';
+import { useRouteFocus } from '@/hooks/useRouteFocus';
 import { useLanguageStore } from '@/stores/languageStore';
 import { useThemeStore } from '@/stores/themeStore';
 
@@ -25,6 +26,8 @@ export function AppLayout() {
       window.scrollTo(0, 0);
     }
   }, [pathname, navigationType]);
+
+  useRouteFocus();
 
   return (
     <div className="flex min-h-dvh flex-col">
