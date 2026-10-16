@@ -55,7 +55,7 @@ function CaseStudy() {
             <img
               src={heroImage.src}
               alt={heroImage.alt}
-              className="mb-6 aspect-video w-full rounded-2xl object-cover shadow-glow-image lg:col-span-7 lg:mb-0"
+              className="mb-6 aspect-video w-full rounded-card object-cover shadow-glow-image lg:col-span-7 lg:mb-0"
             />
           )}
 
