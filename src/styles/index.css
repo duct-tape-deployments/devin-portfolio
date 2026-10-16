@@ -116,11 +116,15 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.8125rem;
-
+    gap: 8px;
     width: fit-content;
-    min-height: 42px;
-    padding: 0.5625rem 0.5rem;
+    min-height: 48px;
+    padding: 12px 20px;
+
+    @variant lg {
+      min-height: 56px;
+      padding: 16px 28px;
+    }
 
     border-radius: 9999px;
 
@@ -179,7 +183,12 @@
     --btn-outline-fill: var(--color-btn-solid);
     color: var(--color-btn-solid-foreground);
     border: 1px solid transparent;
-    padding: calc(0.5625rem - 1px) calc(0.5rem - 1px);
+    /* .btn padding minus the 1px border, so both button types are the same size */
+    padding: 11px 19px;
+
+    @variant lg {
+      padding: 15px 27px;
+    }
     background:
       linear-gradient(var(--btn-outline-fill), var(--btn-outline-fill)) padding-box,
       var(--btn-outline-border) border-box var(--btn-outline-fill);
