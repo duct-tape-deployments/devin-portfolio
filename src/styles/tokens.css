@@ -125,6 +125,9 @@
   /* ---- Spacing-----------------------------------------------------------*/
   --spacing-page-margin: 20px; /* grid side margin: 20 mobile, 24 tablet, 32 desktop */
 
+  /* ---- Radius ----------------------------------------------------------- */
+  --radius-card: 16px;
+
   /* ---- Shadows / glow --------------------------------------------------- */
   --shadow-btn: 0px 4px 4px 0px var(--color-btn-shadow);
   --drop-shadow-icon: 0 4px 4px var(--color-btn-shadow); /*filter*/

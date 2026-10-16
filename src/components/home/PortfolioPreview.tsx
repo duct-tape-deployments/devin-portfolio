@@ -47,7 +47,7 @@ function PreviewItem({ preview }: { preview: Preview }) {
         alt=""
         loading="lazy"
         decoding="async"
-        className="mt-8 aspect-350/247 w-full rounded-md object-cover shadow-card md:col-start-1 md:row-span-full md:mt-0 md:self-center md:group-even:col-start-2"
+        className="mt-8 aspect-350/247 w-full rounded-card object-cover shadow-card md:col-start-1 md:row-span-full md:mt-0 md:self-center md:group-even:col-start-2"
       />
       <Link
         to={preview.to}

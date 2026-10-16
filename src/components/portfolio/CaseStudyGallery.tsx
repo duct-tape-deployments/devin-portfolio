@@ -111,7 +111,7 @@ export function CaseStudyGallery({ images }: CaseStudyGalleryProps) {
               onClick={(event) => openImage(index, event.currentTarget)}
               className="
                 block aspect-square w-full
-                cursor-pointer overflow-hidden rounded-md
+                cursor-pointer overflow-hidden rounded-lg
                 shadow-glow-image
                 focus-visible:outline-2
                 focus-visible:outline-offset-4

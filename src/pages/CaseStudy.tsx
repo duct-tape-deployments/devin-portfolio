@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { Circle } from 'lucide-react';
 import { Navigate, useParams } from 'react-router';
 
@@ -5,20 +6,30 @@ import { GradientDivider } from '@/components/interface/GradientDivider';
 import { PageContainer } from '@/components/layout/PageContainer';
 import { PageTitle } from '@/components/layout/PageTitle';
 import { CaseStudyGallery } from '@/components/portfolio/CaseStudyGallery';
+import { sectionHeading } from '@/components/portfolio/caseStudyStyles';
+import { NextCaseStudy } from '@/components/portfolio/NextCaseStudy';
 import { routes } from '@/config/navigation';
 import { getCaseStudy } from '@/data/caseStudies';
 import { caseStudyLabels } from '@/i18n/caseStudyLabels';
 import { localizeImage } from '@/i18n/localized';
 import { useLanguageStore, useT } from '@/stores/languageStore';
 
-const sectionHeading =
-  'font-display text-h5 leading-display font-bold text-foreground text-shadow-drop lg:text-h4';
-
 function CaseStudy() {
   const { slug } = useParams();
 
   const language = useLanguageStore((state) => state.language);
   const t = useT(caseStudyLabels);
+
+  const previousSlug = useRef(slug);
+
+  useEffect(() => {
+    if (previousSlug.current === slug) {
+      return;
+    }
+
+    previousSlug.current = slug;
+    document.getElementById('main-content')?.focus({ preventScroll: true });
+  }, [slug]);
 
   if (!slug) {
     return <Navigate to={routes.uiUx} replace />;
@@ -45,17 +56,19 @@ function CaseStudy() {
       <PageTitle name={caseStudy.projectName ?? content.title} />
       <header className="mb-12">
         {caseStudy.projectName && (
-          <h1 className="title-gradient mb-8 block">{caseStudy.projectName}</h1>
+          <h1 translate="no" className="title-gradient mb-8 block">
+            {caseStudy.projectName}
+          </h1>
         )}
 
         <div
-          className={heroImage ? 'lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-6' : undefined}
+          className={heroImage ? 'lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-6' : undefined}
         >
           {heroImage && (
             <img
               src={heroImage.src}
               alt={heroImage.alt}
-              className="mb-6 aspect-video w-full rounded-2xl object-cover shadow-glow-image lg:col-span-7 lg:mb-0"
+              className="mb-6 aspect-video w-full rounded-card object-cover shadow-glow-image lg:col-span-7 lg:mb-0"
             />
           )}
 
@@ -209,7 +222,7 @@ function CaseStudy() {
                       {details.colors.map((color) => (
                         <div key={color}>
                           <div
-                            className="h-14 w-14 rounded-full border border-border"
+                            className="size-[65px] rounded-full border border-border"
                             style={{ backgroundColor: color }}
                           />
 
@@ -280,6 +293,8 @@ function CaseStudy() {
           )}
         </div>
       )}
+
+      <NextCaseStudy slug={caseStudy.slug} />
     </PageContainer>
   );
 }

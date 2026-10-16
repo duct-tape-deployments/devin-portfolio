@@ -17,6 +17,9 @@ export type CaseStudyLabels = {
   feedback: string;
   findings: string;
   recommendations: string;
+  nextProject: string;
+  viewAll: string;
+  viewAllContext: string;
 
   closeImage: string;
   openImage: string;
@@ -43,6 +46,9 @@ export const caseStudyLabels: Record<Language, CaseStudyLabels> = {
     feedback: 'User Feedback',
     findings: 'Findings',
     recommendations: 'Recommendations',
+    nextProject: 'Next Project',
+    viewAll: 'View All',
+    viewAllContext: 'UI/UX projects',
     closeImage: 'Close enlarged image',
     openImage: 'Open image',
     imageViewer: 'Image viewer',
@@ -67,6 +73,9 @@ export const caseStudyLabels: Record<Language, CaseStudyLabels> = {
     feedback: 'Tilbakemeldinger fra brukere',
     findings: 'Funn',
     recommendations: 'Anbefalinger',
+    nextProject: 'Neste prosjekt',
+    viewAll: 'Se alle',
+    viewAllContext: 'UI/UX-prosjekter',
     closeImage: 'Lukk forstørret bilde',
     openImage: 'Åpne bilde',
     imageViewer: 'Bildevisning',
