@@ -1,45 +1,46 @@
 @theme {
   /* ---- Brand palette ----------------------------------------*/
-  --color-ink: #060606;
-  --color-paper: #f4f4f4;
-  --color-cyan: #0de7e9;
-  --color-magenta: #f00f97;
-  --color-yellow: #edec18;
-  --color-orange: #ff8b25; /* lava orange */
+  --color-near-black: #060606;
+  --color-soft-white: #f4f4f4;
+  --color-electric-cyan: #0de7e9;
+  --color-hot-pink: #f00f97;
+  --color-neon-yellow: #edec18;
+  --color-lava-orange: #ff8b25;
 
-  /* ---- Shades - darker brand hues for text on paper (4.5:1)  ----*/
-  --color-orange-dark: #a84f00;
-  --color-magenta-dark: #c00c79;
+  /* ---- Shades - darker brand hues for links in lightmode (4.5:1)  ----*/
+  --color-lava-orange-dark: #a84f00;
+  --color-hot-pink-dark: #c00c79;
 
   /* ---- Tints - alpha variants ----*/
-  --color-paper-25: rgba(244, 244, 244, 0.25);
-  --color-paper-50: rgba(244, 244, 244, 0.5);
+  --color-soft-white-25: rgba(244, 244, 244, 0.25);
+  --color-soft-white-50: rgba(244, 244, 244, 0.5);
 
   /* ---- Scrims - translucent layers ----*/
   --color-scrim-20: rgba(0, 0, 0, 0.2); /* card frames, skill chips, form fields(light) */
   --color-scrim-25: rgba(0, 0, 0, 0.25); /* shadow colour */
 
   /* ---- Semantic surfaces/text - light theme ----*/
-  --color-background: var(--color-paper);
-  --color-foreground: var(--color-ink);
-  --color-foreground-inverse: var(--color-paper);
-  --color-muted-foreground: rgb(from var(--color-ink) r g b / 60%);
-  --color-border: var(--color-ink);
-  --color-accent: var(--color-magenta);
-  --color-badge: var(--color-cyan);
-  --color-badge-foreground: var(--color-ink);
-  --color-btn-solid: var(--color-ink);
-  --color-btn-solid-foreground: var(--color-paper);
+  --color-background: var(--color-soft-white);
+  --color-foreground: var(--color-near-black);
+  --color-foreground-inverse: var(--color-soft-white);
+  --color-muted-foreground: rgb(from var(--color-near-black) r g b / 60%);
+  --color-border: var(--color-near-black);
+  --color-accent: var(--color-hot-pink);
+  --color-emphasis: var(--color-near-black);
+  --color-badge: var(--color-electric-cyan);
+  --color-badge-foreground: var(--color-near-black);
+  --color-btn-solid: var(--color-near-black);
+  --color-btn-solid-foreground: var(--color-soft-white);
   --color-btn-shadow: rgba(6, 6, 6, 0.25);
   --color-field: var(--color-scrim-20);
   --color-dropzone: rgba(49, 49, 49, 0.2);
   --color-error: #a4001d;
-  --color-icon-accent: var(--color-magenta);
-  --color-icon-inline: var(--color-magenta);
-  --color-quote-mark: var(--color-ink);
-  --color-link: var(--color-magenta-dark);
-  --color-link-visited: var(--color-orange-dark);
-  --color-contact-link: var(--color-ink);
+  --color-icon-accent: var(--color-hot-pink);
+  --color-icon-inline: var(--color-hot-pink);
+  --color-quote-mark: var(--color-near-black);
+  --color-link: var(--color-hot-pink-dark);
+  --color-link-visited: var(--color-lava-orange-dark);
+  --color-contact-link: var(--color-near-black);
   --color-grid-line: #c4c4c4;
   --color-pattern-wash: rgba(255, 255, 255, 0.6); /* over the UI/UX background pattern */
   --color-photo-scrim: rgba(0, 0, 0, 0.5); /* over the contact background photo */
@@ -48,42 +49,42 @@
   --color-toggle-track: #ffffff;
   --color-toggle-icon: #ffffff;
   --color-toggle-knob: #e57716;
-  --color-toggle-glow: rgb(from var(--color-yellow) r g b / 50%);
+  --color-toggle-glow: rgb(from var(--color-neon-yellow) r g b / 50%);
 
   /* ---- Gradients -------------------------------------------------- */
 
   /* Fill: button background + logo */
   --background-image-gradient: linear-gradient(
     180deg,
-    var(--color-cyan) 0%,
-    var(--color-magenta) 100%
+    var(--color-electric-cyan) 0%,
+    var(--color-hot-pink) 100%
   );
 
   /* Border: secondary button, 1px inner stroke */
   --background-image-gradient-outline: linear-gradient(
     90deg,
-    var(--color-cyan) 0%,
-    var(--color-magenta) 100%
+    var(--color-electric-cyan) 0%,
+    var(--color-hot-pink) 100%
   );
 
   /*section headers*/
   --background-image-gradient-text: linear-gradient(
     180deg,
-    var(--color-cyan) 18.97%,
-    var(--color-magenta) 79.31%
+    var(--color-electric-cyan) 18.97%,
+    var(--color-hot-pink) 79.31%
   );
 
   /*separator lines */
   --background-image-gradient-divider: linear-gradient(
     90deg,
-    var(--color-cyan) 0%,
-    var(--color-yellow) 100%
+    var(--color-electric-cyan) 0%,
+    var(--color-neon-yellow) 100%
   );
 
   --background-image-gradient-divider-vertical: linear-gradient(
     180deg,
-    var(--color-cyan) 0%,
-    var(--color-yellow) 100%
+    var(--color-electric-cyan) 0%,
+    var(--color-neon-yellow) 100%
   );
 
   /* ---- Typography -------------------------------------------*/
@@ -127,10 +128,10 @@
   /* ---- Shadows / glow --------------------------------------------------- */
   --shadow-btn: 0px 4px 4px 0px var(--color-btn-shadow);
   --drop-shadow-icon: 0 4px 4px var(--color-btn-shadow); /*filter*/
-  --drop-shadow-btn-icon: 0 4px 2px var(--color-paper-25); /*filter*/
-  --shadow-card: -2px -2px 18px 10px var(--color-paper-50);
-  --shadow-photo: -2px -2px 18px 0px var(--color-paper-50);
-  --shadow-glow-image: 2px -2px 6px var(--color-paper-50);
+  --drop-shadow-btn-icon: 0 4px 2px var(--color-soft-white-25); /*filter*/
+  --shadow-card: -2px -2px 18px 10px var(--color-soft-white-50);
+  --shadow-photo: -2px -2px 18px 0px var(--color-soft-white-50);
+  --shadow-glow-image: 2px -2px 6px var(--color-soft-white-50);
   --shadow-soft: -4px -1px 10px 0px var(--color-scrim-25);
   --text-shadow-drop: 0px 4px 4px var(--color-scrim-25);
   --shadow-glow-toggle:
@@ -141,15 +142,15 @@
   /* Fill hover: primary button. */
   --background-image-gradient-hover: linear-gradient(
     180deg,
-    var(--color-cyan) 0%,
-    var(--color-yellow) 100%
+    var(--color-electric-cyan) 0%,
+    var(--color-neon-yellow) 100%
   );
 
   /* Border hover: secondary button (same value as divider, keep seperate?). */
   --background-image-gradient-outline-hover: linear-gradient(
     90deg,
-    var(--color-cyan) 0%,
-    var(--color-yellow) 100%
+    var(--color-electric-cyan) 0%,
+    var(--color-neon-yellow) 100%
   );
 
   --background-image-gradient-disabled: linear-gradient(
@@ -165,12 +166,12 @@
   );
   --btn-outline-disabled-foreground: var(--color-btn-solid-foreground);
 
-  --color-focus: var(--color-magenta); /*outline*/
+  --color-focus: var(--color-hot-pink); /*outline*/
   /* Label text + icon stroke on disabled button. */
-  --color-disabled-foreground: rgb(from var(--color-paper) r g b / 40%);
+  --color-disabled-foreground: rgb(from var(--color-soft-white) r g b / 40%);
   --shadow-pressed:
     0px 4px 4px 0px var(--color-btn-shadow),
-    inset 0px 4px 4px 0px rgb(from var(--color-magenta) r g b / 70%);
+    inset 0px 4px 4px 0px rgb(from var(--color-hot-pink) r g b / 70%);
 
   /* ---- Layout ------------------------------------------------------- */
   --container-content: 1280px; /* max width including the side margins */
@@ -196,28 +197,29 @@
 .dark {
   color-scheme: dark;
 
-  --color-background: var(--color-ink);
-  --color-foreground: var(--color-paper);
-  --color-foreground-inverse: var(--color-ink);
-  --color-muted-foreground: rgb(from var(--color-paper) r g b / 60%);
-  --color-border: var(--color-paper);
-  --color-accent: var(--color-cyan);
+  --color-background: var(--color-near-black);
+  --color-foreground: var(--color-soft-white);
+  --color-foreground-inverse: var(--color-near-black);
+  --color-muted-foreground: rgb(from var(--color-soft-white) r g b / 60%);
+  --color-border: var(--color-soft-white);
+  --color-accent: var(--color-electric-cyan);
+  --color-emphasis: var(--color-electric-cyan);
   --color-field: #313131;
   --color-dropzone: var(--color-field);
   --color-error: #ff8a80;
-  --color-btn-shadow: var(--color-paper-25);
-  --color-focus: var(--color-yellow);
+  --color-btn-shadow: var(--color-soft-white-25);
+  --color-focus: var(--color-neon-yellow);
   --btn-outline-disabled-foreground: var(--color-disabled-foreground);
-  --color-toggle-track: var(--color-ink);
+  --color-toggle-track: var(--color-near-black);
   --color-toggle-icon: #000000;
   --color-toggle-knob: #428bc1;
   --color-toggle-glow: rgba(42, 95, 158, 0.5);
-  --color-icon-accent: var(--color-yellow);
-  --color-icon-inline: var(--color-cyan);
-  --color-quote-mark: var(--color-cyan);
-  --color-link: var(--color-orange);
-  --color-link-visited: var(--color-yellow);
-  --color-contact-link: var(--color-cyan);
+  --color-icon-accent: var(--color-neon-yellow);
+  --color-icon-inline: var(--color-electric-cyan);
+  --color-quote-mark: var(--color-electric-cyan);
+  --color-link: var(--color-lava-orange);
+  --color-link-visited: var(--color-neon-yellow);
+  --color-contact-link: var(--color-electric-cyan);
   --color-grid-line: #414141;
   --color-pattern-wash: rgba(0, 0, 0, 0.8);
   --color-photo-scrim: rgba(0, 0, 0, 0.7);

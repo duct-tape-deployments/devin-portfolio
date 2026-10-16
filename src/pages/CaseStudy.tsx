@@ -171,7 +171,7 @@ function CaseStudy() {
 
               <div className="mt-4 grid gap-8 md:grid-cols-2">
                 <div>
-                  <h3 className="font-body text-body text-accent">{t.fontsUsed}</h3>
+                  <h3 className="font-body text-body font-semibold text-emphasis">{t.fontsUsed}</h3>
 
                   <div className="mt-4 space-y-4">
                     {details.typography.map((font) => (
@@ -208,7 +208,9 @@ function CaseStudy() {
 
                 {details.colors && (
                   <div>
-                    <h3 className="font-body text-body text-accent">{t.colorsUsed}</h3>
+                    <h3 className="font-body text-body font-semibold text-emphasis">
+                      {t.colorsUsed}
+                    </h3>
 
                     <div className="mt-4 flex flex-wrap gap-4">
                       {details.colors.map((color) => (

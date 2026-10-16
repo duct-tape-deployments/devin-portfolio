@@ -23,8 +23,9 @@
 }
 
 @utility icon-button-on-photo {
-  --icon-color: var(--color-paper);
-  --icon-halo: drop-shadow(0 0 1px var(--color-ink)) drop-shadow(0 0 2px var(--color-ink));
+  --icon-color: var(--color-soft-white);
+  --icon-halo: drop-shadow(0 0 1px var(--color-near-black))
+    drop-shadow(0 0 2px var(--color-near-black));
   filter: var(--icon-halo);
 
   &:not(:disabled, [aria-disabled='true']) {
@@ -215,7 +216,7 @@
   .icon-button {
     --icon-color: var(--color-foreground);
     --icon-glow: var(--color-icon-accent);
-    --icon-pressed-color: var(--color-paper);
+    --icon-pressed-color: var(--color-soft-white);
 
     position: relative;
     display: inline-flex;

@@ -153,7 +153,7 @@ export function FileDropZone({ id, name, labelledBy, describedBy }: FileDropZone
         <span>{t.dropHere}</span>
       ) : (
         <span>
-          <span className="text-accent">{t.chooseFile}</span> {t.orDropHere}
+          <span className="text-emphasis underline">{t.chooseFile}</span> {t.orDropHere}
         </span>
       )}
 
