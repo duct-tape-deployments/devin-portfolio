@@ -55,6 +55,7 @@ export type CaseStudy = {
 export const caseStudies: CaseStudy[] = [
   {
     slug: 'food-discovery-logo',
+    projectName: 'Food-IE',
 
     content: untranslated({
       category: 'Logo Design',
@@ -154,6 +155,7 @@ export const caseStudies: CaseStudy[] = [
 
   {
     slug: 'nordic-furniture',
+    projectName: 'Nor Møbler',
 
     content: untranslated({
       category: 'Website & Dashboard',
@@ -167,6 +169,7 @@ export const caseStudies: CaseStudy[] = [
 
   {
     slug: 'local-pizza-brand',
+    projectName: 'Pizza Slice',
 
     content: untranslated({
       category: 'Brand Guide',
@@ -179,6 +182,7 @@ export const caseStudies: CaseStudy[] = [
 
   {
     slug: 'visit-norway',
+    projectName: 'Visit Norway',
 
     content: untranslated({
       category: 'Responsive Website',
@@ -256,6 +260,7 @@ export const caseStudies: CaseStudy[] = [
 
   {
     slug: 'dark-delirium',
+    projectName: 'Dark Delirium',
 
     content: untranslated({
       category: 'Responsive Website',
