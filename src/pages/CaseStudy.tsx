@@ -222,7 +222,7 @@ function CaseStudy() {
                       {details.colors.map((color) => (
                         <div key={color}>
                           <div
-                            className="h-14 w-14 rounded-full border border-border"
+                            className="size-[65px] rounded-full border border-border"
                             style={{ backgroundColor: color }}
                           />
 
