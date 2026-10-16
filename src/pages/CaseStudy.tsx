@@ -1,8 +1,8 @@
 import { Circle } from 'lucide-react';
-import { Link, Navigate, useParams } from 'react-router';
+import { Navigate, useParams } from 'react-router';
 
 import { GradientDivider } from '@/components/interface/GradientDivider';
-import { PageContainer, pageSpacing } from '@/components/layout/PageContainer';
+import { PageContainer } from '@/components/layout/PageContainer';
 import { PageTitle } from '@/components/layout/PageTitle';
 import { CaseStudyGallery } from '@/components/portfolio/CaseStudyGallery';
 import { routes } from '@/config/navigation';
@@ -41,16 +41,9 @@ function CaseStudy() {
   const galleryImages = details?.images?.map((image) => localizeImage(image, language)) ?? [];
 
   return (
-    <PageContainer className={pageSpacing}>
+    <PageContainer className="pt-4 pb-16 lg:pt-6 lg:pb-24">
       <PageTitle name={caseStudy.projectName ?? content.title} />
-      <header className="relative mb-12">
-        <Link
-          to={routes.uiUx}
-          className="mb-4 flex w-fit text-sm font-semibold text-accent hover:underline lg:absolute lg:bottom-full"
-        >
-          ← UI/UX
-        </Link>
-
+      <header className="mb-12">
         {caseStudy.projectName && (
           <h1 className="title-gradient mb-8 block">{caseStudy.projectName}</h1>
         )}

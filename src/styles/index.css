@@ -294,6 +294,75 @@
     }
   }
 
+  /*  Back link */
+  .icon-link {
+    --icon-color: var(--color-foreground);
+    --icon-glow: var(--color-icon-accent);
+    --icon-pressed-color: var(--color-muted-foreground); /* dims with the label */
+
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    font-weight: 600;
+    line-height: var(--text-body--line-height);
+    text-underline-offset: 4px;
+    -webkit-tap-highlight-color: transparent;
+    transition: color 150ms ease;
+
+    @variant hover {
+      text-decoration-line: underline;
+
+      & svg {
+        filter: drop-shadow(0 0 6px var(--icon-glow));
+      }
+    }
+  }
+
+  .icon-link::before {
+    content: '';
+    position: absolute;
+    inset: min(0px, 50% - 24px) -8px;
+
+    @variant lg {
+      inset: min(0px, 50% - 20px) -8px;
+    }
+  }
+
+  .icon-link svg {
+    flex-shrink: 0;
+    color: var(--icon-color);
+    filter: drop-shadow(var(--drop-shadow-icon));
+    transition:
+      color 300ms ease-in,
+      filter 300ms ease-in;
+  }
+
+  .icon-link svg * {
+    vector-effect: non-scaling-stroke;
+  }
+
+  .icon-link:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 4px;
+  }
+
+  .icon-link:active {
+    color: var(--color-muted-foreground);
+  }
+
+  .icon-link:active svg {
+    width: 22px;
+    height: 22px;
+    margin: 1px;
+    color: var(--icon-pressed-color);
+    filter: drop-shadow(var(--drop-shadow-icon));
+  }
+
   .badge {
     display: flex;
     width: fit-content;
