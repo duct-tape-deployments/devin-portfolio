@@ -15,7 +15,7 @@ export function TestimonialQuote({ testimonial }: TestimonialQuoteProps) {
       <Quote
         aria-hidden="true"
         size={24}
-        className="absolute top-0 left-0 -scale-x-100 text-icon-inline"
+        className="absolute top-0 left-0 -scale-x-100 text-quote-mark"
       />
 
       <blockquote className="w-53.5">
@@ -26,7 +26,7 @@ export function TestimonialQuote({ testimonial }: TestimonialQuoteProps) {
             <Quote
               aria-hidden="true"
               size={24}
-              className="ml-2 inline-block align-top text-icon-inline"
+              className="ml-2 inline-block align-top text-quote-mark"
             />
           </span>
         </p>
