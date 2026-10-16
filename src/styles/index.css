@@ -283,8 +283,14 @@
     --icon-color: var(--color-icon-accent);
     --icon-pressed-color: var(--color-icon-accent);
   }
+
+  /* 44px on mobile so touch targets meet without overlapping*/
   .social-link::before {
-    content: none;
+    inset: -10px;
+
+    @variant lg {
+      inset: -8px;
+    }
   }
 
   .badge {
