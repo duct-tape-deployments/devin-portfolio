@@ -15,7 +15,7 @@ export function TestimonialQuote({ testimonial }: TestimonialQuoteProps) {
       <Quote
         aria-hidden="true"
         size={24}
-        className="absolute top-0 left-0 -scale-x-100 text-cyan"
+        className="absolute top-0 left-0 -scale-x-100 text-quote-mark"
       />
 
       <blockquote className="w-53.5">
@@ -23,7 +23,11 @@ export function TestimonialQuote({ testimonial }: TestimonialQuoteProps) {
           {quote.slice(0, lastSpace + 1)}
           <span className="whitespace-nowrap">
             {quote.slice(lastSpace + 1)}
-            <Quote aria-hidden="true" size={24} className="ml-2 inline-block align-top text-cyan" />
+            <Quote
+              aria-hidden="true"
+              size={24}
+              className="ml-2 inline-block align-top text-quote-mark"
+            />
           </span>
         </p>
       </blockquote>
