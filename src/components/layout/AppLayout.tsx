@@ -30,9 +30,7 @@ export function AppLayout() {
     <div className="flex min-h-dvh flex-col">
       <Header />
 
-      <main id="main-content" className="flex-1 bg-background">
-        <Outlet />
-      </main>
+      <Outlet />
 
       <Footer />
     </div>

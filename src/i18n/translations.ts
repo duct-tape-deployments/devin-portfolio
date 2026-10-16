@@ -19,6 +19,7 @@ export const translations = {
       socialLinks: 'Social media links',
       menu: 'Menu',
       skipToContent: 'Skip to main content',
+      backTo: 'Back to',
     },
   },
 
@@ -40,6 +41,7 @@ export const translations = {
       socialLinks: 'Lenker til sosiale medier',
       menu: 'Meny',
       skipToContent: 'Hopp til hovedinnhold',
+      backTo: 'Tilbake til',
     },
   },
 } as const satisfies Record<Language, object>;
