@@ -358,3 +358,21 @@ export const caseStudies: CaseStudy[] = [
 export function getCaseStudy(slug: string) {
   return caseStudies.find((caseStudy) => caseStudy.slug === slug);
 }
+
+export function getNextCaseStudy(slug: string): CaseStudy | undefined {
+  const start = caseStudies.findIndex((caseStudy) => caseStudy.slug === slug);
+
+  if (start === -1) {
+    return undefined;
+  }
+
+  for (let offset = 1; offset < caseStudies.length; offset++) {
+    const candidate = caseStudies[(start + offset) % caseStudies.length];
+
+    if (candidate.details) {
+      return candidate;
+    }
+  }
+
+  return undefined;
+}
