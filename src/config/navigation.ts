@@ -44,3 +44,19 @@ export const navigation = [
     to: routes.contact,
   },
 ] satisfies readonly NavigationItem[];
+
+export type FooterNavigationGroup = {
+  /** Key into the `footer` translation scope */
+  headingKey: 'explore' | 'portfolios';
+  items: readonly NavigationItem[];
+};
+
+function navigationItems(...labelKeys: NavigationLabelKey[]) {
+  return navigation.filter((item) => labelKeys.includes(item.labelKey));
+}
+
+/** The footer's link columns from `md` up */
+export const footerNavigation: readonly FooterNavigationGroup[] = [
+  { headingKey: 'explore', items: navigationItems('home', 'about', 'contact') },
+  { headingKey: 'portfolios', items: navigationItems('uiUx', 'photography', 'videography') },
+];
