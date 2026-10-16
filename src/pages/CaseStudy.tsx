@@ -1,4 +1,3 @@
-import { useEffect, useRef } from 'react';
 import { Circle } from 'lucide-react';
 import { Navigate, useParams } from 'react-router';
 
@@ -20,17 +19,6 @@ function CaseStudy() {
   const language = useLanguageStore((state) => state.language);
   const t = useT(caseStudyLabels);
 
-  const previousSlug = useRef(slug);
-
-  useEffect(() => {
-    if (previousSlug.current === slug) {
-      return;
-    }
-
-    previousSlug.current = slug;
-    document.getElementById('main-content')?.focus({ preventScroll: true });
-  }, [slug]);
-
   if (!slug) {
     return <Navigate to={routes.uiUx} replace />;
   }
@@ -50,6 +38,8 @@ function CaseStudy() {
   const heroImage = heroSource && localizeImage(heroSource, language);
 
   const galleryImages = details?.images?.map((image) => localizeImage(image, language)) ?? [];
+
+  const TitleHeading = caseStudy.projectName ? 'h2' : 'h1';
 
   return (
     <PageContainer className="pt-4 pb-16 lg:pt-6 lg:pb-24">
@@ -75,7 +65,9 @@ function CaseStudy() {
           <div className="lg:order-first lg:col-span-5">
             <p className="badge">{content.category}</p>
 
-            <h2 className={`mt-4 max-w-reading ${sectionHeading}`}>{content.title}</h2>
+            <TitleHeading className={`mt-4 max-w-reading ${sectionHeading}`}>
+              {content.title}
+            </TitleHeading>
 
             <p className="mt-4 max-w-reading text-pretty text-foreground">{content.description}</p>
           </div>
