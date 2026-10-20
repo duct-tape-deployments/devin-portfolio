@@ -27,7 +27,7 @@ export function HeroHeading({ headingId }: HeroHeadingProps) {
         </span>{' '}
         <span className="block">
           {t.lineTwoLead && <>{t.lineTwoLead} </>}
-          <span>{t.highlight}</span>
+          <span className="text-noise">{t.highlight}</span>
         </span>{' '}
         <span className="block">{t.lineThree}</span>
       </h1>

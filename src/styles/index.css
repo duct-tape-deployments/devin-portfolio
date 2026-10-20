@@ -39,6 +39,23 @@
   }
 }
 
+/* Noise-filled word with a cyan copy behind it */
+@utility text-noise {
+  display: inline-block;
+  background: var(--background-image-noise), var(--color-noise-fill);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: none;
+  filter: drop-shadow(var(--drop-shadow-noise-copy)) drop-shadow(var(--drop-shadow-text));
+
+  @media (forced-colors: active) {
+    background: none;
+    color: CanvasText;
+    filter: none;
+  }
+}
+
 @utility wordmark {
   display: block;
   white-space: nowrap;
