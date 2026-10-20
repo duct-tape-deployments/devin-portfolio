@@ -1,9 +1,9 @@
 import type { ComponentPropsWithRef } from 'react';
 
-/** `default` design-system section padding: 64px mobile, 96px desktop · `hero` 80px mobile, 128px desktop · `none` for places that set their own spacing (a page's first section uses `pageSpacing`) */
+/** `default` design-system section padding: 64px mobile, 96px desktop · `hero` 80px mobile, 128px desktop· `none` for places that set their own spacing (a page's first section uses `pageSpacing`) */
 const spacing = {
   default: 'py-16 lg:py-24',
-  hero: 'py-20 lg:py-32',
+  hero: 'pt-20 lg:pt-32',
   none: '',
 } as const;
 
