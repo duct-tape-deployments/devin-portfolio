@@ -137,6 +137,7 @@
   --shadow-glow-image: 2px -2px 6px var(--color-soft-white-50);
   --shadow-soft: -4px -1px 10px 0px var(--color-scrim-25);
   --text-shadow-drop: 0px 4px 4px var(--color-scrim-25);
+  --drop-shadow-text: 0 4px 4px var(--color-scrim-25); /*filter: text-shadow-drop for gradient text*/
   --shadow-glow-toggle:
     inset 0px -4px 4px 0px var(--color-toggle-glow), inset 0px 4px 4px 0px var(--color-toggle-glow);
 
@@ -190,6 +191,7 @@
 
   @variant lg {
     --spacing-page-margin: 32px;
+    --text-display: 72px;
     --text-h1: 56px;
     --text-h2: 40px;
     --text-h3: 32px;
