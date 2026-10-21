@@ -47,9 +47,9 @@ function Contact() {
       <PageTitle page="contact" />
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <picture>
-          <source srcSet="/images/contact-background.avif" type="image/avif" />
+          <source media="(min-width: 64rem)" srcSet="/images/contact-background-wide.avif" />
           <img
-            src="/images/contact-background.jpg"
+            src="/images/contact-background.avif"
             alt=""
             width={1200}
             height={1600}
