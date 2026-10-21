@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { Circle } from 'lucide-react';
 import { Navigate, useParams } from 'react-router';
 
@@ -5,13 +6,30 @@ import { GradientDivider } from '@/components/interface/GradientDivider';
 import { PageContainer } from '@/components/layout/PageContainer';
 import { PageTitle } from '@/components/layout/PageTitle';
 import { CaseStudyGallery } from '@/components/portfolio/CaseStudyGallery';
-import { sectionHeading } from '@/components/portfolio/caseStudyStyles';
+import { sectionDivider, sectionHeading } from '@/components/portfolio/caseStudyStyles';
 import { NextCaseStudy } from '@/components/portfolio/NextCaseStudy';
 import { routes } from '@/config/navigation';
 import { getCaseStudy } from '@/data/caseStudies';
 import { caseStudyLabels } from '@/i18n/caseStudyLabels';
 import { localizeImage } from '@/i18n/localized';
 import { useLanguageStore, useT } from '@/stores/languageStore';
+
+const bodyText = 'max-w-reading text-pretty text-foreground';
+
+type LabelledSectionProps = {
+  title: string;
+  children: ReactNode;
+};
+
+function LabelledSection({ title, children }: LabelledSectionProps) {
+  return (
+    <section className="lg:grid lg:grid-cols-12 lg:gap-x-6">
+      <h2 className={`${sectionHeading} lg:col-span-4`}>{title}</h2>
+
+      <div className="mt-4 lg:col-span-8 lg:mt-0">{children}</div>
+    </section>
+  );
+}
 
 function CaseStudy() {
   const { slug } = useParams();
@@ -44,7 +62,7 @@ function CaseStudy() {
   return (
     <PageContainer className="pt-4 pb-16 lg:pt-6 lg:pb-24">
       <PageTitle name={caseStudy.projectName ?? content.title} />
-      <header className="mb-12">
+      <header className={detailsContent ? 'mb-8 lg:mb-12' : 'mb-12'}>
         {caseStudy.projectName && (
           <h1 translate="no" className="title-gradient mb-8 block">
             {caseStudy.projectName}
@@ -70,6 +88,35 @@ function CaseStudy() {
             </TitleHeading>
 
             <p className="mt-4 max-w-reading text-pretty text-foreground">{content.description}</p>
+
+            {details && detailsContent && (
+              <>
+                <div className="mt-12 grid gap-4 md:grid-cols-2 md:gap-x-5 lg:mt-8 lg:flex lg:flex-wrap lg:gap-x-12">
+                  <section>
+                    <h2 className={sectionHeading}>{t.role}</h2>
+
+                    <p className="mt-4 text-foreground">{detailsContent.role}</p>
+                  </section>
+
+                  <section>
+                    <h2 className={sectionHeading}>{t.duration}</h2>
+
+                    <p className="mt-4 text-foreground">{detailsContent.duration}</p>
+                  </section>
+                </div>
+
+                {details.prototypeUrl && (
+                  <a
+                    href={details.prototypeUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn btn-primary mt-8"
+                  >
+                    {t.viewPrototype}
+                  </a>
+                )}
+              </>
+            )}
           </div>
         </div>
       </header>
@@ -78,63 +125,26 @@ function CaseStudy() {
         <p className="text-foreground">{t.comingSoon}</p>
       ) : (
         <div className="space-y-8">
-          <div className="space-y-4">
-            <section>
-              <h2 className={sectionHeading}>{t.role}</h2>
-
-              <p className="mt-4 text-foreground">{detailsContent.role}</p>
-            </section>
-
-            <section>
-              <h2 className={sectionHeading}>{t.duration}</h2>
-
-              <p className="mt-4 text-foreground">{detailsContent.duration}</p>
-            </section>
-          </div>
-
-          {(details.prototypeUrl || galleryImages.length > 0) && (
-            <div className="space-y-8">
-              {details.prototypeUrl && (
-                <a
-                  href={details.prototypeUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn btn-primary"
-                >
-                  {t.viewPrototype}
-                </a>
-              )}
-
-              {galleryImages.length > 0 && (
-                <div>
-                  <CaseStudyGallery images={galleryImages} />
-                </div>
-              )}
+          {galleryImages.length > 0 && (
+            <div>
+              <CaseStudyGallery images={galleryImages} />
             </div>
           )}
 
-          <div className="mx-auto w-3/5 py-4">
+          <div className={`${sectionDivider} py-4`}>
             <GradientDivider />
           </div>
 
-          <section>
-            <h2 className={sectionHeading}>{t.company}</h2>
+          <LabelledSection title={t.company}>
+            <p className={bodyText}>{detailsContent.company}</p>
+          </LabelledSection>
 
-            <p className="mt-4 max-w-reading text-pretty text-foreground">
-              {detailsContent.company}
-            </p>
-          </section>
+          <LabelledSection title={t.goal}>
+            <p className={bodyText}>{detailsContent.goal}</p>
+          </LabelledSection>
 
-          <section>
-            <h2 className={sectionHeading}>{t.goal}</h2>
-
-            <p className="mt-4 max-w-reading text-pretty text-foreground">{detailsContent.goal}</p>
-          </section>
-
-          <section>
-            <h2 className={sectionHeading}>{t.targetAudience}</h2>
-
-            <ul className="mt-4 space-y-2">
+          <LabelledSection title={t.targetAudience}>
+            <ul className="space-y-2">
               <li className="flex items-center gap-2 text-foreground">
                 <Circle
                   aria-hidden="true"
@@ -157,17 +167,15 @@ function CaseStudy() {
                 <span>{detailsContent.targetAudience.description}</span>
               </li>
             </ul>
-          </section>
+          </LabelledSection>
 
-          <div className="mx-auto w-3/5 py-4">
+          <div className={`${sectionDivider} py-4`}>
             <GradientDivider />
           </div>
 
           {details.typography && (
-            <section>
-              <h2 className={sectionHeading}>{t.typographyAndColors}</h2>
-
-              <div className="mt-4 grid gap-8 md:grid-cols-2">
+            <LabelledSection title={t.typographyAndColors}>
+              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
                 <div>
                   <h3 className="font-body text-body font-semibold text-emphasis">{t.fontsUsed}</h3>
 
@@ -225,63 +233,49 @@ function CaseStudy() {
                   </div>
                 )}
               </div>
-            </section>
+            </LabelledSection>
           )}
 
           {detailsContent.objective && (
-            <section>
-              <h2 className={sectionHeading}>{t.objective}</h2>
-
-              <p className="mt-4 max-w-reading text-pretty text-foreground">
-                {detailsContent.objective}
-              </p>
-            </section>
+            <LabelledSection title={t.objective}>
+              <p className={bodyText}>{detailsContent.objective}</p>
+            </LabelledSection>
           )}
 
           {detailsContent.methodology && (
-            <section>
-              <h2 className={sectionHeading}>{t.methodology}</h2>
-
-              <ul className="mt-4 max-w-reading space-y-2 text-foreground">
+            <LabelledSection title={t.methodology}>
+              <ul className="max-w-reading space-y-2 text-foreground">
                 {detailsContent.methodology.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-            </section>
+            </LabelledSection>
           )}
 
           {detailsContent.feedback && (
-            <section>
-              <h2 className={sectionHeading}>{t.feedback}</h2>
-
-              <p className="mt-4 max-w-reading text-pretty text-foreground">
-                {detailsContent.feedback}
-              </p>
-            </section>
+            <LabelledSection title={t.feedback}>
+              <p className={bodyText}>{detailsContent.feedback}</p>
+            </LabelledSection>
           )}
 
           {detailsContent.findings && (
-            <section>
-              <h2 className={sectionHeading}>{t.findings}</h2>
-
-              <ul className="mt-4 max-w-reading list-disc space-y-2 pl-5 text-foreground">
+            <LabelledSection title={t.findings}>
+              <ul className="max-w-reading list-disc space-y-2 pl-5 text-foreground">
                 {detailsContent.findings.map((finding) => (
                   <li key={finding}>{finding}</li>
                 ))}
               </ul>
-            </section>
+            </LabelledSection>
           )}
 
           {detailsContent.recommendations && (
-            <section>
-              <h2 className={sectionHeading}>{t.recommendations}</h2>
-
-              <ul className="mt-4 max-w-reading list-disc space-y-2 pl-5 text-foreground">
+            <LabelledSection title={t.recommendations}>
+              <ul className="max-w-reading list-disc space-y-2 pl-5 text-foreground">
                 {detailsContent.recommendations.map((recommendation) => (
                   <li key={recommendation}>{recommendation}</li>
                 ))}
               </ul>
-            </section>
+            </LabelledSection>
           )}
         </div>
       )}
