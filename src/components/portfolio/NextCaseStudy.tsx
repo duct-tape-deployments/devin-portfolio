@@ -3,7 +3,7 @@ import { ChevronRight } from 'lucide-react';
 import { Link } from 'react-router';
 
 import { GradientDivider } from '@/components/interface/GradientDivider';
-import { sectionHeading } from '@/components/portfolio/caseStudyStyles';
+import { sectionDivider, sectionHeading } from '@/components/portfolio/caseStudyStyles';
 import { routes } from '@/config/navigation';
 import { getNextCaseStudy } from '@/data/caseStudies';
 import { caseStudyLabels } from '@/i18n/caseStudyLabels';
@@ -31,7 +31,7 @@ export function NextCaseStudy({ slug }: NextCaseStudyProps) {
 
   return (
     <nav aria-labelledby={headingId} className="mt-16 lg:mt-24">
-      <div className="mx-auto w-3/5">
+      <div className={sectionDivider}>
         <GradientDivider />
       </div>
 
