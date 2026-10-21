@@ -6,23 +6,19 @@ import { GradientDivider } from '@/components/interface/GradientDivider';
 import { PageContainer } from '@/components/layout/PageContainer';
 import { Section } from '@/components/layout/Section';
 
-/**
- * Hero padding, 80px mobile / 128px desktop: above and below the heading block, and
- * below the hero. The bottom is only 16/32 because the next section adds its own 64/96 top.
- */
 export function HomeHero() {
   const headingId = useId();
 
   return (
     <Section space="none" aria-labelledby={headingId} className="pt-20 pb-4 lg:pt-32 lg:pb-8">
-      <PageContainer>
-        <HeroHeading headingId={headingId} />
-      </PageContainer>
+      <PageContainer className="md:grid md:grid-cols-8 md:gap-x-5 lg:grid-cols-12 lg:gap-x-6">
+        <HeroHeading headingId={headingId} className="md:col-span-8 lg:col-span-7 lg:self-center" />
 
-      <GradientDivider className="mt-20 lg:mt-32" />
+        <div className="-mx-page-margin mt-20 md:hidden">
+          <GradientDivider />
+        </div>
 
-      <PageContainer className="mt-3">
-        <ProfileCard />
+        <ProfileCard className="mt-3 md:col-span-8 md:mt-12 lg:col-span-5 lg:mt-0 lg:self-start" />
       </PageContainer>
     </Section>
   );

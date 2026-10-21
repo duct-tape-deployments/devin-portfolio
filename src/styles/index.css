@@ -56,6 +56,15 @@
   }
 }
 
+@utility gradient-frame {
+  border: 1px solid transparent;
+  border-radius: var(--radius-card);
+  background:
+    linear-gradient(var(--color-background), var(--color-background)) padding-box,
+    var(--background-image-gradient-outline) border-box;
+  box-shadow: var(--shadow-btn);
+}
+
 @utility wordmark {
   display: block;
   white-space: nowrap;

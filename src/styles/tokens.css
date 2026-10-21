@@ -104,7 +104,7 @@
     sans-serif;
   /*pawfect, solarsmart: baloo 2 bold, Lato regular, Open Sans Regular, Montserrat Bold*/
 
-  --text-display: 48px; /* hero */
+  --text-display: 48px; /* hero: 48 mobile, 72 from md */
   --text-display--line-height: 1.1;
   --text-h1: 40px; /* page / section titles */
   --text-h1--line-height: 1.1;
@@ -196,11 +196,11 @@
 :root {
   @variant md {
     --spacing-page-margin: 24px;
+    --text-display: 72px;
   }
 
   @variant lg {
     --spacing-page-margin: 32px;
-    --text-display: 72px;
     --text-h1: 56px;
     --text-h2: 40px;
     --text-h3: 32px;
