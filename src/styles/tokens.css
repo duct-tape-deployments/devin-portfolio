@@ -89,11 +89,9 @@
 
   /* ---- Noise text (hero highlight word) ---------------------------------- */
 
-  /* Figma "Monotone noise" (size 1, density 100%, #000 25%), currently the grain stays 1px at any font size */
-  --background-image-noise: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='256' height='256'><filter id='n' x='0' y='0' width='100%' height='100%' color-interpolation-filters='sRGB'><feTurbulence type='fractalNoise' baseFrequency='1' numOctaves='3' seed='7012' stitchTiles='stitch'/><feColorMatrix type='luminanceToAlpha'/><feComponentTransfer result='a'><feFuncA type='discrete' tableValues='1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0'/></feComponentTransfer><feComposite operator='in' in='SourceGraphic' in2='a'/></filter><rect width='100%' height='100%' fill='black' fill-opacity='0.25' filter='url(%23n)'/></svg>");
+  --background-image-noise: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n' x='0' y='0' width='100%' height='100%' color-interpolation-filters='sRGB'><feTurbulence type='fractalNoise' baseFrequency='1' numOctaves='3' seed='7012'/><feColorMatrix type='luminanceToAlpha'/><feComponentTransfer result='a'><feFuncA type='discrete' tableValues='1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0'/></feComponentTransfer><feComposite operator='in' in='SourceGraphic' in2='a'/></filter><rect transform='translate(.25 .25)' width='100%' height='100%' fill='black' fill-opacity='0.25' filter='url(%23n)'/></svg>");
 
   --color-noise-fill: var(--color-soft-white);
-
   --drop-shadow-noise-copy: -2px -1px 0 var(--color-electric-cyan);
 
   /* ---- Typography -------------------------------------------*/
