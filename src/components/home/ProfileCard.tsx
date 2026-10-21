@@ -10,11 +10,15 @@ type ProfileCardProps = {
 
 export function ProfileCard({ className }: ProfileCardProps) {
   const t = useT(profileIntro);
+  const classes = [
+    'grid grid-cols-[minmax(0,183px)_minmax(8.75rem,1fr)] items-center gap-x-4 md:grid-cols-8 md:gap-x-5 lg:flex lg:flex-col',
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
-    <div
-      className={`grid grid-cols-[minmax(0,183px)_minmax(8.75rem,1fr)] items-center gap-x-4 md:grid-cols-8 md:gap-x-5 lg:flex lg:flex-col ${className ?? ''}`}
-    >
+    <div className={classes}>
       <img
         src="/images/home/devin-profile.webp"
         alt={t.photoAlt}
@@ -36,7 +40,10 @@ export function ProfileCard({ className }: ProfileCardProps) {
           {t.role}
         </p>
 
-        <ul className="col-span-2 mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-foreground md:mt-4 md:max-lg:justify-start">
+        <ul
+          role="list"
+          className="col-span-2 mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-foreground md:mt-4 md:max-lg:justify-start"
+        >
           <li className="flex items-center gap-2">
             <MapPin size={24} aria-hidden="true" className="shrink-0" />
             <span>

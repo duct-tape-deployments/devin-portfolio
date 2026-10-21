@@ -16,12 +16,15 @@ type HeroHeadingProps = {
 export function HeroHeading({ headingId, className }: HeroHeadingProps) {
   const language = useLanguageStore((state) => state.language);
   const t = useT(homeHero);
+  const classes = ['md:flex md:items-end md:justify-between md:gap-5 lg:block', className]
+    .filter(Boolean)
+    .join(' ');
 
   return (
-    <div className={`md:flex md:items-end md:justify-between md:gap-5 lg:block ${className ?? ''}`}>
+    <div className={classes}>
       <h1
         id={headingId}
-        className={`font-display text-display font-bold uppercase text-shadow-drop ${language === 'no' ? 'max-[330px]:text-h1' : ''}`}
+        className={`font-display text-display font-bold uppercase text-shadow-drop ${language === 'no' ? 'max-[330px]:text-h1' : 'max-[347px]:text-h1'}`}
       >
         <span className="block bg-gradient-text bg-clip-text text-transparent text-shadow-none drop-shadow-text">
           {t.lineOne}
