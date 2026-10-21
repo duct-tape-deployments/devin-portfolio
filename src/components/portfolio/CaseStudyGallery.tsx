@@ -100,7 +100,7 @@ export function CaseStudyGallery({ images }: CaseStudyGalleryProps) {
 
   return (
     <>
-      <ul className={`grid gap-2 sm:gap-3 ${columns}`}>
+      <ul className={`grid gap-2 sm:gap-3 md:gap-5 lg:gap-6 ${columns}`}>
         {images.map((image, index) => (
           <li key={image.src} className="min-w-0">
             <button
@@ -110,7 +110,7 @@ export function CaseStudyGallery({ images }: CaseStudyGalleryProps) {
               aria-label={`${t.openImage}: ${image.alt} (${index + 1}/${images.length})`}
               onClick={(event) => openImage(index, event.currentTarget)}
               className="
-                block aspect-square w-full
+                block aspect-square w-full md:aspect-4/3
                 cursor-pointer overflow-hidden rounded-lg
                 shadow-glow-image
                 focus-visible:outline-2
