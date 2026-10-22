@@ -38,6 +38,7 @@ export type CaseStudyDetails = {
     name: string;
     weight: number;
     weightLabel?: string;
+    family?: string;
     fallback?: 'serif' | 'sans-serif';
   }[];
 
@@ -175,13 +176,104 @@ export const caseStudies: CaseStudy[] = [
     slug: 'local-pizza-brand',
     projectName: 'Pizza Slice',
 
-    content: untranslated({
-      category: 'Brand Guide',
-      title: 'Helping a Local Pizza Joint Better Connect with the Community',
-      description: 'A brand guide for a family-run pizza restaurant beloved by the neighbourhood.',
-    }),
+    content: {
+      en: {
+        category: 'Brand Guide',
+        title: 'Helping a Local Pizza Joint Better Connect with the Community',
+        description:
+          'A brand guide for a family-run pizza restaurant beloved by the neighbourhood.',
+      },
+      no: {
+        category: 'Profilhåndbok',
+        title: 'Hjelper en lokal pizzeria med å knytte sterkere bånd til nærmiljøet',
+        description: 'En profilhåndbok for en familiedrevet pizzarestaurant elsket av nabolaget.',
+      },
+    },
 
     image: '/images/case-studies/pizza-slice-card.jpg',
+
+    details: {
+      content: {
+        en: {
+          role: 'UX/UI Design',
+          duration: '10 hours',
+
+          company:
+            'Pizza Slice is a local pizza company focused on fresh ingredients, family atmosphere and authentic Italian pizza.',
+
+          goal: 'To create a brand guide that the restaurant can use to ensure cohesion for signs, menus and marketing.',
+
+          targetAudience: {
+            ageRange: 'Ages 20-40',
+            description: 'Sales/marketing team',
+          },
+        },
+        no: {
+          role: 'UX/UI-design',
+          duration: '10 timer',
+
+          company:
+            'Pizza Slice er en lokal pizzeria med fokus på ferske råvarer, familiær stemning og ekte italiensk pizza.',
+
+          goal: 'Å lage en profilhåndbok som restauranten kan bruke for å sikre et helhetlig uttrykk på skilt, menyer og markedsføring.',
+
+          targetAudience: {
+            ageRange: 'Alder 20-40',
+            description: 'Salgs- og markedsføringsteam',
+          },
+        },
+      },
+
+      prototypeUrl: '#',
+
+      heroImage: {
+        alt: {
+          en: 'Pages from the Pizza Slice brand guide',
+          no: 'Sider fra profilhåndboken til Pizza Slice',
+        },
+        src: '/images/case-studies/pizza-slice/pizza-slice-hero.webp',
+      },
+
+      images: [
+        {
+          alt: {
+            en: 'Pizza Slice brand guide with the logo, color palette and typography on a laptop',
+            no: 'Profilhåndboken til Pizza Slice med logo, fargepalett og typografi på en bærbar PC',
+          },
+          src: '/images/case-studies/pizza-slice/pizza-slice-brand-guide.webp',
+        },
+        {
+          alt: {
+            en: 'Paper cup with the Pizza Slice logo, held in a hand while coffee is poured into it',
+            no: 'Pappkopp med Pizza Slice-logoen i en hånd mens det skjenkes kaffe i den',
+          },
+          src: '/images/case-studies/pizza-slice/pizza-slice-cup.webp',
+        },
+        {
+          alt: {
+            en: 'Brown carrier bag with the Pizza Slice logo, held up against an orange wall',
+            no: 'Brun bærepose med Pizza Slice-logoen, holdt opp mot en oransje vegg',
+          },
+          src: '/images/case-studies/pizza-slice/pizza-slice-bag.webp',
+        },
+      ],
+
+      typography: [
+        {
+          name: 'Quicksand',
+          weight: 500,
+          weightLabel: 'Medium',
+        },
+        {
+          name: 'Gimlet Display Narrow',
+          weight: 300,
+          family: 'Ancizar Serif',
+          fallback: 'serif',
+        },
+      ],
+
+      colors: ['#8E1611', '#694D35', '#91A94B', '#E1B554', '#C2A384'],
+    },
   },
 
   {
