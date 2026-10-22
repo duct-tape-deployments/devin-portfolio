@@ -188,13 +188,102 @@ export const caseStudies: CaseStudy[] = [
     slug: 'visit-norway',
     projectName: 'Visit Norway',
 
-    content: untranslated({
-      category: 'Responsive Website',
-      title: 'Dazzling Visitors to Norway with Real, Stunning Views',
-      description: 'Designing a responsive website showcasing all Norway has to offer.',
-    }),
+    content: {
+      en: {
+        category: 'Responsive Website',
+        title: 'Dazzling Visitors to Norway with Real, Stunning Views',
+        description: 'Designing a responsive website showcasing all Norway has to offer.',
+      },
+      no: {
+        category: 'Responsiv nettside',
+        title: 'Begeistrer besøkende til Norge med ekte, storslåtte utsikter',
+        description: 'Design av en responsiv nettside som viser fram alt Norge har å by på.',
+      },
+    },
 
     image: '/images/case-studies/visit-norway-card.jpg',
+
+    details: {
+      content: {
+        en: {
+          role: 'UX/UI Design',
+          duration: '20 hours',
+
+          company:
+            'Visit Norway is a website providing tours, attractions, and things to do while travelling in Norway.',
+
+          goal: 'To create a responsive website that reflects the brand’s emphasis on stunning photography and inspired by the Northern Lights.',
+
+          targetAudience: {
+            ageRange: 'Ages 18-65',
+            description: 'Looking to experience Norway',
+          },
+        },
+        no: {
+          role: 'UX/UI-design',
+          duration: '20 timer',
+
+          company:
+            'Visit Norway er en nettside med turer, attraksjoner og aktiviteter for deg som reiser i Norge.',
+
+          goal: 'Å lage en responsiv nettside som gjenspeiler merkevarens vekt på storslåtte fotografier, inspirert av nordlyset.',
+
+          targetAudience: {
+            ageRange: 'Alder 18-65',
+            description: 'Vil oppleve Norge',
+          },
+        },
+      },
+
+      prototypeUrl: '#',
+
+      heroImage: {
+        alt: {
+          en: 'Visit Norway home page on a laptop and a phone, and the contact page on a second phone',
+          no: 'Forsiden til Visit Norway på en bærbar PC og en mobil, og kontaktsiden på en annen mobil',
+        },
+        src: '/images/case-studies/visit-norway-card.jpg',
+      },
+
+      images: [
+        {
+          alt: {
+            en: 'Visit Norway home page with the Northern Lights on a desktop screen',
+            no: 'Forsiden til Visit Norway med nordlyset på en stasjonær skjerm',
+          },
+          src: '/images/case-studies/visit-norway/visit-norway-desktop.webp',
+        },
+        {
+          alt: {
+            en: 'Visit Norway home page with the Northern Lights on a phone',
+            no: 'Forsiden til Visit Norway med nordlyset på en mobil',
+          },
+          src: '/images/case-studies/visit-norway/visit-norway-mobile.webp',
+        },
+        {
+          alt: {
+            en: 'Visit Norway contact form on a phone',
+            no: 'Kontaktskjemaet til Visit Norway på en mobil',
+          },
+          src: '/images/case-studies/visit-norway/visit-norway-contact.webp',
+        },
+      ],
+
+      typography: [
+        {
+          name: 'Jost',
+          weight: 500,
+          weightLabel: 'Medium',
+        },
+        {
+          name: 'Jost',
+          weight: 400,
+          weightLabel: 'Regular',
+        },
+      ],
+
+      colors: ['#FFFFFF', '#EFB8C8', '#293647'],
+    },
   },
 
   {
@@ -311,7 +400,7 @@ export const caseStudies: CaseStudy[] = [
           goal: 'Å lage en responsiv nettside som gjenspeiler bandets mørke og rå energi både på og utenfor scenen, og å sette opp en nettbutikk som selger bandets merch.',
 
           targetAudience: {
-            ageRange: 'Alder 0–100',
+            ageRange: 'Alder 0-100',
             description: 'Vil lære mer om Dark Delirium',
           },
         },
