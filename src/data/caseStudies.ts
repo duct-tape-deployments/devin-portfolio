@@ -38,6 +38,7 @@ export type CaseStudyDetails = {
     name: string;
     weight: number;
     weightLabel?: string;
+    fallback?: 'serif' | 'sans-serif';
   }[];
 
   colors?: string[];
@@ -354,10 +355,12 @@ export const caseStudies: CaseStudy[] = [
         {
           name: 'Felix Titling',
           weight: 400,
+          fallback: 'serif',
         },
         {
           name: 'Perpetua Titling MT',
           weight: 300,
+          fallback: 'serif',
         },
       ],
 

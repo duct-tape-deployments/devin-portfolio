@@ -185,7 +185,7 @@ function CaseStudy() {
                         <h4
                           className="text-2xl"
                           style={{
-                            fontFamily: `"${font.name}", sans-serif`,
+                            fontFamily: `"${font.name}", ${font.fallback ?? 'sans-serif'}`,
                             fontWeight: font.weight,
                           }}
                         >
@@ -195,7 +195,7 @@ function CaseStudy() {
                         <p
                           className="mt-2"
                           style={{
-                            fontFamily: `"${font.name}", sans-serif`,
+                            fontFamily: `"${font.name}", ${font.fallback ?? 'sans-serif'}`,
                             fontWeight: font.weight,
                           }}
                         >
