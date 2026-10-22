@@ -152,7 +152,7 @@ export const caseStudies: CaseStudy[] = [
       typography: [
         {
           name: 'Cabin Sketch',
-          weight: 400,
+          weight: 700,
         },
       ],
 
