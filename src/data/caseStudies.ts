@@ -267,53 +267,85 @@ export const caseStudies: CaseStudy[] = [
     slug: 'dark-delirium',
     projectName: 'Dark Delirium',
 
-    content: untranslated({
-      category: 'Responsive Website',
-      title: 'Bringing the Vibe of a Local Band to Life to Listeners Everywhere',
-      description:
-        'Designing a website showcasing the music of Dark Delirium, a Norwegian metal band.',
-    }),
+    content: {
+      en: {
+        category: 'Responsive Website',
+        title: 'Bringing the Vibe of a Local Band to Life to Listeners Everywhere',
+        description:
+          'Designing a website showcasing the music of Dark Delirium, a Norwegian metal band.',
+      },
+      no: {
+        category: 'Responsiv nettside',
+        title: 'Får fram stemningen til et lokalt band for lyttere overalt',
+        description:
+          'Design av en nettside som viser fram musikken til Dark Delirium, et norsk metalband.',
+      },
+    },
 
     image: '/images/case-studies/dark-delirium-card.jpg',
 
     details: {
-      content: untranslated({
-        role: 'UX/UI Design',
-        duration: '60 hours',
+      content: {
+        en: {
+          role: 'UX/UI Design',
+          duration: '60 hours',
 
-        company:
-          'Dark Delirium is a metal band based in Sandnes, Norway with over 250 monthly listeners on Spotify as well as 1.17K followers on Youtube, getting as many as 2.2M views.',
+          company:
+            'Dark Delirium is a metal band based in Sandnes, Norway with over 250 monthly listeners on Spotify as well as 1.17K followers on Youtube, getting as many as 2.2M views.',
 
-        goal: 'To create a responsive website that reflects the brand’s dark and raw energy both on and off stage, as well as set up a shop that sells the band’s merch.',
+          goal: 'To create a responsive website that reflects the brand’s dark and raw energy both on and off stage, as well as set up a shop that sells the band’s merch.',
 
-        targetAudience: {
-          ageRange: 'Ages 0-100',
-          description: 'Looking to learn about Dark Delirium',
+          targetAudience: {
+            ageRange: 'Ages 0-100',
+            description: 'Looking to learn about Dark Delirium',
+          },
         },
-      }),
+        no: {
+          role: 'UX/UI-design',
+          duration: '60 timer',
+
+          company:
+            'Dark Delirium er et metalband fra Sandnes med over 250 månedlige lyttere på Spotify, 1 170 følgere på YouTube og opptil 2,2 millioner visninger.',
+
+          goal: 'Å lage en responsiv nettside som gjenspeiler bandets mørke og rå energi både på og utenfor scenen, og å sette opp en nettbutikk som selger bandets merch.',
+
+          targetAudience: {
+            ageRange: 'Alder 0–100',
+            description: 'Vil lære mer om Dark Delirium',
+          },
+        },
+      },
 
       prototypeUrl: '#',
 
       heroImage: {
-        alt: untranslated('Dark Delirium home page on a laptop'),
+        alt: {
+          en: 'Dark Delirium home page on a laptop',
+          no: 'Forsiden til Dark Delirium på en bærbar PC',
+        },
         src: '/images/case-studies/dark-delirium-card.jpg',
       },
 
       images: [
         {
-          alt: untranslated(
-            'Dark Delirium home page with photos of the band members on a desktop screen',
-          ),
+          alt: {
+            en: 'Dark Delirium home page with photos of the band members on a desktop screen',
+            no: 'Forsiden til Dark Delirium med bilder av bandmedlemmene på en stasjonær skjerm',
+          },
           src: '/images/case-studies/dark-delirium/dark-delirium-home.webp',
         },
         {
-          alt: untranslated(
-            'Dark Delirium shop page with the band hoodie selected on a desktop screen',
-          ),
+          alt: {
+            en: 'Dark Delirium shop page with the band hoodie selected on a desktop screen',
+            no: 'Nettbutikken til Dark Delirium med bandets hettegenser valgt, på en stasjonær skjerm',
+          },
           src: '/images/case-studies/dark-delirium/dark-delirium-shop.webp',
         },
         {
-          alt: untranslated('Dark Delirium media page with concert photos on a phone'),
+          alt: {
+            en: 'Dark Delirium media page with concert photos on a phone',
+            no: 'Mediesiden til Dark Delirium med konsertbilder på en mobil',
+          },
           src: '/images/case-studies/dark-delirium/dark-delirium-media.webp',
         },
       ],
