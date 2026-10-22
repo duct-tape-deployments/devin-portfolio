@@ -1,4 +1,3 @@
-import { untranslated } from '@/i18n/localized';
 import type { Localized, LocalizedImage } from '@/i18n/localized';
 
 export type CaseStudySummaryContent = {
@@ -164,11 +163,19 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'portugal-travel-brand',
 
-    content: untranslated({
-      category: 'Design System',
-      title: 'Building a Brand for a Travel Website Based in Portugal',
-      description: 'Updating the brand to have a cohesive look with serious tropical vibes.',
-    }),
+    content: {
+      en: {
+        category: 'Design System',
+        title: 'Building a Brand for a Travel Website Based in Portugal',
+        description: 'Updating the brand to have a cohesive look with serious tropical vibes.',
+      },
+      no: {
+        category: 'Designsystem',
+        title: 'Bygger en merkevare for en reisenettside i Portugal',
+        description:
+          'Oppdaterer merkevaren med et helhetlig uttrykk og skikkelig tropisk stemning.',
+      },
+    },
 
     image: '/images/case-studies/jo-&-so-card.jpg',
   },
@@ -177,44 +184,77 @@ export const caseStudies: CaseStudy[] = [
     slug: 'solar-smart',
     projectName: 'SolarSmart',
 
-    content: untranslated({
-      category: 'Website & Design System',
-      title: 'Powering Homes with Solar Panels from Solar Smart',
-      description:
-        'Building a website and design system for a solar panel company who educates clients.',
-    }),
+    content: {
+      en: {
+        category: 'Website & Design System',
+        title: 'Powering Homes with Solar Panels from Solar Smart',
+        description:
+          'Building a website and design system for a solar panel company who educates clients.',
+      },
+      no: {
+        category: 'Nettside og designsystem',
+        title: 'Solenergi til hjemmet med solcellepaneler fra Solar Smart',
+        description:
+          'Bygger en nettside og et designsystem for et solcellefirma som lærer opp kundene sine.',
+      },
+    },
 
     image: '/images/case-studies/solar-smart-card.jpg',
 
     details: {
-      content: untranslated({
-        role: 'UX/UI Design',
-        duration: '30 hours',
+      content: {
+        en: {
+          role: 'UX/UI Design',
+          duration: '30 hours',
 
-        company:
-          'SolarSmart is a solar panel company dedicated to education of solar energy and sells solar panels for private and commercial needs.',
+          company:
+            'SolarSmart is a solar panel company dedicated to education of solar energy and sells solar panels for private and commercial needs.',
 
-        goal: 'To create a responsive website that reflects the brand’s drive for solar energy through the use of color and visuals.',
+          goal: 'To create a responsive website that reflects the brand’s drive for solar energy through the use of color and visuals.',
 
-        targetAudience: {
-          ageRange: 'Ages 25-55',
-          description: 'Looking to buy solar panels',
+          targetAudience: {
+            ageRange: 'Ages 25-55',
+            description: 'Looking to buy solar panels',
+          },
         },
-      }),
+        no: {
+          role: 'UX/UI-design',
+          duration: '30 timer',
+
+          company:
+            'SolarSmart er et solcellefirma som jobber med opplæring om solenergi og selger solcellepaneler til private og bedrifter.',
+
+          goal: 'Å lage en responsiv nettside som gjenspeiler merkevarens engasjement for solenergi gjennom farger og visuelle uttrykk.',
+
+          targetAudience: {
+            ageRange: 'Alder 25-55',
+            description: 'Vil kjøpe solcellepaneler',
+          },
+        },
+      },
 
       prototypeUrl: '#',
 
       images: [
         {
-          alt: untranslated('SolarSmart FAQ page'),
-          src: '/images/case-studies/solar-smart/solar-smart-faq.jpg',
+          alt: {
+            en: 'SolarSmart home page about solar solutions and education on a laptop',
+            no: 'Forsiden til SolarSmart om solenergiløsninger og opplæring, på en bærbar PC',
+          },
+          src: '/images/case-studies/solar-smart/solar-smart-home.jpg',
         },
         {
-          alt: untranslated('SolarSmart contact page'),
+          alt: {
+            en: 'SolarSmart contact page with a contact form on a laptop',
+            no: 'Kontaktsiden til SolarSmart med et kontaktskjema på en bærbar PC',
+          },
           src: '/images/case-studies/solar-smart/solar-smart-contact.jpg',
         },
         {
-          alt: untranslated('SolarSmart company page'),
+          alt: {
+            en: 'SolarSmart company page with the mission, team and core values on a laptop',
+            no: 'Selskapssiden til SolarSmart med misjon, teamet og kjerneverdier, på en bærbar PC',
+          },
           src: '/images/case-studies/solar-smart/solar-smart-company.jpg',
         },
       ],
@@ -239,12 +279,20 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'travel-booking-app',
 
-    content: untranslated({
-      category: 'Mobile App',
-      title: 'Adding an App for a Travel Website to Make Booking Easier',
-      description:
-        'This app can be used to make booking a stay easier, providing the user with updated information.',
-    }),
+    content: {
+      en: {
+        category: 'Mobile App',
+        title: 'Adding an App for a Travel Website to Make Booking Easier',
+        description:
+          'This app can be used to make booking a stay easier, providing the user with updated information.',
+      },
+      no: {
+        category: 'Mobilapp',
+        title: 'En app til en reisenettside som gjør booking enklere',
+        description:
+          'Appen gjør det enklere å booke et opphold og gir brukeren oppdatert informasjon.',
+      },
+    },
 
     image: '/images/case-studies/cycle-norway-card.jpg',
   },
@@ -563,48 +611,84 @@ export const caseStudies: CaseStudy[] = [
     slug: 'pawfect-match',
     projectName: 'Pawfect Match',
 
-    content: untranslated({
-      category: 'Website',
-      title: 'Giving Happy Endings to Local Furry Friends',
-      description:
-        'Designing a responsive website for pet adoption that’s both cute and informative.',
-    }),
+    content: {
+      en: {
+        category: 'Website',
+        title: 'Giving Happy Endings to Local Furry Friends',
+        description:
+          'Designing a responsive website for pet adoption that’s both cute and informative.',
+      },
+      no: {
+        category: 'Nettside',
+        title: 'Gir lokale pelsvenner en lykkelig slutt',
+        description:
+          'Design av en responsiv nettside for dyreadopsjon som er både søt og informativ.',
+      },
+    },
 
     image: '/images/case-studies/pawfect-match-card.jpg',
 
     details: {
-      content: untranslated({
-        role: 'UX/UI Design',
-        duration: '40 hours',
+      content: {
+        en: {
+          role: 'UX/UI Design',
+          duration: '40 hours',
 
-        company:
-          'Pawfect Match is a pet adoption service, mainly focused on cats and dogs. They offer not only adoption, but advice on how to care for your newly adopted friend.',
+          company:
+            'Pawfect Match is a pet adoption service, mainly focused on cats and dogs. They offer not only adoption, but advice on how to care for your newly adopted friend.',
 
-        goal: 'To create a responsive website that reflects the brand’s fun and caring nature, featuring all the services and pets currently available for adoption.',
+          goal: 'To create a responsive website that reflects the brand’s fun and caring nature, featuring all the services and pets currently available for adoption.',
 
-        targetAudience: {
-          ageRange: 'Ages 18-65',
-          description: 'Looking to adopt a pet',
+          targetAudience: {
+            ageRange: 'Ages 18-65',
+            description: 'Looking to adopt a pet',
+          },
         },
-      }),
+        no: {
+          role: 'UX/UI-design',
+          duration: '40 timer',
+
+          company:
+            'Pawfect Match er en adopsjonstjeneste for kjæledyr, hovedsakelig katter og hunder. De tilbyr ikke bare adopsjon, men også råd om hvordan du tar vare på din nye venn.',
+
+          goal: 'Å lage en responsiv nettside som gjenspeiler merkevarens lekne og omsorgsfulle preg, med alle tjenestene og dyrene som er klare for adopsjon.',
+
+          targetAudience: {
+            ageRange: 'Alder 18-65',
+            description: 'Vil adoptere et kjæledyr',
+          },
+        },
+      },
 
       prototypeUrl: '#',
 
       images: [
         {
-          alt: untranslated('Pawfect Match home page'),
+          alt: {
+            en: 'Pawfect Match home page with a dog in the hero and featured pets on a laptop',
+            no: 'Forsiden til Pawfect Match med en hund øverst og utvalgte dyr, på en bærbar PC',
+          },
           src: '/images/case-studies/pawfect-match/pawfect-match-home.jpg',
         },
         {
-          alt: untranslated('Pawfect Match cats page'),
+          alt: {
+            en: 'Pawfect Match cats page with a grey cat in the hero and cat profiles on a laptop',
+            no: 'Kattesiden til Pawfect Match med en grå katt øverst og katteprofiler, på en bærbar PC',
+          },
           src: '/images/case-studies/pawfect-match/pawfect-match-cats.jpg',
         },
         {
-          alt: untranslated('Pawfect Match profile page'),
+          alt: {
+            en: 'Pawfect Match profile page for Catherine, a ragdoll cat, on a laptop',
+            no: 'Profilsiden til ragdoll-katten Catherine hos Pawfect Match, på en bærbar PC',
+          },
           src: '/images/case-studies/pawfect-match/pawfect-match-profile.jpg',
         },
         {
-          alt: untranslated('Pawfect Match contact page'),
+          alt: {
+            en: 'Pawfect Match contact page with contact details, a map and a contact form on a laptop',
+            no: 'Kontaktsiden til Pawfect Match med kontaktinformasjon, kart og kontaktskjema på en bærbar PC',
+          },
           src: '/images/case-studies/pawfect-match/pawfect-match-contact.jpg',
         },
       ],
@@ -734,84 +818,153 @@ export const caseStudies: CaseStudy[] = [
     slug: 'southside-blooms',
     projectName: 'Southside Blooms',
 
-    content: untranslated({
-      category: 'User Testing',
-      title: 'Testing Usability of Websites Flow for Increased Profits.',
-      description:
-        'Testing flow of ordering on a flower shop website to improve buying percentage.',
-    }),
+    content: {
+      en: {
+        category: 'User Testing',
+        title: 'Testing Usability of Website Flow for Increased Profits',
+        description:
+          'Testing flow of ordering on a flower shop website to improve buying percentage.',
+      },
+      no: {
+        category: 'Brukertesting',
+        title: 'Tester brukervennligheten i nettsidens flyt for økt fortjeneste',
+        description:
+          'Tester bestillingsflyten i en blomsterbutikk på nett for å få flere til å fullføre kjøpet.',
+      },
+    },
 
     image: '/images/case-studies/southside-blooms-card.jpg',
 
     details: {
-      content: untranslated({
-        role: 'UX/UI Design',
-        duration: '40 hours',
+      content: {
+        en: {
+          role: 'UX/UI Design',
+          duration: '40 hours',
 
-        company:
-          'Southside Blooms, based out of Chicago, is focused on sustainability and locally grown flowers. They also focus on youth empowerment and education.',
+          company:
+            'Southside Blooms, based out of Chicago, is focused on sustainability and locally grown flowers. They also focus on youth empowerment and education.',
 
-        goal: 'To increase profits through research and re-design of the website navigation. User tests were conducted on the re-design which improved the flow.',
+          goal: 'To increase profits through research and re-design of the website navigation. User tests were conducted on the re-design which improved the flow.',
 
-        targetAudience: {
-          ageRange: 'Ages 18-80',
-          description: 'Looking to order flowers',
+          targetAudience: {
+            ageRange: 'Ages 18-80',
+            description: 'Looking to order flowers',
+          },
+
+          objective:
+            'The goal was to understand how easily users can find a white bouquet for Mothers Day. The research examined where users expected this information to be located, what barriers prevented them from finding it, and how navigation, labelling and content influenced findability.',
+
+          methodology: [
+            'Participants: 5',
+            'Method: Remote moderated usability testing',
+            'Sessions: ~15 minutes',
+            'Consent obtained: Yes',
+            'Data collected: participant recording, screen recording, time on task, success rate, observational notes and verbal feedback',
+          ],
+
+          feedback:
+            'Users found the previous website very text heavy, with confusing navigation and no uniformity in the photos, but overall liked the colors, typography and design of the website.',
+
+          findings: [
+            'Most went to the menu immediately.',
+            'Most clicked Shop.',
+            'Most clicked Flowers.',
+            'Most clicked White Flowers.',
+            'All users would click Add to Cart to purchase.',
+            'All users completed the task in under two minutes.',
+            'Two participants were confused about the Mother’s Day part of the task and expected a special sale or page for holidays.',
+          ],
+
+          recommendations: [
+            'Add breadcrumb navigation to individual flower-colour pages.',
+            'Add a banner for Mother’s Day and other sales.',
+            'Make the FAQs more apparent.',
+          ],
         },
+        no: {
+          role: 'UX/UI-design',
+          duration: '40 timer',
 
-        objective:
-          'The goal was to understand how easily users can find a white bouquet for Mothers Day. The research examined where users expected this information to be located, what barriers prevented them from finding it, and how navigation, labelling and content influenced findability.',
+          company:
+            'Southside Blooms holder til i Chicago og satser på bærekraft og lokalt dyrkede blomster. De jobber også med å styrke og utdanne unge.',
 
-        methodology: [
-          'Participants: 5',
-          'Method: Remote moderated usability testing',
-          'Sessions: ~15 minutes',
-          'Consent obtained: Yes',
-          'Data collected: participant recording, screen recording, time on task, success rate, observational notes and verbal feedback',
-        ],
+          goal: 'Å øke fortjenesten gjennom research og redesign av navigasjonen på nettsiden. Redesignet ble brukertestet, og det forbedret flyten.',
 
-        feedback:
-          'Users found the previous website very text heavy, with confusing navigation and no uniformity in the photos, but overall liked the colors, typography and design of the website.',
+          targetAudience: {
+            ageRange: 'Alder 18-80',
+            description: 'Vil bestille blomster',
+          },
 
-        findings: [
-          'Most went to the menu immediately.',
-          'Most clicked Shop.',
-          'Most clicked Flowers.',
-          'Most clicked White Flowers.',
-          'All users would click Add to Cart to purchase.',
-          'All users completed the task in under two minutes.',
-          'Two participants were confused about the Mother’s Day part of the task and expected a special sale or page for holidays.',
-        ],
+          objective:
+            'Målet var å forstå hvor lett brukerne finner en hvit bukett til morsdag. Undersøkelsen så på hvor brukerne forventet å finne denne informasjonen, hva som hindret dem i å finne den, og hvordan navigasjon, merking og innhold påvirket hvor lett den var å finne.',
 
-        recommendations: [
-          'Add breadcrumb navigation to individual flower-colour pages.',
-          'Add a banner for Mother’s Day and other sales.',
-          'Make the FAQs more apparent.',
-        ],
-      }),
+          methodology: [
+            'Deltakere: 5',
+            'Metode: Fjernmoderert brukertesting',
+            'Økter: ~15 minutter',
+            'Samtykke innhentet: Ja',
+            'Innsamlede data: opptak av deltakerne, skjermopptak, tid brukt på oppgaven, suksessrate, observasjonsnotater og muntlige tilbakemeldinger',
+          ],
+
+          feedback:
+            'Brukerne syntes den gamle nettsiden hadde for mye tekst, forvirrende navigasjon og bilder uten et felles uttrykk, men likte stort sett fargene, typografien og designet.',
+
+          findings: [
+            'De fleste gikk rett til menyen.',
+            'De fleste klikket på Shop.',
+            'De fleste klikket på Flowers.',
+            'De fleste klikket på White Flowers.',
+            'Alle brukerne ville klikket på Add to Cart for å kjøpe.',
+            'Alle brukerne fullførte oppgaven på under to minutter.',
+            'To deltakere ble forvirret av morsdagsdelen av oppgaven og forventet et eget salg eller en egen side for høytider.',
+          ],
+
+          recommendations: [
+            'Legg til brødsmulesti på sidene for hver blomsterfarge.',
+            'Legg til et banner for morsdag og andre salg.',
+            'Gjør FAQ-en mer synlig.',
+          ],
+        },
+      },
 
       prototypeUrl: '#',
 
       heroImage: {
-        alt: untranslated('Southside Blooms demo image'),
+        alt: {
+          en: 'Southside Blooms home page on a laptop, surrounded by pink and white roses',
+          no: 'Forsiden til Southside Blooms på en bærbar PC, omgitt av rosa og hvite roser',
+        },
         src: '/images/case-studies/southside-blooms/southside-blooms-hero.jpg',
       },
 
       images: [
         {
-          alt: untranslated('Southside Blooms home page'),
-          src: '/images/case-studies/southside-blooms/southside-blooms-home.jpg',
+          alt: {
+            en: 'Southside Blooms FAQ page with questions about wedding flowers, occasions and delivery',
+            no: 'FAQ-siden til Southside Blooms med spørsmål om bryllupsblomster, anledninger og levering',
+          },
+          src: '/images/case-studies/southside-blooms/southside-blooms-faq.jpg',
         },
         {
-          alt: untranslated('Southside Blooms flowers page'),
+          alt: {
+            en: 'Southside Blooms flowers page with the White Flowers filter selected and three white bouquets',
+            no: 'Blomstersiden til Southside Blooms med filteret White Flowers valgt og tre hvite buketter',
+          },
           src: '/images/case-studies/southside-blooms/southside-blooms-flowers.jpg',
         },
         {
-          alt: untranslated('Southside Blooms flowers page'),
+          alt: {
+            en: 'Southside Blooms flowers page with color filters and white and yellow bouquets',
+            no: 'Blomstersiden til Southside Blooms med fargefiltre og hvite og gule buketter',
+          },
           src: '/images/case-studies/southside-blooms/southside-blooms-flowers-2.jpg',
         },
         {
-          alt: untranslated('Southside Blooms flowers page'),
-          src: '/images/case-studies/southside-blooms/southside-blooms-flowers-3.jpg',
+          alt: {
+            en: 'Southside Blooms home page with shop categories, a holiday wreath and greeting cards',
+            no: 'Forsiden til Southside Blooms med butikkategorier, en julekrans og kort',
+          },
+          src: '/images/case-studies/southside-blooms/southside-blooms-home.jpg',
         },
       ],
     },
