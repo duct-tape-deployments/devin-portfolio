@@ -186,17 +186,17 @@ function CaseStudy() {
                           className="text-2xl"
                           style={{
                             fontFamily: `"${font.name}", sans-serif`,
-                            fontWeight: font.weight === 'Bold' ? 700 : 400,
+                            fontWeight: font.weight,
                           }}
                         >
-                          {font.name} {font.weight}
+                          {font.weightLabel ? `${font.name} ${font.weightLabel}` : font.name}
                         </h4>
 
                         <p
                           className="mt-2"
                           style={{
                             fontFamily: `"${font.name}", sans-serif`,
-                            fontWeight: font.weight === 'Bold' ? 700 : 400,
+                            fontWeight: font.weight,
                           }}
                         >
                           ABCDEFGHIJKLMNOPQRSTUVWXYZ

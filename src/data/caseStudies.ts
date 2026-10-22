@@ -36,7 +36,8 @@ export type CaseStudyDetails = {
 
   typography?: {
     name: string;
-    weight: string;
+    weight: number;
+    weightLabel?: string;
   }[];
 
   colors?: string[];
@@ -128,11 +129,13 @@ export const caseStudies: CaseStudy[] = [
       typography: [
         {
           name: 'Montserrat',
-          weight: 'Bold',
+          weight: 700,
+          weightLabel: 'Bold',
         },
         {
           name: 'Open Sans',
-          weight: 'Regular',
+          weight: 400,
+          weightLabel: 'Regular',
         },
       ],
 
@@ -246,11 +249,13 @@ export const caseStudies: CaseStudy[] = [
       typography: [
         {
           name: 'Baloo 2',
-          weight: 'Bold',
+          weight: 700,
+          weightLabel: 'Bold',
         },
         {
           name: 'Lato',
-          weight: 'Regular',
+          weight: 400,
+          weightLabel: 'Regular',
         },
       ],
 
@@ -270,6 +275,62 @@ export const caseStudies: CaseStudy[] = [
     }),
 
     image: '/images/case-studies/dark-delirium-card.jpg',
+
+    details: {
+      content: untranslated({
+        role: 'UX/UI Design',
+        duration: '60 hours',
+
+        company:
+          'Dark Delirium is a metal band based in Sandnes, Norway with over 250 monthly listeners on Spotify as well as 1.17K followers on Youtube, getting as many as 2.2M views.',
+
+        goal: 'To create a responsive website that reflects the brand’s dark and raw energy both on and off stage, as well as set up a shop that sells the band’s merch.',
+
+        targetAudience: {
+          ageRange: 'Ages 0-100',
+          description: 'Looking to learn about Dark Delirium',
+        },
+      }),
+
+      prototypeUrl: '#',
+
+      heroImage: {
+        alt: untranslated('Dark Delirium home page on a laptop'),
+        src: '/images/case-studies/dark-delirium-card.jpg',
+      },
+
+      images: [
+        {
+          alt: untranslated(
+            'Dark Delirium home page with photos of the band members on a desktop screen',
+          ),
+          src: '/images/case-studies/dark-delirium/dark-delirium-home.webp',
+        },
+        {
+          alt: untranslated(
+            'Dark Delirium shop page with the band hoodie selected on a desktop screen',
+          ),
+          src: '/images/case-studies/dark-delirium/dark-delirium-shop.webp',
+        },
+        {
+          alt: untranslated('Dark Delirium media page with concert photos on a phone'),
+          src: '/images/case-studies/dark-delirium/dark-delirium-media.webp',
+        },
+      ],
+
+      typography: [
+        {
+          name: 'Felix Titling',
+          weight: 400,
+        },
+        {
+          name: 'Perpetua Titling MT',
+          weight: 300,
+        },
+      ],
+
+      colors: ['#000000', '#FFFFFF', '#FC9779', '#8ACAE4'],
+    },
   },
 
   {
