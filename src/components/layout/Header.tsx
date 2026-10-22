@@ -153,7 +153,7 @@ export function Header() {
         id="mobile-navigation"
         className={`
           absolute
-          left-0
+          left-page-margin
           top-full
           mt-px
           w-53.5
