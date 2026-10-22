@@ -162,14 +162,104 @@ export const caseStudies: CaseStudy[] = [
     slug: 'nordic-furniture',
     projectName: 'Nor Møbler',
 
-    content: untranslated({
-      category: 'Website & Dashboard',
-      title: 'Building a Presence for Nordic Furniture Company',
-      description:
-        'Updated website and dashboard that will allow for better tracking for stakeholders.',
-    }),
+    content: {
+      en: {
+        category: 'Website & Dashboard',
+        title: 'Building a Presence for Nordic Furniture Company',
+        description:
+          'Updated website and dashboard that will allow for better tracking for stakeholders.',
+      },
+      no: {
+        category: 'Nettside og dashbord',
+        title: 'Bygger opp tilstedeværelsen til et nordisk møbelfirma',
+        description: 'Oppdatert nettside og et dashbord som gir interessentene bedre oversikt.',
+      },
+    },
 
     image: '/images/case-studies/nor-mobler-card.jpg',
+
+    details: {
+      content: {
+        en: {
+          role: 'UX/UI Design',
+          duration: '40 hours',
+
+          company:
+            'Nor Møbler is a Norwegian furniture company specializing in elegant and timeless nordic style.',
+
+          goal: 'To create a beautiful website that reflects the brand’s elegant and calming furniture. Also creating a dashboard to present sales data.',
+
+          targetAudience: {
+            ageRange: 'Ages 18-65',
+            description: 'Looking to buy furniture / sales & marketing',
+          },
+        },
+        no: {
+          role: 'UX/UI-design',
+          duration: '40 timer',
+
+          company:
+            'Nor Møbler er et norsk møbelfirma som spesialiserer seg på elegant og tidløs nordisk stil.',
+
+          goal: 'Å lage en vakker nettside som gjenspeiler merkevarens elegante og rolige møbler, og et dashbord som presenterer salgstall.',
+
+          targetAudience: {
+            ageRange: 'Alder 18-65',
+            description: 'Vil kjøpe møbler / salg og markedsføring',
+          },
+        },
+      },
+
+      prototypeUrl: '#',
+
+      heroImage: {
+        alt: {
+          en: 'Nor Møbler landing page with a sign-up form on a desktop screen',
+          no: 'Landingssiden til Nor Møbler med et registreringsskjema på en stasjonær skjerm',
+        },
+        src: '/images/case-studies/nor-mobler/nor-mobler-hero.webp',
+      },
+
+      images: [
+        {
+          alt: {
+            en: 'Nor Møbler product page for a corner sofa on a tablet held sideways',
+            no: 'Produktsiden til Nor Møbler for en hjørnesofa på et nettbrett holdt på tvers',
+          },
+          src: '/images/case-studies/nor-mobler/nor-mobler-product.webp',
+        },
+        {
+          alt: {
+            en: 'Nor Møbler dashboard overview with revenue and customer charts on a tablet',
+            no: 'Oversikten i Nor Møbler-dashbordet med diagrammer over omsetning og kunder på et nettbrett',
+          },
+          src: '/images/case-studies/nor-mobler/nor-mobler-dashboard-overview.webp',
+        },
+        {
+          alt: {
+            en: 'Nor Møbler dashboard products page with bestsellers and stock status on a tablet',
+            no: 'Produktsiden i Nor Møbler-dashbordet med bestselgere og lagerstatus på et nettbrett',
+          },
+          src: '/images/case-studies/nor-mobler/nor-mobler-dashboard-products.webp',
+        },
+      ],
+
+      typography: [
+        {
+          name: 'Noto Serif',
+          weight: 600,
+          weightLabel: 'Semibold',
+          fallback: 'serif',
+        },
+        {
+          name: 'Raleway',
+          weight: 400,
+          weightLabel: 'Regular',
+        },
+      ],
+
+      colors: ['#EFE6DB', '#8EBEE2', '#3776A6', '#666666'],
+    },
   },
 
   {
