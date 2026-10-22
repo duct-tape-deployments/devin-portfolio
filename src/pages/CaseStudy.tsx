@@ -177,7 +177,9 @@ function CaseStudy() {
             <LabelledSection title={t.typographyAndColors}>
               <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
                 <div>
-                  <h3 className="font-body text-body font-semibold text-emphasis">{t.fontsUsed}</h3>
+                  <h3 className="font-body text-body font-semibold text-emphasis">
+                    {details.typography.length === 1 ? t.fontUsed : t.fontsUsed}
+                  </h3>
 
                   <div className="mt-4 space-y-4">
                     {details.typography.map((font) => (

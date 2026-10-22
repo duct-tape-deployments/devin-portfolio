@@ -60,14 +60,105 @@ export const caseStudies: CaseStudy[] = [
     slug: 'food-discovery-logo',
     projectName: 'Food-IE',
 
-    content: untranslated({
-      category: 'Logo Design',
-      title: 'Delivering Mouth-watering Design to a Food Discovery App',
-      description:
-        'Creating a logo for a rustic style food app that matches users needs with a nearby restaurant.',
-    }),
+    content: {
+      en: {
+        category: 'Logo Design',
+        title: 'Delivering Mouth-watering Design to a Food Discovery App',
+        description:
+          'Creating a logo for a rustic style food app that matches users needs with a nearby restaurant.',
+      },
+      no: {
+        category: 'Logodesign',
+        title: 'Serverer fristende design til en app for å oppdage mat',
+        description:
+          'Design av en logo for en matapp i rustikk stil som kobler brukerne med en restaurant i nærheten.',
+      },
+    },
 
     image: '/images/case-studies/food-ie-card.jpg',
+
+    details: {
+      content: {
+        en: {
+          role: 'UX/UI Design',
+          duration: '10 hours',
+
+          company:
+            'Food-IE is an app that searches all nearby restaurants, cafes and stores for a specific food item. The food you love is closer than you think!',
+
+          goal: 'To create a logo that reflects the rustic and fun nature of the brand while standing out from other apps.',
+
+          targetAudience: {
+            ageRange: 'Ages 15-65',
+            description: 'Foodies, tourists',
+          },
+        },
+        no: {
+          role: 'UX/UI-design',
+          duration: '10 timer',
+
+          company:
+            'Food-IE er en app som søker gjennom alle restauranter, kafeer og butikker i nærheten etter en bestemt rett. Maten du elsker er nærmere enn du tror!',
+
+          goal: 'Å lage en logo som gjenspeiler merkevarens rustikke og lekne preg, og som skiller seg ut fra andre apper.',
+
+          targetAudience: {
+            ageRange: 'Alder 15-65',
+            description: 'Matelskere, turister',
+          },
+        },
+      },
+
+      prototypeUrl: '#',
+
+      heroImage: {
+        alt: {
+          en: 'Food-IE logo in hand-drawn dark red letters with a spoon above the I, on an orange background',
+          no: 'Food-IE-logoen med håndtegnede mørkerøde bokstaver og en skje over I-en, på oransje bakgrunn',
+        },
+        src: '/images/case-studies/food-ie-card.jpg',
+      },
+
+      images: [
+        {
+          alt: {
+            en: 'Food-IE mood board with spices on wooden spoons, a typewriter-style type test and five color swatches',
+            no: 'Moodboard for Food-IE med krydder på treskjeer, en typetest i skrivemaskinstil og fem fargeprøver',
+          },
+          src: '/images/case-studies/food-ie/food-ie-moodboard.webp',
+        },
+        {
+          alt: {
+            en: 'Hand-drawn user flow for the Food-IE app, from log in to the interactive map, search and profile',
+            no: 'Håndtegnet brukerflyt for Food-IE-appen, fra innlogging til det interaktive kartet, søk og profil',
+          },
+          src: '/images/case-studies/food-ie/food-ie-user-flow.webp',
+        },
+        {
+          alt: {
+            en: 'Hand-drawn sketches of the Food-IE sign-in screen and map screen on two phones, with notes',
+            no: 'Håndtegnede skisser av innloggingsskjermen og kartskjermen til Food-IE på to mobiler, med notater',
+          },
+          src: '/images/case-studies/food-ie/food-ie-sketches.webp',
+        },
+        {
+          alt: {
+            en: 'Handwritten Food-IE project notes with the app’s functions, ideal user, client goals and similar apps',
+            no: 'Håndskrevne prosjektnotater for Food-IE med appens funksjoner, idealbruker, kundemål og lignende apper',
+          },
+          src: '/images/case-studies/food-ie/food-ie-notes.webp',
+        },
+      ],
+
+      typography: [
+        {
+          name: 'Cabin Sketch',
+          weight: 400,
+        },
+      ],
+
+      colors: ['#0F4700', '#F9A014', '#401A00', '#DC6310', '#890F14'],
+    },
   },
 
   {
