@@ -1,3 +1,4 @@
+import { HomeHero } from '@/components/home/HomeHero';
 import { PortfolioPreview } from '@/components/home/PortfolioPreview';
 import { WhoIAm } from '@/components/home/WhoIAm';
 import { PageTitle } from '@/components/layout/PageTitle';
@@ -7,6 +8,7 @@ function Home() {
   return (
     <>
       <PageTitle page="home" />
+      <HomeHero />
       <WhoIAm />
       <PortfolioPreview />
       <Testimonials />
