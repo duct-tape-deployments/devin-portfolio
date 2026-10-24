@@ -10,6 +10,7 @@ export type CaseStudyLabels = {
   goal: string;
   targetAudience: string;
   typographyAndColors: string;
+  fontUsed: string;
   fontsUsed: string;
   colorsUsed: string;
   objective: string;
@@ -39,6 +40,7 @@ export const caseStudyLabels: Record<Language, CaseStudyLabels> = {
     goal: 'The Goal',
     targetAudience: 'Target Audience',
     typographyAndColors: 'Typography & Colors',
+    fontUsed: 'Font Used',
     fontsUsed: 'Fonts Used',
     colorsUsed: 'Colors Used',
     objective: 'Objective & Background',
@@ -66,6 +68,7 @@ export const caseStudyLabels: Record<Language, CaseStudyLabels> = {
     goal: 'Målet',
     targetAudience: 'Målgruppe',
     typographyAndColors: 'Typografi og farger',
+    fontUsed: 'Brukt skrifttype',
     fontsUsed: 'Brukte skrifttyper',
     colorsUsed: 'Brukte farger',
     objective: 'Formål og bakgrunn',

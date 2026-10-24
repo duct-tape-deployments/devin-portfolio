@@ -19,7 +19,10 @@ export const translations = {
       socialLinks: 'Social media links',
       menu: 'Menu',
       skipToContent: 'Skip to main content',
-      backTo: 'Back to',
+    },
+
+    backLinks: {
+      uiUx: 'All projects',
     },
   },
 
@@ -41,12 +44,16 @@ export const translations = {
       socialLinks: 'Lenker til sosiale medier',
       menu: 'Meny',
       skipToContent: 'Hopp til hovedinnhold',
-      backTo: 'Tilbake til',
+    },
+
+    backLinks: {
+      uiUx: 'Alle prosjekter',
     },
   },
 } as const satisfies Record<Language, object>;
 
 export type NavigationLabelKey = keyof typeof translations.en.navigation;
+export type BackLinkSection = keyof typeof translations.en.backLinks;
 
 export function getTranslations(language: Language) {
   return translations[language];

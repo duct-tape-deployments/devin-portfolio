@@ -177,7 +177,9 @@ function CaseStudy() {
             <LabelledSection title={t.typographyAndColors}>
               <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
                 <div>
-                  <h3 className="font-body text-body font-semibold text-emphasis">{t.fontsUsed}</h3>
+                  <h3 className="font-body text-body font-semibold text-emphasis">
+                    {details.typography.length === 1 ? t.fontUsed : t.fontsUsed}
+                  </h3>
 
                   <div className="mt-4 space-y-4">
                     {details.typography.map((font) => (
@@ -185,18 +187,18 @@ function CaseStudy() {
                         <h4
                           className="text-2xl"
                           style={{
-                            fontFamily: `"${font.name}", sans-serif`,
-                            fontWeight: font.weight === 'Bold' ? 700 : 400,
+                            fontFamily: `"${font.family ?? font.name}", ${font.fallback ?? 'sans-serif'}`,
+                            fontWeight: font.weight,
                           }}
                         >
-                          {font.name} {font.weight}
+                          {font.weightLabel ? `${font.name} ${font.weightLabel}` : font.name}
                         </h4>
 
                         <p
                           className="mt-2"
                           style={{
-                            fontFamily: `"${font.name}", sans-serif`,
-                            fontWeight: font.weight === 'Bold' ? 700 : 400,
+                            fontFamily: `"${font.family ?? font.name}", ${font.fallback ?? 'sans-serif'}`,
+                            fontWeight: font.weight,
                           }}
                         >
                           ABCDEFGHIJKLMNOPQRSTUVWXYZ
