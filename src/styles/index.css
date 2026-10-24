@@ -39,6 +39,32 @@
   }
 }
 
+/* Noise-filled word with a cyan copy behind it */
+@utility text-noise {
+  display: inline-block;
+  background: var(--background-image-noise), var(--color-noise-fill);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: none;
+  filter: drop-shadow(var(--drop-shadow-noise-copy)) drop-shadow(var(--drop-shadow-text));
+
+  @media (forced-colors: active) {
+    background: none;
+    color: CanvasText;
+    filter: none;
+  }
+}
+
+@utility gradient-frame {
+  border: 1px solid transparent;
+  border-radius: var(--radius-card);
+  background:
+    linear-gradient(var(--color-background), var(--color-background)) padding-box,
+    var(--background-image-gradient-outline) border-box var(--color-background);
+  box-shadow: var(--shadow-btn);
+}
+
 @utility wordmark {
   display: block;
   white-space: nowrap;

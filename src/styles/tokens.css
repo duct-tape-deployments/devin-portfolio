@@ -87,6 +87,13 @@
     var(--color-neon-yellow) 100%
   );
 
+  /* ---- Noise text (hero highlight word) ---------------------------------- */
+
+  --background-image-noise: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n' x='0' y='0' width='100%' height='100%' color-interpolation-filters='sRGB'><feTurbulence type='fractalNoise' baseFrequency='1' numOctaves='3' seed='7012'/><feColorMatrix type='luminanceToAlpha'/><feComponentTransfer result='a'><feFuncA type='discrete' tableValues='1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0'/></feComponentTransfer><feComposite operator='in' in='SourceGraphic' in2='a'/></filter><rect transform='translate(.25 .25)' width='100%' height='100%' fill='black' fill-opacity='0.25' filter='url(%23n)'/></svg>");
+
+  --color-noise-fill: var(--color-soft-white);
+  --drop-shadow-noise-copy: -2px -1px 0 var(--color-electric-cyan);
+
   /* ---- Typography -------------------------------------------*/
 
   --font-display: 'Clash Display', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -95,7 +102,7 @@
     sans-serif;
   /*pawfect, solarsmart: baloo 2 bold, Lato regular, Open Sans Regular, Montserrat Bold*/
 
-  --text-display: 48px; /* hero */
+  --text-display: 48px; /* hero: 48 mobile, 72 from md */
   --text-display--line-height: 1.1;
   --text-h1: 40px; /* page / section titles */
   --text-h1--line-height: 1.1;
@@ -137,6 +144,7 @@
   --shadow-glow-image: 2px -2px 6px var(--color-soft-white-50);
   --shadow-soft: -4px -1px 10px 0px var(--color-scrim-25);
   --text-shadow-drop: 0px 4px 4px var(--color-scrim-25);
+  --drop-shadow-text: 0 4px 4px var(--color-scrim-25); /*filter: text-shadow-drop for gradient text*/
   --shadow-glow-toggle:
     inset 0px -4px 4px 0px var(--color-toggle-glow), inset 0px 4px 4px 0px var(--color-toggle-glow);
 
@@ -186,6 +194,7 @@
 :root {
   @variant md {
     --spacing-page-margin: 24px;
+    --text-display: 72px;
   }
 
   @variant lg {
