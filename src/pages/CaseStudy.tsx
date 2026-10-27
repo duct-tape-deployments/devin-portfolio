@@ -48,8 +48,8 @@ function CaseStudy() {
       <PageTitle name={caseStudy.projectName ?? content.title} />
       <header className={detailsContent ? 'mb-8 lg:mb-12' : 'mb-12'}>
         {caseStudy.projectName && (
-          <h1 translate="no" className="title-gradient mb-8 block">
-            {caseStudy.projectName}
+          <h1 translate="no" className="mb-8 block font-display text-h1 font-bold">
+            <span className="title-gradient box-decoration-clone">{caseStudy.projectName}</span>
           </h1>
         )}
 
