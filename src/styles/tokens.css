@@ -45,6 +45,13 @@
   --color-pattern-wash: rgba(255, 255, 255, 0.6); /* over the UI/UX background pattern */
   --color-photo-scrim: rgba(0, 0, 0, 0.5); /* over the contact background photo */
 
+  /* ---- Research case study ------------------------------------------ */
+  --color-persona-card: #23152e;
+  /* Severity labels: plain text in light mode until we have light mode colours */
+  --color-severity-severe: var(--color-foreground);
+  --color-severity-moderate: var(--color-foreground);
+  --color-severity-low: var(--color-foreground);
+
   /* ---- Mode toggle ------------------------------------------------- */
   --color-toggle-track: #ffffff;
   --color-toggle-icon: #ffffff;
@@ -235,4 +242,7 @@
   --color-grid-line: #414141;
   --color-pattern-wash: rgba(0, 0, 0, 0.8);
   --color-photo-scrim: rgba(0, 0, 0, 0.7);
+  --color-severity-severe: var(--color-hot-pink);
+  --color-severity-moderate: var(--color-lava-orange);
+  --color-severity-low: var(--color-neon-yellow);
 }

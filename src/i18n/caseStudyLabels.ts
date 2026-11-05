@@ -1,3 +1,4 @@
+import type { Severity } from '@/data/caseStudyResearch';
 import type { Language } from '@/stores/languageStore';
 
 export type CaseStudyLabels = {
@@ -13,11 +14,17 @@ export type CaseStudyLabels = {
   fontUsed: string;
   fontsUsed: string;
   colorsUsed: string;
+  personas: string;
+  age: string;
+  jobTitle: string;
+  status: string;
+  location: string;
   objective: string;
   methodology: string;
   feedback: string;
   findings: string;
   recommendations: string;
+  severity: Record<Severity, string>;
   nextProject: string;
   viewAll: string;
   viewAllContext: string;
@@ -43,11 +50,17 @@ export const caseStudyLabels: Record<Language, CaseStudyLabels> = {
     fontUsed: 'Font Used',
     fontsUsed: 'Fonts Used',
     colorsUsed: 'Colors Used',
+    personas: 'User Personas',
+    age: 'Age',
+    jobTitle: 'Job Title',
+    status: 'Status',
+    location: 'Location',
     objective: 'Objective & Background',
     methodology: 'Methodology',
     feedback: 'User Feedback',
     findings: 'Findings',
     recommendations: 'Recommendations',
+    severity: { severe: 'severe', moderate: 'moderate', low: 'low' },
     nextProject: 'Next Project',
     viewAll: 'View All',
     viewAllContext: 'UI/UX projects',
@@ -71,11 +84,17 @@ export const caseStudyLabels: Record<Language, CaseStudyLabels> = {
     fontUsed: 'Brukt skrifttype',
     fontsUsed: 'Brukte skrifttyper',
     colorsUsed: 'Brukte farger',
+    personas: 'Personaer',
+    age: 'Alder',
+    jobTitle: 'Stilling',
+    status: 'Sivilstatus',
+    location: 'Bosted',
     objective: 'Formål og bakgrunn',
     methodology: 'Metode',
     feedback: 'Tilbakemeldinger fra brukere',
     findings: 'Funn',
     recommendations: 'Anbefalinger',
+    severity: { severe: 'alvorlig', moderate: 'moderat', low: 'lav' },
     nextProject: 'Neste prosjekt',
     viewAll: 'Se alle',
     viewAllContext: 'UI/UX-prosjekter',

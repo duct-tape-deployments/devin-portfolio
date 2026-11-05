@@ -1,3 +1,5 @@
+import type { CaseStudyResearch } from '@/data/caseStudyResearch';
+import { southsideBloomsResearch } from '@/data/caseStudyResearch';
 import type { Localized, LocalizedImage } from '@/i18n/localized';
 
 export type CaseStudySummaryContent = {
@@ -17,12 +19,6 @@ export type CaseStudyDetailsContent = {
     ageRange: string;
     description: string;
   };
-
-  objective?: string;
-  methodology?: string[];
-  feedback?: string;
-  findings?: string[];
-  recommendations?: string[];
 };
 
 export type CaseStudyDetails = {
@@ -42,6 +38,8 @@ export type CaseStudyDetails = {
   }[];
 
   colors?: string[];
+
+  research?: CaseStudyResearch;
 };
 
 export type CaseStudy = {
@@ -850,36 +848,6 @@ export const caseStudies: CaseStudy[] = [
             ageRange: 'Ages 18-80',
             description: 'Looking to order flowers',
           },
-
-          objective:
-            'The goal was to understand how easily users can find a white bouquet for Mothers Day. The research examined where users expected this information to be located, what barriers prevented them from finding it, and how navigation, labelling and content influenced findability.',
-
-          methodology: [
-            'Participants: 5',
-            'Method: Remote moderated usability testing',
-            'Sessions: ~15 minutes',
-            'Consent obtained: Yes',
-            'Data collected: participant recording, screen recording, time on task, success rate, observational notes and verbal feedback',
-          ],
-
-          feedback:
-            'Users found the previous website very text heavy, with confusing navigation and no uniformity in the photos, but overall liked the colors, typography and design of the website.',
-
-          findings: [
-            'Most went to the menu immediately.',
-            'Most clicked Shop.',
-            'Most clicked Flowers.',
-            'Most clicked White Flowers.',
-            'All users would click Add to Cart to purchase.',
-            'All users completed the task in under two minutes.',
-            'Two participants were confused about the Mother’s Day part of the task and expected a special sale or page for holidays.',
-          ],
-
-          recommendations: [
-            'Add breadcrumb navigation to individual flower-colour pages.',
-            'Add a banner for Mother’s Day and other sales.',
-            'Make the FAQs more apparent.',
-          ],
         },
         no: {
           role: 'UX/UI-design',
@@ -894,36 +862,6 @@ export const caseStudies: CaseStudy[] = [
             ageRange: 'Alder 18-80',
             description: 'Vil bestille blomster',
           },
-
-          objective:
-            'Målet var å forstå hvor lett brukerne finner en hvit bukett til morsdag. Undersøkelsen så på hvor brukerne forventet å finne denne informasjonen, hva som hindret dem i å finne den, og hvordan navigasjon, merking og innhold påvirket hvor lett den var å finne.',
-
-          methodology: [
-            'Deltakere: 5',
-            'Metode: Fjernmoderert brukertesting',
-            'Økter: ~15 minutter',
-            'Samtykke innhentet: Ja',
-            'Innsamlede data: opptak av deltakerne, skjermopptak, tid brukt på oppgaven, suksessrate, observasjonsnotater og muntlige tilbakemeldinger',
-          ],
-
-          feedback:
-            'Brukerne syntes den gamle nettsiden hadde for mye tekst, forvirrende navigasjon og bilder uten et felles uttrykk, men likte stort sett fargene, typografien og designet.',
-
-          findings: [
-            'De fleste gikk rett til menyen.',
-            'De fleste klikket på Shop.',
-            'De fleste klikket på Flowers.',
-            'De fleste klikket på White Flowers.',
-            'Alle brukerne ville klikket på Add to Cart for å kjøpe.',
-            'Alle brukerne fullførte oppgaven på under to minutter.',
-            'To deltakere ble forvirret av morsdagsdelen av oppgaven og forventet et eget salg eller en egen side for høytider.',
-          ],
-
-          recommendations: [
-            'Legg til brødsmulesti på sidene for hver blomsterfarge.',
-            'Legg til et banner for morsdag og andre salg.',
-            'Gjør FAQ-en mer synlig.',
-          ],
         },
       },
 
@@ -967,6 +905,8 @@ export const caseStudies: CaseStudy[] = [
           src: '/images/case-studies/southside-blooms/southside-blooms-home.jpg',
         },
       ],
+
+      research: southsideBloomsResearch,
     },
   },
 ];

@@ -1,4 +1,3 @@
-import type { ReactNode } from 'react';
 import { Circle } from 'lucide-react';
 import { Navigate, useParams } from 'react-router';
 
@@ -6,30 +5,15 @@ import { GradientDivider } from '@/components/interface/GradientDivider';
 import { PageContainer } from '@/components/layout/PageContainer';
 import { PageTitle } from '@/components/layout/PageTitle';
 import { CaseStudyGallery } from '@/components/portfolio/CaseStudyGallery';
-import { sectionDivider, sectionHeading } from '@/components/portfolio/caseStudyStyles';
+import { bodyText, sectionDivider, sectionHeading } from '@/components/portfolio/caseStudyStyles';
+import { LabelledSection } from '@/components/portfolio/LabelledSection';
 import { NextCaseStudy } from '@/components/portfolio/NextCaseStudy';
+import { ResearchSections } from '@/components/portfolio/ResearchSections';
 import { routes } from '@/config/navigation';
 import { getCaseStudy } from '@/data/caseStudies';
 import { caseStudyLabels } from '@/i18n/caseStudyLabels';
 import { localizeImage } from '@/i18n/localized';
 import { useLanguageStore, useT } from '@/stores/languageStore';
-
-const bodyText = 'max-w-reading text-pretty text-foreground';
-
-type LabelledSectionProps = {
-  title: string;
-  children: ReactNode;
-};
-
-function LabelledSection({ title, children }: LabelledSectionProps) {
-  return (
-    <section className="lg:grid lg:grid-cols-12 lg:gap-x-6">
-      <h2 className={`${sectionHeading} lg:col-span-4`}>{title}</h2>
-
-      <div className="mt-4 lg:col-span-8 lg:mt-0">{children}</div>
-    </section>
-  );
-}
 
 function CaseStudy() {
   const { slug } = useParams();
@@ -64,8 +48,8 @@ function CaseStudy() {
       <PageTitle name={caseStudy.projectName ?? content.title} />
       <header className={detailsContent ? 'mb-8 lg:mb-12' : 'mb-12'}>
         {caseStudy.projectName && (
-          <h1 translate="no" className="title-gradient mb-8 block">
-            {caseStudy.projectName}
+          <h1 translate="no" className="mb-8 block font-display text-h1 font-bold">
+            <span className="title-gradient box-decoration-clone">{caseStudy.projectName}</span>
           </h1>
         )}
 
@@ -238,47 +222,7 @@ function CaseStudy() {
             </LabelledSection>
           )}
 
-          {detailsContent.objective && (
-            <LabelledSection title={t.objective}>
-              <p className={bodyText}>{detailsContent.objective}</p>
-            </LabelledSection>
-          )}
-
-          {detailsContent.methodology && (
-            <LabelledSection title={t.methodology}>
-              <ul className="max-w-reading space-y-2 text-foreground">
-                {detailsContent.methodology.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </LabelledSection>
-          )}
-
-          {detailsContent.feedback && (
-            <LabelledSection title={t.feedback}>
-              <p className={bodyText}>{detailsContent.feedback}</p>
-            </LabelledSection>
-          )}
-
-          {detailsContent.findings && (
-            <LabelledSection title={t.findings}>
-              <ul className="max-w-reading list-disc space-y-2 pl-5 text-foreground">
-                {detailsContent.findings.map((finding) => (
-                  <li key={finding}>{finding}</li>
-                ))}
-              </ul>
-            </LabelledSection>
-          )}
-
-          {detailsContent.recommendations && (
-            <LabelledSection title={t.recommendations}>
-              <ul className="max-w-reading list-disc space-y-2 pl-5 text-foreground">
-                {detailsContent.recommendations.map((recommendation) => (
-                  <li key={recommendation}>{recommendation}</li>
-                ))}
-              </ul>
-            </LabelledSection>
-          )}
+          {details.research && <ResearchSections research={details.research} />}
         </div>
       )}
 

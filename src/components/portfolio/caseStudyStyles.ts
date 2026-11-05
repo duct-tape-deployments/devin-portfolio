@@ -2,4 +2,7 @@
 export const sectionHeading =
   'font-display text-h5 leading-display font-bold text-foreground text-shadow-drop lg:text-h4';
 
+/** Running text in case study sections */
+export const bodyText = 'max-w-reading text-pretty text-foreground';
+
 export const sectionDivider = 'mx-auto w-3/5 lg:w-full';
